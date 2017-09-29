@@ -1,0 +1,29 @@
+@import "bootstrap";
+
+
+body{
+    background-color: lightgrey;
+}
+
+nav{
+    height: 75px;
+}
+
+.container{
+    padding-top: 100px;
+}
+
+.property-card{
+    background: white;
+    height: 250px;
+
+    .property-image{
+        width: 300px;
+        height: 250px;
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+    .property-details{
+        padding-top: 30px;
+    }
+}
