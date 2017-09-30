@@ -1,37 +1,76 @@
 <div class="row justify-content-center">
-    <div class="col-md-10 col property-card">
-        <div class="row">
-            <div class="property-image col-4" style="background-image:url('http://s2.glbimg.com/LcMtebaSrDUHnQinU5TreJXcUCs=/620x465/s.glbimg.com/jo/g1/f/original/2016/08/23/apartamento.jpg')">
+
+  <% for i in 0..10 %>
+    <div class="col-md-8 col-12 property-card mb-5">
+      <div class="row">
+        <div class="property-image col-4" style="background-image:url('http://s2.glbimg.com/LcMtebaSrDUHnQinU5TreJXcUCs=/620x465/s.glbimg.com/jo/g1/f/original/2016/08/23/apartamento.jpg')"></div>
+
+        <div class="col-8 property-details pt-3">
+          <div class="row mb-4">
+            <div class="col-md-6">
+              <h2>Edifício de apresentação</h2>
             </div>
-            <div class="col-8 property-details pt-3">
-                <div class="row mb-4">
-                    <div class="col-md-6">
-                        <h2>Edifício de apresentação</h2>
-                    </div>
-                    <div class="col-md-6 text-right">
-                        <h2>R$ 325.000,00</h2>
-                    </div>
-                </div>
-                <div class="row d-none d-md-block">
-                    <div class="col-6">
-                        <ul class="list-unstyled">
-                            <li>
-                                <span class="text-secondary">Cidade</span> <div class="float-right">Passo Fundo</div>
-                            <li>
-                                <span class="text-secondary">Bairro</span> <div class="float-right">Centro</div>
-                            </li>
-                            <li>
-                                <span class="text-secondary">Endereço</span> <div class="float-right">Rua Fagundes dos Reis, 622</div>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="col-6 float-right">
-                        1 dormitório <br>
-                        1 vaga de garagem <br>
-                        77.50 m² <br>
-                    </div>
-                </div>
+            <div class="col-md-6 text-right">
+              <h2>R$ 325.000,00</h2>
             </div>
+          </div>
+          <div class="d-none d-md-block">
+            <div class="row">
+
+              <div class="col-8">
+                <ul class="list-unstyled">
+                  <li>
+                    <span class="text-secondary">Cidade</span> <div class="float-right">Passo Fundo</div>
+                  </li>
+                  <li>
+                    <span class="text-secondary">Bairro</span> <div class="float-right">Centro</div>
+                  </li>
+                  <li>
+                    <span class="text-secondary">Endereço</span> <div class="float-right">Rua Fagundes dos Reis, 622</div>
+                  </li>
+                </ul>
+              </div>
+
+              <div class="col-4 text-right">
+                1 dormitório <br>
+                1 vaga de garagem <br>
+                77.50 m² <br>
+              </div>
+
+            </div>
+          </div>
+
+          <div class="row pb-3">
+            <div class="col-12 text-right">
+              <a href="">+ detalhes</a>
+            </div>
+          </div>
         </div>
+      </div>
     </div>
+  <% end %>
+</div>
+
+<div class="row justify-content-center">
+  <div class="col-auto">
+    <nav aria-label="Page navigation example">
+      <ul class="pagination pagination-lg">
+        <li class="page-item">
+          <a class="page-link" href="#" aria-label="Previous">
+            <span aria-hidden="true">&laquo;</span>
+            <span class="sr-only">Previous</span>
+          </a>
+        </li>
+        <li class="page-item"><a class="page-link" href="#">1</a></li>
+        <li class="page-item"><a class="page-link" href="#">2</a></li>
+        <li class="page-item"><a class="page-link" href="#">3</a></li>
+        <li class="page-item">
+          <a class="page-link" href="#" aria-label="Next">
+            <span aria-hidden="true">&raquo;</span>
+            <span class="sr-only">Next</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </div>
 </div>
