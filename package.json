@@ -3,6 +3,7 @@
   "private": true,
   "dependencies": {
     "jquery": "^3.2.1",
+    "lightgallery": "^1.6.1",
     "popper": "^1.0.0"
   },
   "description": "This README would normally document whatever steps are necessary to get the application up and running.",

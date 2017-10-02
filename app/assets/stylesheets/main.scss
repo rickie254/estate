@@ -81,9 +81,22 @@ nav{
   }
 }
 
-.property-gallery{
-  img{
-    max-width: 100%;
+#property-gallery{
+  a{
+    img{
+      max-width: 100%;
+    }
+  }
+
+  ul{
+    li{
+      cursor: pointer;
+      
+      img{
+        width: 100px;
+        height: 100px;
+      }
+    }
   }
 }
 
