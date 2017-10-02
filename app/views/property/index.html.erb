@@ -1,49 +1,53 @@
 <div class="row justify-content-center">
-
   <% for i in 0..10 %>
-    <div class="col-md-8 col-12 property-card mb-5">
-      <div class="row">
-        <div class="property-image col-4" style="background-image:url('http://s2.glbimg.com/LcMtebaSrDUHnQinU5TreJXcUCs=/620x465/s.glbimg.com/jo/g1/f/original/2016/08/23/apartamento.jpg')"></div>
+    <div class="col-md-10 col-12 mb-4">
+      <div class="card property-summary shadow">
+        <div class="row no-gutters">
+          <div class="property-image col-4" style="background-image:url('http://s2.glbimg.com/LcMtebaSrDUHnQinU5TreJXcUCs=/620x465/s.glbimg.com/jo/g1/f/original/2016/08/23/apartamento.jpg')"></div>
 
-        <div class="col-8 property-details pt-3">
-          <div class="row mb-4">
-            <div class="col-md-6">
-              <h2>Edifício de apresentação</h2>
-            </div>
-            <div class="col-md-6 text-right">
-              <h2>R$ 325.000,00</h2>
-            </div>
-          </div>
-          <div class="d-none d-md-block">
-            <div class="row">
-
-              <div class="col-8">
-                <ul class="list-unstyled">
-                  <li>
-                    <span class="text-secondary">Cidade</span> <div class="float-right">Passo Fundo</div>
-                  </li>
-                  <li>
-                    <span class="text-secondary">Bairro</span> <div class="float-right">Centro</div>
-                  </li>
-                  <li>
-                    <span class="text-secondary">Endereço</span> <div class="float-right">Rua Fagundes dos Reis, 622</div>
-                  </li>
-                </ul>
+          <div class="col-8 pt-3 pr-3 pl-3">
+            <div class="row mb-4">
+              <div class="col-md-6">
+                <h2>Edifício de exemplo</h2>
               </div>
-
-              <div class="col-4 text-right">
-                1 dormitório <br>
-                1 vaga de garagem <br>
-                77.50 m² <br>
+              <div class="col-md-6 text-right">
+                <h2>R$ 325.000,00</h2>
               </div>
-
             </div>
-          </div>
+            <div class="d-none d-md-block">
+              <div class="row">
 
-          <div class="row pb-3">
-            <div class="col-12 text-right">
-              <a href="">+ detalhes</a>
+                <div class="col-8">
+                  <ul class="list-unstyled">
+                    <li>
+                      <span class="text-secondary">Cidade</span> <div class="float-right">Passo Fundo</div>
+                    </li>
+                    <li>
+                      <span class="text-secondary">Bairro</span> <div class="float-right">Centro</div>
+                    </li>
+                    <li>
+                      <span class="text-secondary">Endereço</span> <div class="float-right">Rua Fagundes dos Reis, 622</div>
+                    </li>
+                  </ul>
+                </div>
+
+                <div class="col-4 text-right">
+                  1 dormitório <br>
+                  1 vaga de garagem <br>
+                  77.50 m² <br>
+                </div>
+
+              </div>
             </div>
+
+            <div class="row pb-3 pt-2">
+              <div class="col-12 text-right">
+                <h3>
+                  <%= link_to("Ver mais detalhes", property_path(1)) %>
+                </h3>
+              </div>
+            </div>
+
           </div>
         </div>
       </div>

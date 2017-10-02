@@ -1,9 +1,10 @@
 @import "bootstrap";
 
 $blue: skyblue;
-$grey: lightgrey;
-$lightgrey: gainsboro;
 
+$stronggrey: lightgrey;
+$mediumgrey: #c1c1c1;
+$lightgrey: gainsboro;
 
 * {
   font-style: normal;
@@ -61,21 +62,32 @@ nav{
 
 .container{
   padding-top: 100px;
-  background: white;
+  // background: white;
 }
 
-.property-card{
-  border: 2px solid transparent;
-  transition: border .4s;
-  box-shadow: 0px 0px 20px 1px #dedede;
-  background: white;
+.card{
+  &.shadow{
+    box-shadow: 1px 1px 30px 15px $mediumgrey;
+  }
+}
+
+.property-summary{
+  text-decoration: none;
+  border: 3px solid transparent;
+  transition: border .5s;
 
   &:hover{
-    border: 2px solid $blue;
+    border: 3px solid $blue;
   }
+}
 
-  .property-image{
-      background-repeat: no-repeat;
-      background-position: center;
+.property-gallery{
+  img{
+    max-width: 100%;
   }
+}
+
+.property-image{
+  background-repeat: no-repeat;
+  background-position: center;
 }
