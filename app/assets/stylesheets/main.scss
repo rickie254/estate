@@ -1,4 +1,6 @@
 @import "bootstrap";
+@import "font-awesome-sprockets";
+@import "font-awesome";
 
 $blue: skyblue;
 
@@ -91,7 +93,7 @@ nav{
   ul{
     li{
       cursor: pointer;
-      
+
       img{
         width: 100px;
         height: 100px;
@@ -103,4 +105,8 @@ nav{
 .property-image{
   background-repeat: no-repeat;
   background-position: center;
+}
+
+.dropdown-menu {
+  min-width: 800px;
 }

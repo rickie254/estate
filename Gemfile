@@ -56,3 +56,4 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # corretor_de_imoveis' gems
 gem 'bootstrap', '~> 4.0.0.beta'
+gem 'font-awesome-sass', '~> 4.7.0'
