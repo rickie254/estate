@@ -15,5 +15,4 @@
 //= require popper
 //= require jquery
 //= require bootstrap
-//= require lightgallery
 //= require_tree .
