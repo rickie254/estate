@@ -26,11 +26,12 @@
     <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
       <%= link_to "Logotipo", root_path, class: "navbar-brand" %>
 
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="true" aria-label="Toggle navigation">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar"
+      aria-controls="navbar" aria-expanded="true" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
 
-      <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+      <div class="collapse navbar-collapse" id="navbar">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href data-toggle="dropdown"
@@ -45,6 +46,28 @@
               Locações
             </a>
             <%= render "partials/dropdown" %>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href>
+              Contato
+            </a>
+            <%= render "partials/dropdown" %>
+          </li>
+        </ul>
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item dropdown">
+            <div class="btn-group">
+              <button type="button" class="btn btn-success dropdown-toggle"
+              data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="fa fa-plus"></i> Imóvel
+              </button>
+              <div class="dropdown-menu dropdown-menu-right">
+                <%= link_to "Apartamento", new_property_path, class: "dropdown-item" %>
+                <%= link_to "Casa", new_property_path, class: "dropdown-item" %>
+                <%= link_to "Comercial", new_property_path, class: "dropdown-item" %>
+                <%= link_to "Terreno", new_property_path, class: "dropdown-item" %>
+              </div>
+            </div>
           </li>
         </ul>
       </div>
