@@ -5,7 +5,8 @@
 $blue: skyblue;
 $stronggrey: lightgrey;
 $mediumgrey: #c1c1c1;
-$lightgrey: gainsboro;
+$lightgrey: #f1f1f1;
+$card-border: rgba(0, 0, 0, 0.125);
 
 html, body {
   background: $lightgrey;
@@ -43,6 +44,7 @@ h5 {
 
 .navbar{
   padding: 1rem 1rem;
+  border-bottom: 1px solid red;
 }
 
 .container{
@@ -58,11 +60,11 @@ h5 {
 
 .property-summary{
   text-decoration: none;
-  border: 3px solid transparent;
+  border: 1px solid $card-border;
   transition: border .5s;
 
   &:hover{
-    border: 3px solid $blue;
+    border: 1px solid red;
   }
 }
 
