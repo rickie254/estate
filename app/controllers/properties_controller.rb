@@ -1,4 +1,4 @@
-class PropertyController < ApplicationController
+class PropertiesController < ApplicationController
   def index
   end
   def show
@@ -15,5 +15,4 @@ class PropertyController < ApplicationController
 
   def new_terrain
   end
-
 end
