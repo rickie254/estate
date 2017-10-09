@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(version: 20171007231235) do
   create_table "properties", force: :cascade do |t|
     t.string "type"
     t.string "title"
+    t.string "images"
     t.string "address"
     t.string "district"
     t.integer "value_cents", default: 0, null: false
@@ -25,6 +26,7 @@ ActiveRecord::Schema.define(version: 20171007231235) do
     t.integer "deal"
     t.decimal "global_area", precision: 6, scale: 2
     t.decimal "private_area", precision: 6, scale: 2
+    t.boolean "featured"
     t.integer "profile"
     t.integer "position"
     t.integer "number_of_rooms"

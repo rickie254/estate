@@ -1,5 +1,6 @@
 class Property < ApplicationRecord
-  mount_uploaders :images, ImageUploader
+  attr_accessor :image_cache
+  mount_uploaders :images, PropertyImageUploader
 
   enum deal: [ :sale, :rent ]
 

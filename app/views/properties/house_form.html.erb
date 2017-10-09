@@ -1,21 +1,30 @@
-<div class="row justify-content-center">
-  <div class="col-md-10 col">
 
+<div class="row no-gutters mb-2">
+  <div class="col-12 card">
+    <div class="row no-gutters p-2">
+      <div class="col-8">
+        <h1 class="mb-0">Nova Casa</h1>
+      </div>
+      <div class="col-4 align-self-center text-right">
+        <%= link_to("Voltar", root_path) %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%= form_for @property, url: {action: "create"}  do |f| %>
     <div class="row no-gutters">
-
-      <div class="col-12 card mb-2">
-        <div class="row no-gutters p-2">
-          <div class="col-8">
-            <h1 class="mb-0">Nova Casa</h1>
-          </div>
-          <div class="col-4 align-self-center text-right">
-            <%= link_to("Voltar", root_path) %>
+        <div class="col-4 pr-sm-2">
+          <div class="col-12 p-3 card">
+            <%= f.file_field :image %>
+            <%= f.hidden_field :image_cache %>
           </div>
         </div>
-      </div>
+        <div class="col-8 card p-3">
 
-      <div class="col-12 card p-3">
-        <%= form_for @property, url: {action: "create"}, html: {class: "form-row"}  do |f| %>
+          <div class="form-row">
+
+
 
           <div class="form-group col-sm-9">
             <label>Título</label>
@@ -71,9 +80,8 @@
             <button type="submit" class="btn btn-success">Criar</button>
           </div>
 
-        <% end %>
-      </div>
+        </div>
 
-    </div>
-  </div>
 </div>
+    </div>
+    <% end %>
