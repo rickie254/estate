@@ -5,12 +5,20 @@ class CreateProperties < ActiveRecord::Migration[5.1]
       # property fields
       t.string        :type
       t.string        :title
+      t.string        :images
+
+      # location
       t.string        :address
       t.string        :district
+
+      # financial
       t.monetize      :value
       t.integer       :deal # rent or sale
+
       t.decimal       :global_area, precision: 6, scale: 2
       t.decimal       :private_area, precision: 6, scale: 2
+
+      t.boolean       :featured
 
       # buildings fields
       t.integer       :profile
