@@ -3,16 +3,8 @@ class PropertiesController < ApplicationController
   end
   def show
   end
-
-  def new_house
-  end
-
-  def new_apartment
-  end
-
-  def new_comercial
-  end
-
-  def new_terrain
+  def new
+    @property = House.new
+    render "properties/#{params[:type].downcase}_form"
   end
 end

@@ -22,8 +22,20 @@
   </head>
 
   <body>
+    <div class="header bg-dark p-2">
 
-    <nav class="navbar navbar-expand-md navbar-light bg-white fixed-top">
+      <div class="row justify-content-center m-auto">
+        <div class="col-md-auto">
+          CRECI: 99999/RS
+        </div>
+        <div class="col-md-auto">
+          <i class="fa fa-map-marker"></i> Endereço rua tal tal tal, 999 - Passo Fundo
+        </div>
+      </div>
+
+    </div>
+
+    <nav class="navbar navbar-expand-md navbar-light bg-white">
       <%= link_to "Logotipo", root_path, class: "navbar-brand" %>
 
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar"
@@ -42,7 +54,7 @@
           </li>
           <li class="nav-item">
             <a class="nav-link" href>
-              Empreendimento
+              Empreendimentos
             </a>
           </li>
           <li class="nav-item">
@@ -59,10 +71,9 @@
                 <i class="fa fa-plus"></i> Imóvel
               </button>
               <div class="dropdown-menu dropdown-menu-right">
-                <%= link_to "Apartamento", new_property_path, class: "dropdown-item" %>
-                <%= link_to "Casa", new_property_path, class: "dropdown-item" %>
-                <%= link_to "Comercial", new_property_path, class: "dropdown-item" %>
-                <%= link_to "Terreno", new_property_path, class: "dropdown-item" %>
+
+                <%= link_to "Casa", new_house_path, class: "dropdown-item" %>
+
               </div>
             </div>
           </li>

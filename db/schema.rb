@@ -17,12 +17,12 @@ ActiveRecord::Schema.define(version: 20171007231235) do
 
   create_table "properties", force: :cascade do |t|
     t.string "type"
-    t.string "name"
+    t.string "title"
     t.string "address"
     t.string "district"
     t.integer "value_cents", default: 0, null: false
     t.string "value_currency", default: "USD", null: false
-    t.string "deal"
+    t.integer "deal"
     t.decimal "global_area", precision: 6, scale: 2
     t.decimal "private_area", precision: 6, scale: 2
     t.integer "profile"

@@ -1,0 +1,79 @@
+<div class="row justify-content-center">
+  <div class="col-md-10 col">
+
+    <div class="row no-gutters">
+
+      <div class="col-12 card mb-2">
+        <div class="row no-gutters p-2">
+          <div class="col-8">
+            <h1 class="mb-0">Nova Casa</h1>
+          </div>
+          <div class="col-4 align-self-center text-right">
+            <%= link_to("Voltar", root_path) %>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 card p-3">
+        <%= form_for @property, url: {action: "create"}, html: {class: "form-row"}  do |f| %>
+
+          <div class="form-group col-sm-9">
+            <label>Título</label>
+            <%= f.text_field :title, class: "form-control" %>
+          </div>
+
+          <div class="form-group col-sm-3">
+            <label>Perfil</label>
+            <%= f.select :profile, options_for_select(House.attributes_for_select "profiles"), {}, {class: "form-control"} %>
+          </div>
+
+          <div class="form-group col-sm-12">
+            <label>Endereço</label>
+            <%= f.text_field :address, class: "form-control" %>
+          </div>
+
+          <div class="form-group col-sm-6">
+            <label>Bairro</label>
+            <%= f.text_field :district, class: "form-control" %>
+          </div>
+
+          <div class="form-group col-sm-3">
+            <label>Tipo de negócio</label>
+            <%= f.select :profile, options_for_select(House.attributes_for_select "deals"), {}, {class: "form-control"} %>
+          </div>
+
+          <div class="form-group col-sm-3">
+            <label>Número de Quartos</label>
+            <%= f.number_field :number_of_rooms, class: "form-control" %>
+          </div>
+
+          <div class="form-group col-sm-4">
+            <label>Área Global</label>
+            <%= f.text_field :global_area, class: "form-control" %>
+          </div>
+
+          <div class="form-group col-sm-4">
+            <label>Área Privada</label>
+            <%= f.text_field :private_area, class: "form-control" %>
+          </div>
+
+          <div class="form-group col-sm-4">
+            <label>Posição</label>
+            <%= f.select :profile, options_for_select(House.attributes_for_select "positions"), {}, {class: "form-control"} %>
+          </div>
+
+          <div class="form-group col-sm-6">
+            <label>Valor</label>
+            <input type="number" class="form-control">
+          </div>
+
+          <div class="form-group col-12 text-right">
+            <button type="submit" class="btn btn-success">Criar</button>
+          </div>
+
+        <% end %>
+      </div>
+
+    </div>
+  </div>
+</div>

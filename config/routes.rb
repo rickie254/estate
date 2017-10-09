@@ -1,8 +1,5 @@
 Rails.application.routes.draw do
-  get 'admin', to: 'properties#admin'
-
-  # resources :properties, except: :new
-  resources :houses, :controller => 'properties'
+  resources :houses, :controller => "properties", :type => "House"
 
   root :to => 'properties#index'
 end
