@@ -11,9 +11,9 @@ development:
 
 production:
   <<: *default
-  database: deqks2v47ht50b
-  username: tozxfgknlrvwhj
-  password: 426c60e1b8fe123a672144eddb8ba38420cff443659c6d5f9f478a2f17de3165
+  database: d8qetarpsljrm8
+  username: lynujlprnwjcho
+  password: ff868f02e5413d5bc967df15c0c264e031c73784d99a046e5831aa166a5bc57c
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
