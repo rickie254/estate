@@ -3,7 +3,7 @@ module Building
   included do
 
     enum profile: [ :fresh, :used ]
-    enum positions: [ :front, :back ]
+    enum position: [ :front, :back ]
 
   end
 end

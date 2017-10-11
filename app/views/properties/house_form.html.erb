@@ -13,75 +13,88 @@
 </div>
 
 <%= form_for @property, url: {action: "create"}  do |f| %>
-    <div class="row no-gutters">
-        <div class="col-4 pr-sm-2">
-          <div class="col-12 p-3 card">
-            <%= f.file_field :image %>
-            <%= f.hidden_field :image_cache %>
-          </div>
-        </div>
-        <div class="col-8 card p-3">
+  <%= f.hidden_field :image_cache %>
+  <div class="row no-gutters">
 
-          <div class="form-row">
-
-
-
-          <div class="form-group col-sm-9">
-            <label>Título</label>
-            <%= f.text_field :title, class: "form-control" %>
-          </div>
-
-          <div class="form-group col-sm-3">
-            <label>Perfil</label>
-            <%= f.select :profile, options_for_select(House.attributes_for_select "profiles"), {}, {class: "form-control"} %>
-          </div>
-
-          <div class="form-group col-sm-12">
-            <label>Endereço</label>
-            <%= f.text_field :address, class: "form-control" %>
-          </div>
-
-          <div class="form-group col-sm-6">
-            <label>Bairro</label>
-            <%= f.text_field :district, class: "form-control" %>
-          </div>
-
-          <div class="form-group col-sm-3">
-            <label>Tipo de negócio</label>
-            <%= f.select :profile, options_for_select(House.attributes_for_select "deals"), {}, {class: "form-control"} %>
-          </div>
-
-          <div class="form-group col-sm-3">
-            <label>Número de Quartos</label>
-            <%= f.number_field :number_of_rooms, class: "form-control" %>
-          </div>
-
-          <div class="form-group col-sm-4">
-            <label>Área Global</label>
-            <%= f.text_field :global_area, class: "form-control" %>
-          </div>
-
-          <div class="form-group col-sm-4">
-            <label>Área Privada</label>
-            <%= f.text_field :private_area, class: "form-control" %>
-          </div>
-
-          <div class="form-group col-sm-4">
-            <label>Posição</label>
-            <%= f.select :profile, options_for_select(House.attributes_for_select "positions"), {}, {class: "form-control"} %>
-          </div>
-
-          <div class="form-group col-sm-6">
-            <label>Valor</label>
-            <input type="number" class="form-control">
-          </div>
-
-          <div class="form-group col-12 text-right">
-            <button type="submit" class="btn btn-success">Criar</button>
-          </div>
-
-        </div>
-
-</div>
+    <div class="col-sm-4 pr-sm-2">
+      <div class="col-12 p-3 card">
+        <%= f.file_field :image %>
+        <%= f.hidden_field :image_cache %>
+      </div>
     </div>
-    <% end %>
+
+    <div class="col-sm-8 card p-3">
+      <div class="form-row">
+
+        <div class="form-group col-sm-9">
+          <label>Título</label>
+          <%= f.text_field :title, class: "form-control #{validate_field(@property, :title)}" %>
+          <%= error_message_for_field(@property, :title) %>
+        </div>
+
+        <div class="form-group col-sm-3">
+          <label>Perfil</label>
+          <%= f.select :profile, options_for_select(House.attributes_for_select "profiles"),
+          {}, {class: "form-control #{validate_field(@property, :profile)}"} %>
+            <%= error_message_for_field(@property, :profile) %>
+        </div>
+
+        <div class="form-group col-sm-12">
+          <label>Endereço</label>
+          <%= f.text_field :address, class: "form-control #{validate_field(@property, :address)}" %>
+            <%= error_message_for_field(@property, :address) %>
+        </div>
+
+        <div class="form-group col-sm-6">
+          <label>Bairro</label>
+          <%= f.text_field :district, class: "form-control #{validate_field(@property, :district)}" %>
+            <%= error_message_for_field(@property, :district) %>
+        </div>
+
+        <div class="form-group col-sm-3">
+          <label>Tipo de negócio</label>
+          <%= f.select :deal, options_for_select(House.attributes_for_select "deals"),
+          {}, {class: "form-control #{validate_field(@property, :deal)}"} %>
+            <%= error_message_for_field(@property, :deal) %>
+        </div>
+
+        <div class="form-group col-sm-3">
+          <label>Número de Quartos</label>
+          <%= f.number_field :number_of_rooms,
+          class: "form-control #{validate_field(@property, :number_of_rooms)}" %>
+            <%= error_message_for_field(@property, :number_of_rooms) %>
+        </div>
+
+        <div class="form-group col-sm-4">
+          <label>Área Global</label>
+          <%= f.text_field :global_area, class: "form-control #{validate_field(@property, :global_area)}" %>
+          <%= error_message_for_field(@property, :global_area) %>
+        </div>
+
+        <div class="form-group col-sm-4">
+          <label>Área Privada</label>
+          <%= f.text_field :private_area, class: "form-control #{validate_field(@property, :private_area)}" %>
+          <%= error_message_for_field(@property, :private_area) %>
+        </div>
+
+        <div class="form-group col-sm-4">
+          <label>Posição</label>
+          <%= f.select :position, options_for_select(House.attributes_for_select "positions"),
+          {}, {class: "form-control #{validate_field(@property, :position)}"} %>
+          <%= error_message_for_field(@property, :position) %>
+        </div>
+
+        <div class="form-group col-sm-6">
+          <label>Valor</label>
+          <%= f.text_field :value, class: "form-control #{validate_field(@property, :private_area)}" %>
+          <%= error_message_for_field(@property, :value) %>
+        </div>
+
+        <div class="form-group col-12 text-right">
+          <button type="submit" class="btn btn-success">Criar</button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+<% end %>
