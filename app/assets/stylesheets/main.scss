@@ -73,30 +73,6 @@ h5 {
   }
 }
 
-#property-gallery{
-  a{
-    img{
-      max-width: 100%;
-    }
-  }
-
-  ul{
-    li{
-      cursor: pointer;
-
-      img{
-        width: 100px;
-        height: 100px;
-      }
-    }
-  }
-}
-
-.property-image{
-  background-repeat: no-repeat;
-  background-position: center;
-}
-
 .dropdown {
   position: static;
 
@@ -105,23 +81,4 @@ h5 {
     margin-top: 0px;
     width: 100%;
   }
-}
-
-.fileContainer {
-  overflow: hidden;
-  position: relative;
-}
-
-.fileContainer [type=file] {
-  cursor: inherit;
-  display: block;
-  font-size: 999px;
-  filter: alpha(opacity=0);
-  min-height: 100%;
-  min-width: 100%;
-  opacity: 0;
-  position: absolute;
-  right: 0;
-  text-align: right;
-  top: 0;
 }

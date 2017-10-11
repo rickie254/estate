@@ -19,12 +19,13 @@
     <div class="col-sm-4 pr-sm-2">
       <div class="col-12 p-3 card">
         <h2>Galeria</h2>
-        <% if @property.images.length > 0 %>
-          <% @property.images.each do |image| %>
-            <%= image_tag(@game.image, height: '225', width: '225', class:"property_image") %>
+        <ul class="list-unstyled mb-2" id="property_images">
+          <% if @property.images.length > 0 %>
+            <% @property.images.each do |image| %>
+              <%= image_tag(@game.image, height: '225', width: '225', class:"property_image") %>
+            <% end %>
           <% end %>
-        <% end %>
-        <br>
+        </ul>
         <label class="fileContainer mt-2">
           <button class="btn btn-primary">Selecionar <i class="fa fa-file-image-o"></i></button>
           <%= f.file_field :image %>

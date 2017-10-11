@@ -1,13 +1,14 @@
 $(document).on 'turbolinks:load', ->
-  console.log "existe algo"
   readURL = (input) ->
-      if input.files and input.files[0]
-        console.log input.files
-        reader = new FileReader()
+    if input.files.length() > 0
+      reader = new FileReader()
 
+      for file in input.files
         reader.onload = (e) ->
-          $('.property_image').attr('src', e.target.result)
-        reader.readAsDataURL(input.files[0])
+          li = document.createElement("li");
+          li.style.backgroundImage = "url(" + e.target.result + ")"
+          document.getElementById("property_images").appendChild(li);
+        reader.readAsDataURL(file)
 
     $("#house_images").change (e) ->
       readURL(this)
