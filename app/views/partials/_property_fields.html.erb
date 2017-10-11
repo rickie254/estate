@@ -1,0 +1,36 @@
+<div class="form-group col-sm-9">
+  <label>Título</label>
+  <%= f.text_field :title, class: "form-control #{validate_field(@property, :title)}" %>
+  <%= error_message_for_field(@property, :title) %>
+</div>
+
+<div class="form-group col-sm-3">
+  <label>Negócio</label>
+  <%= f.select :deal, options_for_select(House.attributes_for_select "deals"),
+  {}, {class: "form-control #{validate_field(@property, :deal)}"} %>
+    <%= error_message_for_field(@property, :deal) %>
+</div>
+
+<div class="form-group col-sm-12">
+  <label>Endereço</label>
+  <%= f.text_field :address, class: "form-control #{validate_field(@property, :address)}" %>
+  <%= error_message_for_field(@property, :address) %>
+</div>
+
+<div class="form-group col-sm-6">
+  <label>Bairro</label>
+  <%= f.text_field :district, class: "form-control #{validate_field(@property, :district)}" %>
+    <%= error_message_for_field(@property, :district) %>
+</div>
+
+<div class="form-group col-sm-3">
+  <label>Área Global</label>
+  <%= f.text_field :global_area, class: "form-control #{validate_field(@property, :global_area)}" %>
+  <%= error_message_for_field(@property, :global_area) %>
+</div>
+
+<div class="form-group col-sm-3">
+  <label>Valor</label>
+  <%= f.text_field :value, class: "form-control #{validate_field(@property, :value)}" %>
+  <%= error_message_for_field(@property, :value) %>
+</div>

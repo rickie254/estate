@@ -18,44 +18,36 @@
 
     <div class="col-sm-4 pr-sm-2">
       <div class="col-12 p-3 card">
-        <%= f.file_field :image %>
-        <%= f.hidden_field :image_cache %>
+        <h2>Galeria</h2>
+        <% if @property.images.length > 0 %>
+          <% @property.images.each do |image| %>
+            <%= image_tag(@game.image, height: '225', width: '225', class:"property_image") %>
+          <% end %>
+        <% end %>
+        <br>
+        <label class="fileContainer mt-2">
+          <button class="btn btn-primary">Selecionar <i class="fa fa-file-image-o"></i></button>
+          <%= f.file_field :image %>
+          <%= f.file_field :images, multiple: true %>
+          <%= f.hidden_field :image_cache %>
+        </label>
       </div>
     </div>
 
     <div class="col-sm-8 card p-3">
+
+      <h2>Informações gerais</h2>
+      <div class="form-row mb-2">
+        <%= render "partials/property_fields", f: f %>
+      </div>
+
+      <h2>Atributos do imóvel</h2>
       <div class="form-row">
-
-        <div class="form-group col-sm-9">
-          <label>Título</label>
-          <%= f.text_field :title, class: "form-control #{validate_field(@property, :title)}" %>
-          <%= error_message_for_field(@property, :title) %>
-        </div>
-
         <div class="form-group col-sm-3">
           <label>Perfil</label>
           <%= f.select :profile, options_for_select(House.attributes_for_select "profiles"),
           {}, {class: "form-control #{validate_field(@property, :profile)}"} %>
             <%= error_message_for_field(@property, :profile) %>
-        </div>
-
-        <div class="form-group col-sm-12">
-          <label>Endereço</label>
-          <%= f.text_field :address, class: "form-control #{validate_field(@property, :address)}" %>
-            <%= error_message_for_field(@property, :address) %>
-        </div>
-
-        <div class="form-group col-sm-6">
-          <label>Bairro</label>
-          <%= f.text_field :district, class: "form-control #{validate_field(@property, :district)}" %>
-            <%= error_message_for_field(@property, :district) %>
-        </div>
-
-        <div class="form-group col-sm-3">
-          <label>Tipo de negócio</label>
-          <%= f.select :deal, options_for_select(House.attributes_for_select "deals"),
-          {}, {class: "form-control #{validate_field(@property, :deal)}"} %>
-            <%= error_message_for_field(@property, :deal) %>
         </div>
 
         <div class="form-group col-sm-3">
@@ -65,34 +57,25 @@
             <%= error_message_for_field(@property, :number_of_rooms) %>
         </div>
 
-        <div class="form-group col-sm-4">
-          <label>Área Global</label>
-          <%= f.text_field :global_area, class: "form-control #{validate_field(@property, :global_area)}" %>
-          <%= error_message_for_field(@property, :global_area) %>
-        </div>
-
-        <div class="form-group col-sm-4">
+        <div class="form-group col-sm-3">
           <label>Área Privada</label>
           <%= f.text_field :private_area, class: "form-control #{validate_field(@property, :private_area)}" %>
           <%= error_message_for_field(@property, :private_area) %>
         </div>
 
-        <div class="form-group col-sm-4">
+        <div class="form-group col-sm-3">
           <label>Posição</label>
           <%= f.select :position, options_for_select(House.attributes_for_select "positions"),
           {}, {class: "form-control #{validate_field(@property, :position)}"} %>
           <%= error_message_for_field(@property, :position) %>
         </div>
 
-        <div class="form-group col-sm-6">
-          <label>Valor</label>
-          <%= f.text_field :value, class: "form-control #{validate_field(@property, :private_area)}" %>
-          <%= error_message_for_field(@property, :value) %>
+        <div class="form-group col-12 text-right">
+          <%= f.submit "Criar", class: "btn btn-success" %>
         </div>
 
-        <div class="form-group col-12 text-right">
-          <button type="submit" class="btn btn-success">Criar</button>
-        </div>
+      </div>
+
 
       </div>
     </div>

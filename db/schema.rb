@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 20171007231235) do
   create_table "properties", force: :cascade do |t|
     t.string "type"
     t.string "title"
-    t.string "images"
+    t.string "images", default: [], array: true
     t.string "address"
     t.string "district"
     t.integer "value_cents", default: 0, null: false
@@ -30,9 +30,9 @@ ActiveRecord::Schema.define(version: 20171007231235) do
     t.integer "profile"
     t.integer "position"
     t.integer "number_of_rooms"
+    t.integer "number_of_boxes"
     t.integer "condominium_cents", default: 0, null: false
     t.string "condominium_currency", default: "USD", null: false
-    t.integer "number_of_boxes"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

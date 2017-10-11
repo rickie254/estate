@@ -5,7 +5,7 @@ class CreateProperties < ActiveRecord::Migration[5.1]
       # property fields
       t.string        :type
       t.string        :title
-      t.string        :images
+      t.string        :images, array: true, default: []
 
       # location
       t.string        :address
@@ -24,10 +24,10 @@ class CreateProperties < ActiveRecord::Migration[5.1]
       t.integer       :profile
       t.integer       :position
       t.integer       :number_of_rooms
-      t.monetize      :condominium
 
       # apartment fields
       t.integer       :number_of_boxes
+      t.monetize      :condominium
 
       t.timestamps
     end

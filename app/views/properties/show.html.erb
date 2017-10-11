@@ -17,20 +17,16 @@
       <div class="col-md-8 mb-2 pr-sm-2">
         <div class="col-12 card p-3 mr-2" id="property-gallery">
           <h2>Galeria</h2>
-          <a class="2pac" href="http://s2.glbimg.com/LcMtebaSrDUHnQinU5TreJXcUCs=/620x465/s.glbimg.com/jo/g1/f/original/2016/08/23/apartamento.jpg">
-            <img src="http://s2.glbimg.com/LcMtebaSrDUHnQinU5TreJXcUCs=/620x465/s.glbimg.com/jo/g1/f/original/2016/08/23/apartamento.jpg" />
-          </a>
+          <%= link_to @property.images.first.url, class: "2pac" do %>
+            <%= image_tag @property.images.first.url %>
+          <% end %>
 
-          <ul class="list-inline list-unstyled mt-3 text-center">
-            <li class="2pac list-inline-item" href="http://i0.wp.com/oscarferreira.com.br/wp-content/uploads/2015/07/edificios-residenciais-17.jpg?resize=1280%2C1982" class="inline-list-item">
-              <img src="http://i0.wp.com/oscarferreira.com.br/wp-content/uploads/2015/07/edificios-residenciais-17.jpg?resize=1280%2C1982" />
-            </li>
-            <li class="2pac list-inline-item" href="http://www.incorposul.com.br/fmanager/incorposul2015/empreendimentos/imagem_fachada22_1.jpg">
-              <img src="http://www.incorposul.com.br/fmanager/incorposul2015/empreendimentos/imagem_fachada22_1.jpg" />
-            </li>
-            <li class="2pac list-inline-item" href="http://www.fkvg.com.br/pt/wp-content/uploads/2012/11/EdificioVillaEdith_foto06.jpg">
-              <img src="http://www.fkvg.com.br/pt/wp-content/uploads/2012/11/EdificioVillaEdith_foto06.jpg" />
-            </li>
+          <ul class="list-inline list-unstyled mt-2 text-center">
+            <% @property.images.each do |image|  %>
+              <li href="<%= image.url %>" class="2pac list-inline-item">
+                <%= image_tag image.url %>
+              </li>
+            <% end %>
           </ul>
         </div>
       </div>

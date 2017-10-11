@@ -4,6 +4,7 @@ class PropertiesController < ApplicationController
   def index
   end
   def show
+    @property = Property.find(params[:id])
   end
   def new
     @property = property_type.new
@@ -46,7 +47,7 @@ class PropertiesController < ApplicationController
   private
 
   def property_params
-    params.require(params[:type].downcase.to_sym).permit(:title, :address, :district, :value, :deal,
+    params.require(params[:type].downcase.to_sym).permit(:title, {images: []}, :address, :district, :value, :deal,
     :global_area, :private_area, :featured, :profile, :position, :number_of_rooms, :condominium)
   end
 
