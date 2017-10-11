@@ -1,6 +1,9 @@
 $(document).on 'turbolinks:load', ->
+  console.log "foi"
   readURL = (input) ->
-    if input.files.length() > 0
+    console.log "foi"
+    if input.files.length > 0
+      console.log "foi"
       reader = new FileReader()
 
       for file in input.files
@@ -10,7 +13,7 @@ $(document).on 'turbolinks:load', ->
           document.getElementById("property_images").appendChild(li);
         reader.readAsDataURL(file)
 
-    $("#house_images").change (e) ->
-      readURL(this)
+  $("#house_images").change (e) ->
+    readURL(this)
 
-    return
+  return
