@@ -1,4 +1,4 @@
-class PropertyImageUploader < CarrierWave::Uploader::Base
+class GalleryImageUploader < CarrierWave::Uploader::Base
 
   # Include RMagick or MiniMagick support:
   # include CarrierWave::RMagick

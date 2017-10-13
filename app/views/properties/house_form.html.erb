@@ -13,25 +13,36 @@
 </div>
 
 <%= form_for @property, url: {action: "create"}  do |f| %>
-  <%= f.hidden_field :image_cache %>
   <div class="row no-gutters">
 
     <div class="col-sm-4 pr-sm-2">
       <div class="col-12 p-3 card">
-        <h2>Galeria</h2>
-        <ul class="list-unstyled mb-2" id="property_images">
-          <% if @property.images.length > 0 %>
-            <% @property.images.each do |image| %>
-              <%= image_tag(@game.image, height: '225', width: '225', class:"property_image") %>
+        <div class="row no-gutters">
+          <div class="col-6 align-self-center">
+            <h2>Galeria</h2>
+          </div>
+          <div class="col-6 text-right align-self-center">
+            <label class="fileContainer">
+              <button class="btn btn-sm btn-primary">
+                Adicionar <i class="fa fa-file-image-o"></i>
+              </button>
+              <input multiple="multiple" type="file" accept="image/*"
+              name="property[images]" id="property_images">
+            </label>
+          </div>
+        </div>
+        <ul class="list-unstyled list-inline mb-2" id="uploaded_property_images">
+          <% if !@property.gallery.blank? %>
+            <% @property.gallery.images.each_with_index do |image, index| %>
+
+              <li class="list-inline-item">
+                <div style="background-image:url(<%= image.url  %>)" class="list-inline-item"></div>
+              </li>
+
             <% end %>
           <% end %>
         </ul>
-        <label class="fileContainer mt-2">
-          <button class="btn btn-primary">Selecionar <i class="fa fa-file-image-o"></i></button>
-          <%= f.file_field :image %>
-          <%= f.file_field :images, multiple: true %>
-          <%= f.hidden_field :image_cache %>
-        </label>
+
       </div>
     </div>
 

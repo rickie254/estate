@@ -1,14 +1,12 @@
 class Property < ApplicationRecord
-  attr_accessor :image_cache
-  mount_uploaders :images, PropertyImageUploader
-
   monetize :value_cents
+  has_one :gallery
 
   enum deal: [ :sale, :rent ]
 
   validates :title, presence: true
-	validates :district, presence: true
-	validates :address, presence: true
+	# validates :district, presence: true
+	# validates :address, presence: true
 
   def self.attributes_for_select field
     eval(field).map do |value, _|

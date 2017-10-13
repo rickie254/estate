@@ -1,13 +1,27 @@
-ul#property_images{
+ul#uploaded_property_images{
   li {
-    background-position: center;
-    background-size: cover;
-    width: 100px;
-    height: 100px;
+    text-align: center;
+    margin: 10px 10px 0px 0px;
+    width: 90px;
+    height: 90px;
+    display: table;
+
+    i {
+      vertical-align: middle;
+      display: table-cell;
+    }
+
+    div{
+      background-position: center;
+      background-size: cover;
+      width: 90px;
+      height: 90px;
+    }
   }
 }
 
 .fileContainer {
+  margin-bottom: 0;
   overflow: hidden;
   position: relative;
 }

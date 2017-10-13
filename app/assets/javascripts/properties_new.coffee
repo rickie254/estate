@@ -1,19 +1,40 @@
 $(document).on 'turbolinks:load', ->
-  console.log "foi"
   readURL = (input) ->
-    console.log "foi"
     if input.files.length > 0
-      console.log "foi"
-      reader = new FileReader()
-
       for file in input.files
-        reader.onload = (e) ->
-          li = document.createElement("li");
-          li.style.backgroundImage = "url(" + e.target.result + ")"
-          document.getElementById("property_images").appendChild(li);
-        reader.readAsDataURL(file)
+        renderSpinner()
 
-  $("#house_images").change (e) ->
+        formData = new FormData()
+        formData.append("gallery[image]", file)
+
+        promise = $.ajax "/properties/add_images",
+        beforeSend: (xhr) ->
+          xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]')
+          .attr('content'))
+        method: "POST",
+        data: formData,
+        cache: false,
+        contentType: false,
+        processData: false
+
+        promise.then(() ->
+          renderUploadedImage()
+        )
+
+  $("#property_images").change (e) ->
     readURL(this)
 
+renderSpinner = () ->
+  window.li = document.createElement("li")
+  window.li.className = "list-inline-item"
+  spinner = document.createElement("i")
+  spinner.className = "fa fa-spinner fa-pulse fa-2x fa-fw"
+  window.li.appendChild(spinner)
+  document.getElementById("uploaded_property_images").appendChild(li);
+
+renderUploadedImage = (li) ->
+  window.li.removeChild(window.li.firstChild)
+  div = document.createElement("div")
+  div.style.backgroundImage = "url(" + e.target.result + ")"
+  window.li.appendChild(div)
   return

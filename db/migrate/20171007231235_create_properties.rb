@@ -5,7 +5,7 @@ class CreateProperties < ActiveRecord::Migration[5.1]
       # property fields
       t.string        :type
       t.string        :title
-      t.string        :images, array: true, default: []
+      t.integer       :gallery_id
 
       # location
       t.string        :address

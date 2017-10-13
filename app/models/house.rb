@@ -4,8 +4,8 @@ class House < Property
   # end
 
 	include Building
-
-	validates :number_of_rooms, presence: true
-	validates :profile, presence: true
+	# 
+	# validates :number_of_rooms, presence: true
+	# validates :profile, presence: true
 
 end

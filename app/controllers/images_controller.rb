@@ -16,7 +16,7 @@ class ImagesController < ApplicationController
   private
 
   def set_property
-    @property = Gallery.find(params[:property_id])
+    @property = property_type.find(params["#{params[:type].downcase}_id".to_sym])
   end
 
   def add_more_images(new_images)
@@ -34,5 +34,9 @@ class ImagesController < ApplicationController
 
   def images_params
     params.require(:property).permit({images: []}) # allow nested params as array
+  end
+
+  def property_type
+    params[:type].constantize if params[:type].in? PROPERTY_TYPES
   end
 end
