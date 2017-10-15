@@ -1,3 +1,4 @@
 class Gallery < ApplicationRecord
-  mount_uploader :images, GalleryImageUploader
+  # belongs_to :property
+  mount_uploaders :images, GalleryImageUploader
 end

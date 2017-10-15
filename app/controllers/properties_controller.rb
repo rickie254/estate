@@ -1,13 +1,11 @@
 class PropertiesController < ApplicationController
   # before_action :authenticate_admin!, :except => [:index]
-  before_action :initialize_gallery
-
   def show
     @property = Property.find(params[:id])
   end
 
   def new
-    p @gallery
+    @@gallery = Gallery.new
     @property = property_type.new
     render "properties/#{propery_name}_form"
   end
@@ -24,26 +22,19 @@ class PropertiesController < ApplicationController
   end
 
   def update_gallery
-    p @gallery
-    add_images(@gallery, [gallery_params[:image]])
+    images = @@gallery.images
+    images << gallery_params[:image]
+    @@gallery.images = images
 
-    if @gallery.save
-      head :created
+    if @@gallery.save
+      p @@gallery.images.last.url
+      render json: {image: @@gallery.images.last.url}
     else
       head :bad_request
     end
-
   end
 
   private
-
-  def initialize_gallery
-    if property_id.nil?
-      @gallery = Gallery.new
-    else
-      @gallery = property_type.find(property_id).gallery
-    end
-  end
 
   def property_params
     params.require(params[:type].downcase.to_sym).permit(:title, :address, :district, :value, :deal,
@@ -51,13 +42,7 @@ class PropertiesController < ApplicationController
   end
 
   def gallery_params
-    params.require(:gallery).permit(:image)
-  end
-
-  def add_images gallery, new_images
-    images = gallery.images
-    images += new_images
-    gallery.images = images
+    params.permit(:image)
   end
 
   def property_id
@@ -69,7 +54,6 @@ class PropertiesController < ApplicationController
   end
 
   def property_type
-    p params
     params[:type].constantize if params[:type].in? PROPERTY_TYPES
   end
 end

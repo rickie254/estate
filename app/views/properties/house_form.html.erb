@@ -15,7 +15,7 @@
 <%= form_for @property, url: {action: "create"}  do |f| %>
   <div class="row no-gutters">
 
-    <div class="col-sm-4 pr-sm-2">
+    <div class="col-md-4 pr-md-2 pb-2">
       <div class="col-12 p-3 card">
         <div class="row no-gutters">
           <div class="col-6 align-self-center">
@@ -26,8 +26,8 @@
               <button class="btn btn-sm btn-primary">
                 Adicionar <i class="fa fa-file-image-o"></i>
               </button>
-              <input multiple="multiple" type="file" accept="image/*"
-              name="property[images]" id="property_images">
+              <input multiple="true" type="file" accept="image/*"
+              name="gallery[images]" id="property_images">
             </label>
           </div>
         </div>
@@ -46,7 +46,7 @@
       </div>
     </div>
 
-    <div class="col-sm-8 card p-3">
+    <div class="col-md-8 card p-3">
 
       <h2>Informações gerais</h2>
       <div class="form-row mb-2">
@@ -55,27 +55,27 @@
 
       <h2>Atributos do imóvel</h2>
       <div class="form-row">
-        <div class="form-group col-sm-3">
+        <div class="form-group col-sm-6 col-md-3">
           <label>Perfil</label>
           <%= f.select :profile, options_for_select(House.attributes_for_select "profiles"),
           {}, {class: "form-control #{validate_field(@property, :profile)}"} %>
             <%= error_message_for_field(@property, :profile) %>
         </div>
 
-        <div class="form-group col-sm-3">
+        <div class="form-group col-sm-6 col-md-3">
           <label>Número de Quartos</label>
           <%= f.number_field :number_of_rooms,
           class: "form-control #{validate_field(@property, :number_of_rooms)}" %>
             <%= error_message_for_field(@property, :number_of_rooms) %>
         </div>
 
-        <div class="form-group col-sm-3">
+        <div class="form-group col-sm-6 col-md-3">
           <label>Área Privada</label>
           <%= f.text_field :private_area, class: "form-control #{validate_field(@property, :private_area)}" %>
           <%= error_message_for_field(@property, :private_area) %>
         </div>
 
-        <div class="form-group col-sm-3">
+        <div class="form-group col-sm-6 col-md-3">
           <label>Posição</label>
           <%= f.select :position, options_for_select(House.attributes_for_select "positions"),
           {}, {class: "form-control #{validate_field(@property, :position)}"} %>
