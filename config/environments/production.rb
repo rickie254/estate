@@ -1,6 +1,10 @@
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
+  # aws s3
+  ENV['S3_BUCKET_NAME'] = "zordanimoveis-production"
+  ENV['S3_URL'] = "http://s3.amazonaws.com/#{ENV['S3_BUCKET_NAME']}/"
+
   # Code is not reloaded between requests.
   config.cache_classes = true
 
