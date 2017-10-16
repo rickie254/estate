@@ -23,7 +23,7 @@
     </div>
   </div>
 
-  <% for i in 0..10 %>
+  <% @properties.each do |property| %>
     <div class="col-md-10 col-12 mb-2">
       <div class="card property-summary">
         <div class="row no-gutters">
@@ -32,7 +32,7 @@
           <div class="col-8 pt-3 pr-3 pl-3">
             <div class="row mb-4">
               <div class="col-md-6">
-                <h2>Edifício de exemplo</h2>
+                <h2><%= property.title %></h2>
               </div>
               <div class="col-md-6 text-right">
                 <h2>R$ 325.000,00</h2>
@@ -65,7 +65,17 @@
             </div>
 
             <div class="row pb-3 pt-2">
-              <div class="col-12 text-right">
+              <div class="col-auto">
+                <h3>
+                  <%= link_to("Excluir") %>
+                </h3>
+              </div>
+              <div class="col-auto">
+                <h3>
+                  <%= link_to("Editar", [:edit, property]) %>
+                </h3>
+              </div>
+              <div class="col text-right">
                 <h3>
                   <%= link_to("Ver mais detalhes") %>
                 </h3>

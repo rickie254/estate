@@ -1,11 +1,20 @@
 ul#uploaded_property_images{
   li {
-    text-align: center;
-    margin: 10px 10px 0px 0px;
-    width: 90px;
-    height: 90px;
+    height: 100%;
+    position: relative;
 
-    i {
+    .remove-button{
+      padding: 0px;
+      border-radius: 0;
+      cursor: pointer;
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 22px;
+      width: 22px;
+    }
+
+    i.fa-spinner {
       margin-right: 22px;
       margin-top: 22px;
     }
@@ -27,9 +36,9 @@ ul#uploaded_property_images{
 
 .fileContainer [type=file] {
   cursor: inherit;
+  filter: alpha(opacity=0);
   display: block;
   font-size: 999px;
-  filter: alpha(opacity=0);
   min-height: 100%;
   min-width: 100%;
   opacity: 0;

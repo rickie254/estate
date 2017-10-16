@@ -16,34 +16,7 @@
   <div class="row no-gutters">
 
     <div class="col-md-4 pr-md-2 pb-2">
-      <div class="col-12 p-3 card">
-        <div class="row no-gutters">
-          <div class="col-6 align-self-center">
-            <h2>Galeria</h2>
-          </div>
-          <div class="col-6 text-right align-self-center">
-            <label class="fileContainer">
-              <button class="btn btn-sm btn-primary">
-                Adicionar <i class="fa fa-file-image-o"></i>
-              </button>
-              <input multiple="true" type="file" accept="image/*"
-              name="gallery[images]" id="property_images">
-            </label>
-          </div>
-        </div>
-        <ul class="list-unstyled list-inline mb-2" id="uploaded_property_images">
-          <% if !@property.gallery.blank? %>
-            <% @property.gallery.images.each_with_index do |image, index| %>
-
-              <li class="list-inline-item">
-                <div style="background-image:url(<%= image.url  %>)" class="list-inline-item"></div>
-              </li>
-
-            <% end %>
-          <% end %>
-        </ul>
-
-      </div>
+      <%= render "partials/gallery_image_uploader" %>
     </div>
 
     <div class="col-md-8 card p-3">

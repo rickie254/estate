@@ -17,14 +17,14 @@
       <div class="col-md-8 mb-2 pr-sm-2">
         <div class="col-12 card p-3 mr-2" id="property-gallery">
           <h2>Galeria</h2>
-          <%= link_to @property.images.first.url, class: "2pac" do %>
-            <%= image_tag @property.images.first.url %>
+          <%= link_to @property.gallery.images.first.url, class: "2pac" do %>
+            <%= image_tag @property.gallery.images.first.url %>
           <% end %>
 
           <ul class="list-inline list-unstyled mt-2 text-center">
-            <% @property.images.each do |image|  %>
+            <% @property.gallery.images.each do |image|  %>
               <li href="<%= image.url %>" class="2pac list-inline-item">
-                <%= image_tag image.url %>
+                <div style="background-image:url(<%= image.url %>)"/>
               </li>
             <% end %>
           </ul>

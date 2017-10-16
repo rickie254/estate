@@ -1,0 +1,31 @@
+<div class="col-12 p-3 card" id="gallery">
+  <div class="row no-gutters">
+    <div class="col-6 align-self-center">
+      <h2>
+        Galeria
+        <i v-if="loading" class="fa fa-cog fa-spin fa-fw"></i>
+      </h2>
+    </div>
+    <div class="col-6 text-right align-self-center">
+      <label class="fileContainer">
+        <button class="btn btn-sm btn-primary"
+        :disabled="loading">
+          Adicionar <i class="fa fa-file-image-o"></i>
+        </button>
+
+        <input multiple="true" type="file" accept="image/*"
+        name="gallery[images]" :disabled="loading" v-on:change="addImage">
+      </label>
+    </div>
+  </div>
+  <ul class="list-unstyled list-inline mb-2" id="uploaded_property_images">
+    <li class="list-inline-item" v-for="(image, index) in images">
+      <div class="list-inline-item" v-bind:style="{ backgroundImage: 'url(' + image.url + ')' }"></div>
+
+      <button type="button" v-on:click="removeImage(index)"
+      class="btn btn-danger remove-button" :disabled="loading">
+        <i class="fa fa-times"></i>
+      </button>
+    </li>
+  </ul>
+</div>

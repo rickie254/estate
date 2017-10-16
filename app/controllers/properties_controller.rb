@@ -1,5 +1,10 @@
 class PropertiesController < ApplicationController
   # before_action :authenticate_admin!, :except => [:index]
+
+  def index
+    @properties = Property.all
+  end
+
   def show
     @property = Property.find(params[:id])
   end
@@ -10,9 +15,15 @@ class PropertiesController < ApplicationController
     render "properties/#{propery_name}_form"
   end
 
+  def edit
+    @property = property_type.find(params[:id])
+    @@gallery = @property.gallery
+    render "properties/#{propery_name}_form"
+  end
+
   def create
     @property = property_type.new property_params
-    @property.gallery = @gallery
+    @property.gallery = @@gallery
 
     if @property.save
       redirect_to @property
@@ -21,14 +32,26 @@ class PropertiesController < ApplicationController
     end
   end
 
-  def update_gallery
+  def remove_image
+    remain_images = @@gallery.images
+    deleted_image = remain_images.delete_at(params[:index].to_i) # delete the target image
+    deleted_image.try(:remove!) # delete image from S3
+    @@gallery.images = remain_images
+
+    if @@gallery.save
+      render json: {images: @@gallery.images}
+    else
+      head :bad_request
+    end
+  end
+
+  def add_image
     images = @@gallery.images
-    images << gallery_params[:image]
+    images << image_param[:image]
     @@gallery.images = images
 
     if @@gallery.save
-      p @@gallery.images.last.url
-      render json: {image: @@gallery.images.last.url}
+      render json: {images: @@gallery.images}
     else
       head :bad_request
     end
@@ -41,7 +64,7 @@ class PropertiesController < ApplicationController
     :global_area, :private_area, :featured, :profile, :position, :number_of_rooms, :condominium)
   end
 
-  def gallery_params
+  def image_param
     params.permit(:image)
   end
 

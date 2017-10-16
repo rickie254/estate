@@ -5,7 +5,8 @@ Rails.application.routes.draw do
     :controller => "properties", :type => "#{property_type}"
   end
 
-  post "properties/add_image", to: "properties#update_gallery"
+  post   "properties/add_image",           to: "properties#add_image"
+  delete "properties/remove_image/:index", to: "properties#remove_image"
 
   root :to => 'properties#index'
 end
