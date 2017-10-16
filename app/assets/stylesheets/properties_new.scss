@@ -4,19 +4,14 @@ ul#uploaded_property_images{
     position: relative;
 
     .remove-button{
+      cursor: pointer;
       padding: 0px;
       border-radius: 0;
-      cursor: pointer;
       position: absolute;
       top: 0;
       right: 0;
       height: 22px;
       width: 22px;
-    }
-
-    i.fa-spinner {
-      margin-right: 22px;
-      margin-top: 22px;
     }
 
     div{

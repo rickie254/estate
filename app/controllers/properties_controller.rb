@@ -6,6 +6,7 @@ class PropertiesController < ApplicationController
   end
 
   def show
+    p params
     @property = Property.find(params[:id])
   end
 
@@ -30,6 +31,10 @@ class PropertiesController < ApplicationController
     else
       render "properties/#{propery_name}_form"
     end
+  end
+
+  def get_images
+    render json: {images: @@gallery.images}
   end
 
   def remove_image

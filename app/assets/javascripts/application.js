@@ -15,5 +15,6 @@
 //= require popper
 //= require jquery
 //= require bootstrap
-//= require vue/dist/vue
+//= require vue
+//= require vue-resource
 //= require_tree .

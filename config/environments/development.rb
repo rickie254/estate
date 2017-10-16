@@ -1,6 +1,10 @@
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
+  # aws s3
+  ENV['S3_BUCKET_NAME'] = "zordanimoveis-development"
+  ENV['S3_URL'] = "http://s3.amazonaws.com/#{ENV['S3_BUCKET_NAME']}/"
+
   # In the development environment your application's code is reloaded on
   # every request. This slows down response time but is perfect for development
   # since you don't have to restart the web server when you make code changes.

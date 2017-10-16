@@ -27,5 +27,8 @@ module CorretorDeImoveis
     													 :routing_specs => false,
     													 :request_specs => false
     end
+
+    ENV['S3_KEY'] = "AKIAILDZNRIO7FEB3HKQ"
+    ENV['S3_SECRET'] = "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"
   end
 end

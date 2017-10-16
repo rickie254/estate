@@ -9,3 +9,7 @@ $(window).scroll (e)->
       navbar.addClass('fixed-top');
     else
       navbar.removeClass('fixed-top');
+
+$(document).on 'turbolinks:load', ->
+  Vue.http.headers.common['X-CSRF-Token'] = $('meta[name="csrf-token"]').attr('content')
+  Vue.http.headers.credentials = 'same-origin'
