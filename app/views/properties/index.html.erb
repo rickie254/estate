@@ -34,24 +34,19 @@
                 <h2><%= property.title %></h2>
               </div>
               <div class="col-md-6 text-right">
-                <h2>R$ 325.000,00</h2>
+                <h2>R$ <%= property.value %></h2>
               </div>
             </div>
             <div class="d-none d-md-block">
               <div class="row">
 
                 <div class="col-8">
-                  <ul class="list-unstyled">
-                    <li>
-                      <span class="text-secondary">Cidade</span> <div class="float-right">Passo Fundo</div>
-                    </li>
-                    <li>
-                      <span class="text-secondary">Bairro</span> <div class="float-right">Centro</div>
-                    </li>
-                    <li>
-                      <span class="text-secondary">Endereço</span> <div class="float-right">Rua Fagundes dos Reis, 622</div>
-                    </li>
-                  </ul>
+                  <dl class="row">
+                    <dt class="col-sm-4 text-secondary">Bairro</dt>
+                    <dd class="col-sm-8"><%= property.district %></dd>
+                    <dt class="col-sm-4 text-secondary">Endereço</dt>
+                    <dd class="col-sm-8"><%= property.address %></dd>
+                  </dl>
                 </div>
 
                 <div class="col-4 text-right">

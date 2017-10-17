@@ -2,8 +2,8 @@ class PropertiesController < ApplicationController
   # before_action :authenticate_admin!, :except => [:index]
 
   def index
-    case property_type
-    when "apartment"
+    case params[:type]
+    when "Apartment"
       if params[:number_of_rooms]
         @properties = Apartment.all.where(number_of_rooms: params[:number_of_rooms])
       elsif params[:number_of_boxes]
@@ -11,12 +11,12 @@ class PropertiesController < ApplicationController
       elsif params[:roof]
         @properties = Apartment.all.where(roof: true)
       end
-    when "house"
+    when "House"
       if params[:number_of_rooms]
         @properties = Apartment.all.where(number_of_rooms: params[:number_of_rooms])
       end
     end
-    @properties = property_type.all if property_type
+
     @properties ||= Property.all
   end
 
@@ -27,12 +27,16 @@ class PropertiesController < ApplicationController
   def new
     @@gallery = Gallery.new
     @property = property_type.new
+
+    @action = "create"
     render "properties/#{propery_name}_form"
   end
 
   def edit
     @property = property_type.find(params[:id])
     @@gallery = @property.gallery
+
+    @action = "update"
     render "properties/#{propery_name}_form"
   end
 
@@ -41,6 +45,16 @@ class PropertiesController < ApplicationController
     @property.gallery = @@gallery
 
     if @property.save
+      redirect_to @property
+    else
+      render "properties/#{propery_name}_form"
+    end
+  end
+
+  def update
+    @property = property_type.find params[:id]
+
+    if @property.update! property_params
       redirect_to @property
     else
       render "properties/#{propery_name}_form"

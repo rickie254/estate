@@ -3,7 +3,9 @@
     <div class="col-12 col-lg-8">
       <div class="row">
         <div class="col-md-3 mb-3">
-          <h2>Apartamentos</h2>
+          <h2>
+            <%= link_to "Apartamento", apartments_path %>
+          </h2>
           <ul class="list-unstyled">
             <li>
               <%= link_to "Kitinete", apartments_path(number_of_rooms: :kitnet), class: "navbar-brand" %>

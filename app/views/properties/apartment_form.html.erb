@@ -2,7 +2,11 @@
   <div class="col-12 card">
     <div class="row no-gutters p-2">
       <div class="col-8">
-        <h1 class="mb-0">Novo Apartamento</h1>
+        <% if @action == "create" %>
+          <h1 class="mb-0">Novo Apartamento</h1>
+        <% else %>
+          <h1 class="mb-0">Atualizar Apartamento</h1>
+        <% end %>
       </div>
       <div class="col-4 align-self-center text-right">
         <%= link_to("Voltar", root_path) %>
@@ -11,7 +15,7 @@
   </div>
 </div>
 
-<%= form_for @property, url: {action: "create"}  do |f| %>
+<%= form_for @property, url: {action: @action}  do |f| %>
   <div class="row no-gutters">
 
     <div class="col-md-4 pr-md-2 pb-2">
@@ -77,7 +81,11 @@
         </div>
 
         <div class="form-group col-12 text-right">
-          <%= f.submit "Criar", class: "btn btn-success" %>
+          <% if @action == "create" %>
+            <%= f.submit "Criar", class: "btn btn-success" %>
+          <% else %>
+            <%= f.submit "Atualizar", class: "btn btn-primary" %>
+          <% end %>
         </div>
 
       </div>
