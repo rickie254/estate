@@ -26,7 +26,9 @@
     <div class="col-md-10 col-12 mb-2">
       <div class="card property-summary">
         <div class="row no-gutters">
-          <div class="property-image col-4" style="background-image:url('http://s2.glbimg.com/LcMtebaSrDUHnQinU5TreJXcUCs=/620x465/s.glbimg.com/jo/g1/f/original/2016/08/23/apartamento.jpg')"></div>
+          <% if property.gallery.images.length > 0 %>
+            <div class="property-image col-4" style="background-image:url(<%= property.gallery.images.first %>)"></div>
+          <% end %>
 
           <div class="col-8 pt-3 pr-3 pl-3">
             <div class="row mb-4">
@@ -41,11 +43,13 @@
               <div class="row">
 
                 <div class="col-8">
-                  <dl class="row">
+                  <dl class="row no-gutters">
                     <dt class="col-sm-4 text-secondary">Bairro</dt>
                     <dd class="col-sm-8"><%= property.district %></dd>
                     <dt class="col-sm-4 text-secondary">Endereço</dt>
                     <dd class="col-sm-8"><%= property.address %></dd>
+                    <dt class="col-sm-4 text-secondary">Área global</dt>
+                    <dd class="col-sm-8"><%= property.global_area %></dd>
                   </dl>
                 </div>
 
