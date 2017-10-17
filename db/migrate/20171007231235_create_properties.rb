@@ -10,6 +10,7 @@ class CreateProperties < ActiveRecord::Migration[5.1]
       # location
       t.string        :address
       t.string        :district
+      t.string        :nearby
 
       # financial
       t.monetize      :value
@@ -27,6 +28,7 @@ class CreateProperties < ActiveRecord::Migration[5.1]
 
       # apartment fields
       t.integer       :number_of_boxes
+      t.boolean       :roof
       t.monetize      :condominium
 
       t.timestamps

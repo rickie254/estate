@@ -2,11 +2,25 @@ class PropertiesController < ApplicationController
   # before_action :authenticate_admin!, :except => [:index]
 
   def index
-    @properties = Property.all
+    case property_type
+    when "apartment"
+      if params[:number_of_rooms]
+        @properties = Apartment.all.where(number_of_rooms: params[:number_of_rooms])
+      elsif params[:number_of_boxes]
+        @properties = Apartment.all.where(number_of_boxes > 0)
+      elsif params[:roof]
+        @properties = Apartment.all.where(roof: true)
+      end
+    when "house"
+      if params[:number_of_rooms]
+        @properties = Apartment.all.where(number_of_rooms: params[:number_of_rooms])
+      end
+    end
+    @properties = property_type.all if property_type
+    @properties ||= Property.all
   end
 
   def show
-    p params
     @property = Property.find(params[:id])
   end
 

@@ -8,7 +8,7 @@
   <label>Negócio</label>
   <%= f.select :deal, options_for_select(House.attributes_for_select "deals"),
   {}, {class: "form-control #{validate_field(@property, :deal)}"} %>
-    <%= error_message_for_field(@property, :deal) %>
+  <%= error_message_for_field(@property, :deal) %>
 </div>
 
 <div class="form-group col-sm-12">
@@ -33,4 +33,10 @@
   <label>Valor</label>
   <%= f.text_field :value, class: "form-control #{validate_field(@property, :value)}" %>
   <%= error_message_for_field(@property, :value) %>
+</div>
+
+<div class="form-group col-sm-4">
+  <label>Próximo</label>
+  <%= f.text_field :nearby, class: "form-control #{validate_field(@property, :nearby)}" %>
+  <%= error_message_for_field(@property, :nearby) %>
 </div>

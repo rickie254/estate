@@ -6,25 +6,25 @@
           <h2>Apartamentos</h2>
           <ul class="list-unstyled">
             <li>
-              Kitinete
+              <%= link_to "Kitinete", apartments_path(number_of_rooms: :kitnet), class: "navbar-brand" %>
             </li>
             <li>
-              Apartamento 1 Dorm.
+              <%= link_to "1 Dormitório", apartments_path(number_of_rooms: :one), class: "navbar-brand" %>
             </li>
             <li>
-              Apartamento 2 Dorm.
+              <%= link_to "2 Dormitórios", apartments_path(number_of_rooms: :two), class: "navbar-brand" %>
             </li>
             <li>
-              Apartamento 3 Dorm.
+              <%= link_to "3 Dormitórios", apartments_path(number_of_rooms: :three), class: "navbar-brand" %>
             </li>
             <li>
-              Apartamento 4 Dorm. ou +
+              <%= link_to "4 Dormitórios ou mais", apartments_path(number_of_rooms: :four), class: "navbar-brand" %>
             </li>
             <li>
-              Cobertura
+              <%= link_to "Cobertura", apartments_path(roof: true), class: "navbar-brand" %>
             </li>
             <li>
-              Box de garagem
+              <%= link_to "Com Box de Garagem", apartments_path(number_of_boxes: true), class: "navbar-brand" %>
             </li>
           </ul>
         </div>

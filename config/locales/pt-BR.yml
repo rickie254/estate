@@ -8,6 +8,12 @@ pt-BR:
           has_many: Não é possível excluir o registro pois existem %{record} dependentes
     attributes:
       property:
+        number_of_rooms:
+          kitnet: Kitinete
+          one: 1 quarto
+          two: 2 quartos
+          three: 3 quartos
+          four_or_more: 4 ou mais
         deals:
           sale: Venda
           rent: Aluguel

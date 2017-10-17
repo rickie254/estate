@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(version: 20171013042059) do
     t.integer "gallery_id"
     t.string "address"
     t.string "district"
+    t.string "nearby"
     t.integer "value_cents", default: 0, null: false
     t.string "value_currency", default: "USD", null: false
     t.integer "deal"
@@ -38,6 +39,7 @@ ActiveRecord::Schema.define(version: 20171013042059) do
     t.integer "position"
     t.integer "number_of_rooms"
     t.integer "number_of_boxes"
+    t.boolean "roof"
     t.integer "condominium_cents", default: 0, null: false
     t.string "condominium_currency", default: "USD", null: false
     t.datetime "created_at", null: false
