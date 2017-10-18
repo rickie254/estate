@@ -43,16 +43,20 @@
           </h2>
           <ul class="list-unstyled">
             <li>
-              Casa 1 Dorm.
+              <%= link_to "1 Quarto", houses_path(filter: {number_of_rooms: 1}),
+              class: "navbar-brand" %>
             </li>
             <li>
-              Casa 2 Dorm.
+              <%= link_to "2 Quartos", houses_path(filter: {number_of_rooms: 2}),
+              class: "navbar-brand" %>
             </li>
             <li>
-              Casa 3 Dorm.
+              <%= link_to "3 Quartos", houses_path(filter: {number_of_rooms: 3}),
+              class: "navbar-brand" %>
             </li>
             <li>
-              Casa 4 Dorm. ou +
+              <%= link_to "4 Quartos ou +", houses_path(filter: {number_of_rooms: 4}),
+              class: "navbar-brand" %>
             </li>
             <li>
               Casa em Condomínio

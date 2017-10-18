@@ -18,7 +18,11 @@ pt-BR:
     one: 1 quarto
     two: 2 quartos
     three: 3 quartos
-    four_or_more: 4 ou mais
+    four_or_more: 4 quartos ou mais
+    !!str 1: 1 quarto
+    !!str 2: 2 quartos
+    !!str 3: 3 quartos
+    !!str 4: 4 quartos ou mais
 
   fresh: Novo
   used: Usado
@@ -54,6 +58,7 @@ pt-BR:
         positions:
           front: Frente
           back: Fundos
+
   date:
     abbr_day_names:
     - Dom
