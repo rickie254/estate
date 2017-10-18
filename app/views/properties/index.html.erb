@@ -13,81 +13,82 @@
     <div class="card p-2">
       <div class="row">
         <div class="col-6">
-          <h2 class="mb-0">Apartamentos de 1 dormitório para venda</h2>
+          <h2 class="mb-0">
+            <%= @breadcrumbs %>
+          </h2>
         </div>
         <div class="col-6 text-right">
-          <h2 class="mb-0">10 imóveis encontrados</h2>
+          <h2 class="mb-0">
+            <%= pluralize @properties.length, "imóvel encontrado", "imóveis encontrados" %>
+          </h2>
         </div>
       </div>
     </div>
   </div>
+  <% if @properties.length > 0 %>
+    <% @properties.each do |property| %>
+      <div class="col-md-10 col-12 mb-2">
+        <div class="card property-summary">
+          <div class="row no-gutters">
+            <% if property.gallery.images.length > 0 %>
+              <div class="property-image col-4" style="background-image:url(<%= property.gallery.images.first %>)"></div>
+            <% else %>
+              <div class="property-image col-4" style="background-image:url('assets/no-image.jpg')"></div>
+            <% end %>
 
-  <% @properties.each do |property| %>
-    <div class="col-md-10 col-12 mb-2">
-      <div class="card property-summary">
-        <div class="row no-gutters">
-          <% if property.gallery.images.length > 0 %>
-            <div class="property-image col-4" style="background-image:url(<%= property.gallery.images.first %>)"></div>
-          <% end %>
-
-          <div class="col-8 pt-3 pr-3 pl-3">
-            <div class="row mb-4">
-              <div class="col-md-6">
-                <h2><%= property.title %></h2>
-              </div>
-              <div class="col-md-6 text-right">
-                <h2>R$ <%= property.value %></h2>
-              </div>
-            </div>
-            <div class="d-none d-md-block">
-              <div class="row">
-
-                <div class="col-8">
-                  <dl class="row no-gutters">
-                    <dt class="col-sm-4 text-secondary">Bairro</dt>
-                    <dd class="col-sm-8"><%= property.district %></dd>
-                    <dt class="col-sm-4 text-secondary">Endereço</dt>
-                    <dd class="col-sm-8"><%= property.address %></dd>
-                    <dt class="col-sm-4 text-secondary">Área global</dt>
-                    <dd class="col-sm-8"><%= property.global_area %></dd>
-                  </dl>
+            <div class="col-8 pt-3 pr-3 pl-3">
+              <div class="row mb-4">
+                <div class="col-md-6">
+                  <h2><%= property.title %></h2>
                 </div>
-
-                <div class="col-4 text-right">
-                  1 dormitório <br>
-                  1 vaga de garagem <br>
-                  77.50 m² <br>
+                <div class="col-md-6 text-right">
+                  <h2>R$ <%= property.value %></h2>
                 </div>
-
               </div>
+
+              <div class="d-none d-md-block">
+                <div class="row">
+
+                  <div class="col-8">
+                    <%= render "partials/general_property_information", property: property %>
+                  </div>
+
+                  <div class="col-4 text-right">
+                    <%= render "partials/specific_property_information", property: property %>
+                  </div>
+
+                </div>
+              </div>
+
+              <div class="row pb-3 pt-2">
+                <div class="col-auto">
+                  <h3>
+                    <%= link_to("Excluir") %>
+                  </h3>
+                </div>
+                <div class="col-auto">
+                  <h3>
+                    <%= link_to("Editar", [:edit, property]) %>
+                  </h3>
+                </div>
+                <div class="col text-right">
+                  <h3>
+                    <%= link_to("Ver mais detalhes", property) %>
+                  </h3>
+                </div>
+              </div>
+
             </div>
-
-            <div class="row pb-3 pt-2">
-              <div class="col-auto">
-                <h3>
-                  <%= link_to("Excluir") %>
-                </h3>
-              </div>
-              <div class="col-auto">
-                <h3>
-                  <%= link_to("Editar", [:edit, property]) %>
-                </h3>
-              </div>
-              <div class="col text-right">
-                <h3>
-                  <%= link_to("Ver mais detalhes") %>
-                </h3>
-              </div>
-            </div>
-
           </div>
         </div>
       </div>
-    </div>
+    <% end %>
+
   <% end %>
 </div>
 
-<div class="row justify-content-center">
+
+<!-- <div class="row justify-content-center">
   <div class="col-auto">
     <nav aria-label="Page navigation example">
       <ul class="pagination pagination-lg">
@@ -109,4 +110,4 @@
       </ul>
     </nav>
   </div>
-</div>
+</div> -->

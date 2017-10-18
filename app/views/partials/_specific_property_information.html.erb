@@ -1,0 +1,14 @@
+<% case property.type %>
+<% when "Apartment" %>
+  <ul class="list-unstyled">
+    <li>
+      <%= I18n.t property.number_of_rooms %>
+    </li>
+    <li>
+      <%= property.number_of_boxes %> Box de Estacionamento <br>
+    </li>
+    <li>
+      <%= property.private_area %> m² área privada <br>
+    </li>
+  </ul>
+<% end %>

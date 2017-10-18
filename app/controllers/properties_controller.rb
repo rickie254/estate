@@ -1,23 +1,19 @@
 class PropertiesController < ApplicationController
   # before_action :authenticate_admin!, :except => [:index]
+  include ApplicationHelper
 
   def index
-    case params[:type]
-    when "Apartment"
-      if params[:number_of_rooms]
-        @properties = Apartment.all.where(number_of_rooms: params[:number_of_rooms])
-      elsif params[:number_of_boxes]
-        @properties = Apartment.all.where(number_of_boxes > 0)
-      elsif params[:roof]
-        @properties = Apartment.all.where(roof: true)
-      end
-    when "House"
-      if params[:number_of_rooms]
-        @properties = Apartment.all.where(number_of_rooms: params[:number_of_rooms])
-      end
+    if property_type
+      @properties = property_type.query_for_listing(params[:filter])
+
+      @breadcrumbs = generate_breadcrumbs params[:filter]
+
     end
 
+
     @properties ||= Property.all
+
+    @properties.page if @properties.length > 0
   end
 
   def show
@@ -29,7 +25,7 @@ class PropertiesController < ApplicationController
     @property = property_type.new
 
     @action = "create"
-    render "properties/#{propery_name}_form"
+    render "properties/#{property_name}_form"
   end
 
   def edit
@@ -37,7 +33,7 @@ class PropertiesController < ApplicationController
     @@gallery = @property.gallery
 
     @action = "update"
-    render "properties/#{propery_name}_form"
+    render "properties/#{property_name}_form"
   end
 
   def create
@@ -47,7 +43,7 @@ class PropertiesController < ApplicationController
     if @property.save
       redirect_to @property
     else
-      render "properties/#{propery_name}_form"
+      render "properties/#{property_name}_form"
     end
   end
 
@@ -57,7 +53,7 @@ class PropertiesController < ApplicationController
     if @property.update! property_params
       redirect_to @property
     else
-      render "properties/#{propery_name}_form"
+      render "properties/#{property_name}_form"
     end
   end
 
@@ -105,7 +101,7 @@ class PropertiesController < ApplicationController
     if params[:type] then params["#{params[:type].downcase}_id".to_sym] else nil end
   end
 
-  def propery_name
+  def property_name
     "#{params[:type].downcase}"
   end
 

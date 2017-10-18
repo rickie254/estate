@@ -1,4 +1,34 @@
 pt-BR:
+  # traduções para a view
+  apartment:
+    one: Apartamentos
+    other: Apartamentos
+  house:
+    one: Casa
+    other: Casas
+
+  roof:
+    !!str true: Cobertura
+
+  number_of_boxes:
+    !!str true: Com garagem
+
+  number_of_rooms:
+    kitnet: Kitinete
+    one: 1 quarto
+    two: 2 quartos
+    three: 3 quartos
+    four_or_more: 4 ou mais
+
+  fresh: Novo
+  used: Usado
+
+  front: Frente
+  back: Fundos
+
+  sale: Venda
+  rent: Aluguel
+
   activerecord:
     errors:
       messages:
@@ -7,6 +37,7 @@ pt-BR:
           has_one: Não é possível excluir o registro pois existe um %{record} dependente
           has_many: Não é possível excluir o registro pois existem %{record} dependentes
     attributes:
+      # traduções para os enums
       property:
         number_of_rooms:
           kitnet: Kitinete

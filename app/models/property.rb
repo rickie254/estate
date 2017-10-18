@@ -1,4 +1,6 @@
 class Property < ApplicationRecord
+  paginates_per 2
+
   monetize :value_cents
   has_one :gallery
 
@@ -14,4 +16,7 @@ class Property < ApplicationRecord
     end
   end
 
+  def self.query_for_listing params
+    all
+  end
 end

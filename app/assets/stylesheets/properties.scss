@@ -1,0 +1,17 @@
+@import "variables";
+
+.property-image{
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.property-summary{
+  text-decoration: none;
+  border: 1px solid $card-border;
+  transition: border .5s;
+
+  &:hover{
+    border: 1px solid red;
+  }
+}
