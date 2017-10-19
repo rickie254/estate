@@ -11,5 +11,5 @@ Rails.application.routes.draw do
   post   "properties/add_image/",           to: "properties#add_image"
   delete "properties/remove_image/:index",  to: "properties#remove_image"
 
-  root :to => 'properties#index'
+  root :to => 'properties#home'
 end

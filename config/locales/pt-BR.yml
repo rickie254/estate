@@ -1,4 +1,10 @@
 pt-BR:
+  views:
+    pagination:
+      next: ">"
+      previous: "<"
+      first: Primeira
+      last: Última
   # traduções para a view
   apartment:
     one: Apartamentos

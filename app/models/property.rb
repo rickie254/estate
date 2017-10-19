@@ -1,6 +1,4 @@
 class Property < ApplicationRecord
-  paginates_per 2
-
   monetize :value_cents
   has_one :gallery
 

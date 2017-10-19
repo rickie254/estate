@@ -1,4 +1,5 @@
 $(document).on 'turbolinks:load', ->
+  $(".form-check-input").bootstrapSwitch(onText: "SIM", offText: "NÃO", onColor: "success", offColor: "danger");
 
   if $('#gallery').length
     app = new Vue

@@ -2,18 +2,17 @@ class PropertiesController < ApplicationController
   # before_action :authenticate_admin!, :except => [:index]
   include ApplicationHelper
 
+  def home
+  end
+
   def index
     if property_type
-      @properties = property_type.query_for_listing(params[:filter])
-
+      properties = property_type.query_for_listing(params[:filter])
       @breadcrumbs = generate_breadcrumbs params[:filter]
-
     end
+    properties ||= Property.all
 
-
-    @properties ||= Property.all
-
-    @properties.page if @properties.length > 0
+    @properties = properties.page(params[:page]).per(2)
   end
 
   def show
@@ -90,7 +89,7 @@ class PropertiesController < ApplicationController
 
   def property_params
     params.require(params[:type].downcase.to_sym).permit(:title, :address, :district, :value, :deal,
-    :global_area, :private_area, :featured, :profile, :position, :number_of_rooms, :condominium)
+    :global_area, :private_area, :featured, :profile, :position, :number_of_rooms, :condominium, :featured)
   end
 
   def image_param

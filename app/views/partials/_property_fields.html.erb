@@ -40,3 +40,9 @@
   <%= f.text_field :nearby, class: "form-control #{validate_field(@property, :nearby)}" %>
   <%= error_message_for_field(@property, :nearby) %>
 </div>
+
+<div class="form-group col-sm-4">
+  <label>Em destaque?</label> <br>
+  <%= f.check_box :featured, class: "form-check-input #{validate_field(@property, :featured)}" %>
+  <%= error_message_for_field(@property, :featured) %>
+</div>
