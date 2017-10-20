@@ -16,6 +16,7 @@
 //= require jquery
 //= require bootstrap
 //= require bootstrap-switch
+//= require jquery-mask-plugin
 //= require vue
 //= require vue-resource
 //= require_tree .

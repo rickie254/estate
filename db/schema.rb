@@ -29,19 +29,19 @@ ActiveRecord::Schema.define(version: 20171013042059) do
     t.string "address"
     t.string "district"
     t.string "nearby"
-    t.integer "value_cents", default: 0, null: false
-    t.string "value_currency", default: "USD", null: false
+    t.integer "value_cents", null: false
+    t.string "value_currency", default: "BRL", null: false
     t.integer "deal"
-    t.decimal "global_area", precision: 6, scale: 2
-    t.decimal "private_area", precision: 6, scale: 2
+    t.float "global_area"
     t.boolean "featured"
     t.integer "profile"
     t.integer "position"
     t.integer "number_of_rooms"
+    t.float "private_area"
     t.integer "number_of_boxes"
     t.boolean "roof"
-    t.integer "condominium_cents", default: 0, null: false
-    t.string "condominium_currency", default: "USD", null: false
+    t.integer "condominium_cents"
+    t.string "condominium_currency", default: "BRL", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

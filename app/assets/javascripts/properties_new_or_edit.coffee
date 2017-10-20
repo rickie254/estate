@@ -1,5 +1,6 @@
 $(document).on 'turbolinks:load', ->
-  $(".form-check-input").bootstrapSwitch(onText: "SIM", offText: "NÃO", onColor: "success", offColor: "danger");
+  $('.form-check-input').bootstrapSwitch(onText: 'SIM', offText: 'NÃO', onColor: 'success', offColor: 'danger')
+  $('.double').mask('#.##0,00', {reverse: true})
 
   if $('#gallery').length
     app = new Vue
@@ -20,7 +21,7 @@ $(document).on 'turbolinks:load', ->
         removeImage: (index) ->
           app.loading = true
 
-          this.$http.delete("/properties/remove_image/" + index)
+          this.$http.delete('/properties/remove_image/' + index)
           .then((res) ->
             app.images = res.body.images
             app.loading = false
@@ -34,10 +35,11 @@ $(document).on 'turbolinks:load', ->
             for file, i in files
 
               formData = new FormData()
-              formData.append("image", file)
+              formData.append('image', file)
 
-              this.$http.post("/properties/add_image/", formData)
+              this.$http.post('/properties/add_image/', formData)
               .then((res) ->
+                console.log res
                 app.images = res.body.images
                 app.loading = false
               )

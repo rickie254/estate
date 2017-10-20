@@ -16,20 +16,19 @@ class CreateProperties < ActiveRecord::Migration[5.1]
       t.monetize      :value
       t.integer       :deal # rent or sale
 
-      t.decimal       :global_area, precision: 6, scale: 2
-      t.decimal       :private_area, precision: 6, scale: 2
-
+      t.float         :global_area
       t.boolean       :featured
 
       # buildings fields
       t.integer       :profile
       t.integer       :position
       t.integer       :number_of_rooms
+      t.float         :private_area
 
       # apartment fields
       t.integer       :number_of_boxes
       t.boolean       :roof
-      t.monetize      :condominium
+      t.monetize      :condominium, amount: { null: true, default: nil }
 
       t.timestamps
     end

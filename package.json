@@ -2,9 +2,11 @@
   "name": "corretor_de_imoveis",
   "private": true,
   "dependencies": {
+    "PureMask.js": "github:romulobrasil/PureMask.js",
     "axios": "^0.16.2",
     "bootstrap-switch": "^3.3.4",
     "jquery": "^3.2.1",
+    "jquery-mask-plugin": "^1.14.12",
     "popper": "^1.0.0",
     "vue": "^2.5.2",
     "vue-resource": "^1.3.4"

@@ -37,7 +37,15 @@ class PropertiesController < ApplicationController
 
   def create
     @property = property_type.new property_params
+
     @property.gallery = @@gallery
+
+    global_area = property_params[:global_area]
+    private_area = property_params[:private_area]
+
+    @property.attributes = property_params
+    @property.global_area = global_area.comma_to_delimiter if global_area
+    @property.private_area = private_area.comma_to_delimiter if private_area
 
     if @property.save
       redirect_to @property
@@ -49,7 +57,16 @@ class PropertiesController < ApplicationController
   def update
     @property = property_type.find params[:id]
 
-    if @property.update! property_params
+    global_area = property_params[:global_area]
+    private_area = property_params[:private_area]
+
+    @property.attributes = property_params
+    @property.global_area = global_area.comma_to_delimiter if global_area
+    @property.private_area = private_area.comma_to_delimiter if private_area
+
+    p @property.global_area
+
+    if @property.save
       redirect_to @property
     else
       render "properties/#{property_name}_form"
@@ -69,7 +86,7 @@ class PropertiesController < ApplicationController
     if @@gallery.save
       render json: {images: @@gallery.images}
     else
-      head :bad_request
+      render json: {images: @@gallery.errors}
     end
   end
 
@@ -88,8 +105,7 @@ class PropertiesController < ApplicationController
   private
 
   def property_params
-    params.require(params[:type].downcase.to_sym).permit(:title, :address, :district, :value, :deal,
-    :global_area, :private_area, :featured, :profile, :position, :number_of_rooms, :condominium, :featured)
+    params.require(params[:type].downcase.to_sym).permit PROPERTY_PARAMS
   end
 
   def image_param

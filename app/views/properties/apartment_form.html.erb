@@ -5,7 +5,10 @@
         <% if @action == "create" %>
           <h1 class="mb-0">Novo Apartamento</h1>
         <% else %>
-          <h1 class="mb-0">Atualizar Apartamento</h1>
+          <h1 class="mb-0">
+            Atualizar Apartamento
+            <small><%= @property.title %></small>
+          </h1>
         <% end %>
       </div>
       <div class="col-4 align-self-center text-right">
@@ -46,8 +49,11 @@
         </div>
 
         <div class="form-group col-sm-6 col-md-4">
-          <label>Área Privada</label>
-          <%= f.text_field :private_area, class: "form-control #{validate_field(@property, :private_area)}" %>
+          <label>
+            Área Privada <small>(m²)</small>
+          </label>
+          <%= f.text_field :private_area, value: number_with_precision(f.object.private_area, precision: 2),
+          class: "double form-control #{validate_field(@property, :private_area)}" %>
           <%= error_message_for_field(@property, :private_area) %>
         </div>
 
@@ -59,8 +65,11 @@
         </div>
 
         <div class="form-group col-sm-6 col-md-4">
-          <label>Condomínio</label>
-          <%= f.text_field :condominium, class: "form-control #{validate_field(@property, :condominium)}" %>
+          <label>
+            Condomínio <small>(R$)</small>
+          </label>
+          <%= f.text_field :condominium,
+          class: "double form-control #{validate_field(@property, :condominium)}" %>
           <%= error_message_for_field(@property, :condominium) %>
         </div>
 

@@ -11,7 +11,7 @@ module CorretorDeImoveis
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 5.1
 
-    config.autoload_paths += %W(#{config.root}/lib) # add this line
+    config.autoload_paths += %W(#{config.root}/lib)
 
     config.time_zone = 'America/Sao_Paulo'
     config.i18n.default_locale = 'pt-BR'

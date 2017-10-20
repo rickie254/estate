@@ -20,18 +20,24 @@
 <div class="form-group col-sm-6">
   <label>Bairro</label>
   <%= f.text_field :district, class: "form-control #{validate_field(@property, :district)}" %>
-    <%= error_message_for_field(@property, :district) %>
+  <%= error_message_for_field(@property, :district) %>
 </div>
 
 <div class="form-group col-sm-3">
-  <label>Área Global</label>
-  <%= f.text_field :global_area, class: "form-control #{validate_field(@property, :global_area)}" %>
+  <label>
+    Área Global <small>(m²)</small>
+  </label>
+  <%= f.text_field :global_area, value: number_with_precision(f.object.global_area, precision: 2),
+  class: "double form-control #{validate_field(@property, :global_area)}" %>
   <%= error_message_for_field(@property, :global_area) %>
 </div>
 
 <div class="form-group col-sm-3">
-  <label>Valor</label>
-  <%= f.text_field :value, class: "form-control #{validate_field(@property, :value)}" %>
+  <label>
+    Valor <small>(R$)</small>
+  </label>
+  <%= f.text_field :value,
+  class: "double form-control #{validate_field(@property, :value)}" %>
   <%= error_message_for_field(@property, :value) %>
 </div>
 

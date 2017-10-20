@@ -6,7 +6,12 @@
       <div class="col-12 card mb-2">
         <div class="row no-gutters p-2">
           <div class="col-8">
-            <h1 class="mb-0">Edifício de exemplo</h1>
+            <h1 class="mb-0">
+              <%= @property.title %>
+              <%= link_to [:edit, @property] do %>
+                <i class="fa fa-pencil" title="Editar"></i>
+              <% end %>
+            </h1>
           </div>
           <div class="col-4 align-self-center text-right">
             <%= link_to("Voltar", root_path) %>
@@ -47,8 +52,6 @@
             <dd class="col-sm-8"><%= @property.district %></dd>
             <dt class="col-sm-4 text-secondary">Cidade</dt>
             <dd class="col-sm-8">Passo Fundo</dd>
-            <dt class="col-sm-4 text-secondary">Área global</dt>
-            <dd class="col-sm-8"><%= @property.global_area %></dd>
             <% if @property.nearby %>
               <dt class="col-sm-4 text-secondary">Próximo</dt>
               <dd class="col-sm-8"><%= @property.nearby %></dd>
@@ -56,11 +59,11 @@
             <dt class="col-sm-4 text-secondary">Posição</dt>
             <dd class="col-sm-8"><%= I18n.t @property.position %></dd>
             <dt class="col-sm-4 text-secondary">Valor</dt>
-            <dd class="col-sm-8"><%= @property.value %></dd>
+            <dd class="col-sm-8">R$ <%= humanized_money @property.value %></dd>
             <dt class="col-sm-4 text-secondary">Área Global</dt>
-            <dd class="col-sm-8"><%= @property.global_area %></dd>
+            <dd class="col-sm-8"><%= number_with_precision(@property.global_area, precision: 2) %> m²</dd>
             <dt class="col-sm-4 text-secondary">Área Privada</dt>
-            <dd class="col-sm-8"><%= @property.private_area %></dd>
+            <dd class="col-sm-8"><%= number_with_precision(@property.private_area, precision: 2) %> m²</dd>
           </dl>
         </div>
 
