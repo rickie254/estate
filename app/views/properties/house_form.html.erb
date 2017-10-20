@@ -34,7 +34,7 @@
           <label>
             Área Privada <small>(m²)</small>
           </label>
-          <%= f.text_field :private_area,
+          <%= f.text_field :private_area, value: number_with_precision(f.object.private_area, precision: 2),
           class: "double form-control #{validate_field(@property, :private_area)}" %>
           <%= error_message_for_field(@property, :private_area) %>
         </div>

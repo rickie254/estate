@@ -5,8 +5,8 @@ class Property < ApplicationRecord
   enum deal: [ :sale, :rent ]
 
   validates :title, presence: true
-	# validates :district, presence: true
-	# validates :address, presence: true
+  validates :address, presence: true
+	validates :district, presence: true
 
   def self.attributes_for_select field
     eval(field).map do |value, _|
