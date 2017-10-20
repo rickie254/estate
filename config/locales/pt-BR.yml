@@ -23,14 +23,10 @@ pt-BR:
 
     number_of_rooms:
       kitnet: Kitinete
-      one: 1 quarto
-      two: 2 quartos
-      three: 3 quartos
-      four: 4 quartos
-      !!str 1: 1 quarto
-      !!str 2: 2 quartos
-      !!str 3: 3 quartos
-      !!str 4: 4 quartos ou mais
+      one: 1
+      two: 2
+      three: 3
+      four: 4
 
     fresh: Novo
     used: Usado

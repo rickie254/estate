@@ -10,8 +10,19 @@ module ApplicationHelper
 
   def generate_breadcrumbs filter
     first_crumb = I18n.t "views.#{property_name}.other"
+
     if filter
-      second_crumb = I18n.t "views.#{filter.keys[0]}.#{filter.values[0]}"
+      if filter.keys[0] == "number_of_rooms" && property_name == "house"
+        rooms = filter.values[0].to_i
+        if rooms == 4
+          qtd = pluralize filter.values[0].to_i, "quarto", "quartos"
+          second_crumb = "#{qtd} ou mais"
+        else
+          second_crumb = pluralize filter.values[0].to_i, "quarto", "quartos"
+        end
+      else
+        second_crumb = I18n.t "views.#{filter.keys[0]}.#{filter.values[0]}"
+      end
       @listing_title = "Vendas / #{first_crumb} / #{second_crumb}"
     else
       @listing_title = "Vendas / #{first_crumb}"
