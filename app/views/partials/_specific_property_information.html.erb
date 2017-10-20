@@ -2,13 +2,25 @@
 <% when "Apartment" %>
   <ul class="list-unstyled">
     <li>
-      <%= I18n.t property.number_of_rooms %>
+      <%= I18n.t "views.number_of_rooms.#{property.number_of_rooms}" %>
     </li>
     <li>
       <%= property.number_of_boxes %> Box de Estacionamento <br>
     </li>
     <li>
-      <%= property.private_area %> m² área privada <br>
+      <%= square_meters property.private_area %> área privada <br>
+    </li>
+  </ul>
+<% when "House" %>
+  <ul class="list-unstyled">
+    <li>
+      <%= I18n.t "views.number_of_rooms.#{property.number_of_rooms}" %>
+    </li>
+    <li>
+      <%= property.number_of_boxes %> Box de Estacionamento <br>
+    </li>
+    <li>
+      <%= square_meters property.private_area %> área privada <br>
     </li>
   </ul>
 <% end %>

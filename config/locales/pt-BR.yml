@@ -1,43 +1,45 @@
 pt-BR:
   views:
+
     pagination:
       next: ">"
       previous: "<"
       first: Primeira
       last: Última
-  # traduções para a view
-  apartment:
-    one: Apartamentos
-    other: Apartamentos
-  house:
-    one: Casa
-    other: Casas
 
-  roof:
-    !!str true: Cobertura
+    apartment:
+      one: Apartamentos
+      other: Apartamentos
 
-  number_of_boxes:
-    !!str true: Com garagem
+    house:
+      one: Casa
+      other: Casas
 
-  number_of_rooms:
-    kitnet: Kitinete
-    one: 1 quarto
-    two: 2 quartos
-    three: 3 quartos
-    four_or_more: 4 quartos ou mais
-    !!str 1: 1 quarto
-    !!str 2: 2 quartos
-    !!str 3: 3 quartos
-    !!str 4: 4 quartos ou mais
+    roof:
+      !!str true: Cobertura
 
-  fresh: Novo
-  used: Usado
+    number_of_boxes:
+      !!str true: Com garagem
 
-  front: Frente
-  back: Fundos
+    number_of_rooms:
+      kitnet: Kitinete
+      one: 1 quarto
+      two: 2 quartos
+      three: 3 quartos
+      four: 4 quartos
+      !!str 1: 1 quarto
+      !!str 2: 2 quartos
+      !!str 3: 3 quartos
+      !!str 4: 4 quartos ou mais
 
-  sale: Venda
-  rent: Aluguel
+    fresh: Novo
+    used: Usado
+
+    front: Frente
+    back: Fundos
+
+    sale: Venda
+    rent: Aluguel
 
   activerecord:
     errors:
@@ -54,7 +56,7 @@ pt-BR:
           one: 1 quarto
           two: 2 quartos
           three: 3 quartos
-          four_or_more: 4 ou mais
+          four: 4 ou mais
         deals:
           sale: Venda
           rent: Aluguel

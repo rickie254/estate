@@ -2,6 +2,11 @@
   <div class="col-md-10 col">
 
     <div class="row no-gutters">
+      <% if flash[:notice] %>
+        <div class="col-12">
+          <%= render "partials/alert_success", msg: flash[:notice] %>
+        </div>
+      <% end %>
 
       <div class="col-12 card mb-2">
         <div class="row no-gutters p-2">
@@ -23,15 +28,17 @@
         <div class="col-12 card p-3 mr-2" id="property-gallery">
           <h2>Galeria</h2>
           <% if @property.gallery.images.length > 0 %>
-            <%= link_to @property.gallery.images.first.url, class: "2pac" do %>
-              <%= image_tag @property.gallery.images.first.url %>
+            <%= link_to @property.gallery.images.first.url, class: "gallery-image" do %>
+              <div style="background-image:url(<%= @property.gallery.images.first.url %>)"></div>
             <% end %>
 
             <ul class="list-inline list-unstyled mt-2 text-center">
-              <% @property.gallery.images.each do |image|  %>
-                <li href="<%= image.url %>" class="2pac list-inline-item">
-                  <div style="background-image:url(<%= image.url %>)"/>
-                </li>
+              <% @property.gallery.images.each_with_index do |image, index|  %>
+                <% unless index == 0 %>
+                  <li href="<%= image.url %>" class="gallery-image list-inline-item">
+                    <div style="background-image:url(<%= image.url %>)"></div>
+                  </li>
+                <% end %>
               <% end %>
             </ul>
           <% else %>
@@ -45,7 +52,7 @@
           <h2>Características</h2>
           <dl class="row no-gutters">
             <dt class="col-sm-4 text-secondary">Perfil</dt>
-            <dd class="col-sm-8"><%= I18n.t @property.profile %></dd>
+            <dd class="col-sm-8"><%= I18n.t "views.#{@property.profile}" %></dd>
             <dt class="col-sm-4 text-secondary">Endereço</dt>
             <dd class="col-sm-8"><%= @property.address %></dd>
             <dt class="col-sm-4 text-secondary">Bairro</dt>
@@ -57,13 +64,13 @@
               <dd class="col-sm-8"><%= @property.nearby %></dd>
             <% end %>
             <dt class="col-sm-4 text-secondary">Posição</dt>
-            <dd class="col-sm-8"><%= I18n.t @property.position %></dd>
+            <dd class="col-sm-8"><%= I18n.t "views.#{@property.position}" %></dd>
             <dt class="col-sm-4 text-secondary">Valor</dt>
             <dd class="col-sm-8">R$ <%= humanized_money @property.value %></dd>
             <dt class="col-sm-4 text-secondary">Área Global</dt>
-            <dd class="col-sm-8"><%= number_with_precision(@property.global_area, precision: 2) %> m²</dd>
+            <dd class="col-sm-8"><%= square_meters @property.global_area %></dd>
             <dt class="col-sm-4 text-secondary">Área Privada</dt>
-            <dd class="col-sm-8"><%= number_with_precision(@property.private_area, precision: 2) %> m²</dd>
+            <dd class="col-sm-8"><%= square_meters @property.private_area %></dd>
           </dl>
         </div>
 

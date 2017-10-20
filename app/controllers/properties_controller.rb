@@ -48,7 +48,7 @@ class PropertiesController < ApplicationController
     @property.private_area = private_area.comma_to_delimiter if private_area
 
     if @property.save
-      redirect_to @property
+      redirect_to @property, flash: { notice: "Criado com sucessso!" }
     else
       render "properties/#{property_name}_form"
     end
@@ -64,10 +64,8 @@ class PropertiesController < ApplicationController
     @property.global_area = global_area.comma_to_delimiter if global_area
     @property.private_area = private_area.comma_to_delimiter if private_area
 
-    p @property.global_area
-
     if @property.save
-      redirect_to @property
+      redirect_to @property, flash: { notice: "Atualizado com sucessso!" }
     else
       render "properties/#{property_name}_form"
     end

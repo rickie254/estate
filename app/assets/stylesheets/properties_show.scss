@@ -1,7 +1,11 @@
 #property-gallery{
-  a{
-    img{
+  a.gallery-image{
+    div{
+      height: 400px;
       max-width: 100%;
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
     }
   }
 
@@ -10,8 +14,9 @@
       cursor: pointer;
 
       div{
-        background-position: center;
         background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
         width: 90px;
         height: 90px;
       }

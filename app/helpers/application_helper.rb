@@ -1,20 +1,20 @@
 module ApplicationHelper
 
+  def square_meters value
+    "#{number_with_precision(value, precision: 2)} m²"
+  end
+
   def pluralize(size, singular, plural)
-    if size == 1
-      "#{size} #{singular}"
-    else
-      "#{size} #{plural}"
-    end
+    if size == 1 then "#{size} #{singular}" else "#{size} #{plural}" end
   end
 
   def generate_breadcrumbs filter
-    first_bread = I18n.t "#{property_name}.other"
+    first_crumb = I18n.t "views.#{property_name}.other"
     if filter
-      second_bread = I18n.t "#{filter.keys[0]}.#{filter.values[0]}"
-      @listing_title = "Vendas / #{first_bread} / #{second_bread}"
+      second_crumb = I18n.t "views.#{filter.keys[0]}.#{filter.values[0]}"
+      @listing_title = "Vendas / #{first_crumb} / #{second_crumb}"
     else
-      @listing_title = "Vendas / #{first_bread}"
+      @listing_title = "Vendas / #{first_crumb}"
     end
   end
 

@@ -2,7 +2,7 @@ class Apartment < Property
   include Building
   monetize :condominium_cents, allow_nil: true
 
-  enum number_of_rooms: [ :kitnet, :one, :two, :three, :four_or_more ]
+  enum number_of_rooms: [ :kitnet, :one, :two, :three, :four ]
 
   def self.query_for_listing filter
     if filter
