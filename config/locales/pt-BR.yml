@@ -7,11 +7,11 @@ pt-BR:
       first: Primeira
       last: Última
 
-    apartment:
-      one: Apartamentos
+    Apartment:
+      one: Apartamento
       other: Apartamentos
 
-    house:
+    House:
       one: Casa
       other: Casas
 

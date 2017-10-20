@@ -9,7 +9,7 @@ module ApplicationHelper
   end
 
   def generate_breadcrumbs filter
-    first_crumb = I18n.t "views.#{property_name}.other"
+    first_crumb = I18n.t "views.#{property_type}.other"
 
     if filter
       if filter.keys[0] == "number_of_rooms" && property_name == "house"
