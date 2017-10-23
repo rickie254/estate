@@ -2,16 +2,16 @@
   <div class="col-12 card">
     <div class="row no-gutters p-2">
       <div class="col-8">
-        <% if action == "create" %>
-          <h1 class="mb-0">
-            <%= I18n.t "views.#{property.type}.new" %>
-          </h1>
-        <% else %>
+        <% if property.persisted? %>
           <h1 class="mb-0">
             Atualizar Apartamento
             <small>
               <%= link_to property.title, property %>
             </small>
+          </h1>
+        <% else %>
+          <h1 class="mb-0">
+            <%= I18n.t "views.#{property.type}.new" %>
           </h1>
         <% end %>
       </div>

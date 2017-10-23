@@ -2,6 +2,16 @@ class PropertiesController < ApplicationController
   # before_action :authenticate_admin!, :except => [:index]
   include ApplicationHelper
 
+  def show() @property = Property.find(params[:id]) end
+
+  def new() initialize_form end
+
+  def edit() initialize_form end
+
+  def get_images() render json: {images: @@gallery.images} end
+
+  def get_extra_list() render json: {list: @@extra_list.list} end
+
   def home
   end
 
@@ -15,29 +25,10 @@ class PropertiesController < ApplicationController
     @properties = properties.page(params[:page]).per(2)
   end
 
-  def show
-    @property = Property.find(params[:id])
-  end
-
-  def new
-    @@gallery = Gallery.new
-    @property = property_type.new
-
-    @action = "create"
-    render "properties/#{property_name}_form"
-  end
-
-  def edit
-    @property = property_type.find(params[:id])
-    @@gallery = @property.gallery
-
-    @action = "update"
-    render "properties/#{property_name}_form"
-  end
-
   def create
     @property = property_type.new property_params
     @property.gallery = @@gallery
+    @property.extra_list = @@extra_list
 
     unmask_fields
 
@@ -60,8 +51,47 @@ class PropertiesController < ApplicationController
     end
   end
 
-  def get_images
-    render json: {images: @@gallery.images}
+  def add_extra
+    extra = extra_param[:extra]
+
+    if !extra.nil? && !extra.blank?
+      list = @@extra_list.list
+      list << extra
+      @@extra_list.list = list
+
+      if @@extra_list.save
+        render json: {list: @@extra_list.list}
+      end
+    else
+      render json: "não pode ficar em branco", status: 406
+    end
+  end
+
+  def add_image
+    images = @@gallery.images
+    images << image_param[:image]
+    @@gallery.images = images
+
+    if @@gallery.valid?
+      if @@gallery.save
+        render json: {images: @@gallery.images}
+      end
+    else
+      render json: @@gallery.errors.messages, status: 406
+      @@gallery.images.pop
+    end
+  end
+
+  def remove_extra
+    remain_extras = @@extra_list.list
+    deleted_extra = remain_extras.delete_at(params[:index].to_i)
+    @@extra_list.list = remain_extras
+
+    if @@extra_list.valid?
+      render json: {list: @@extra_list.list}
+    else
+      render json: @@extra_list.errors.messages, status: 400
+    end
   end
 
   def remove_image
@@ -73,20 +103,22 @@ class PropertiesController < ApplicationController
     if @@gallery.save
       render json: {images: @@gallery.images}
     else
-      render json: {images: @@gallery.errors}
+      render json: @@gallery.errors.messages, status: 400
     end
   end
 
-  def add_image
-    images = @@gallery.images
-    images << image_param[:image]
-    @@gallery.images = images
-
-    if @@gallery.save
-      render json: {images: @@gallery.images}
+  def initialize_form
+    if params[:id]
+      @property = property_type.find(params[:id])
+      @@gallery = @property.gallery
+      @@extra_list = @property.extra_list
     else
-      render json: @@gallery.errors.messages, status: 406
+      @property = property_type.new
+      @@gallery = Gallery.new
+      @@extra_list = ExtraList.new
     end
+
+    render "properties/#{property_name}_form"
   end
 
   private
@@ -97,6 +129,10 @@ class PropertiesController < ApplicationController
 
   def image_param
     params.permit(:image)
+  end
+
+  def extra_param
+    params.permit(:extra)
   end
 
   def property_id

@@ -1,15 +1,40 @@
-<h2>Extras</h2>
-<div class="form-row">
-  <div class="form-group col-12">
-    <div class="input-group">
-      <input type="text" class="form-control"
-      placeholder="Adicionar uma característica extra...">
-      <span class="input-group-btn">
-        <button class="btn btn-primary"
-        :disabled="loading" type="button">
-          <i class="fa fa-plus-circle"></i>
-        </button>
-      </span>
+<div class="col-12 pt-3 pb-3 pl-2 pr-2 card mt-2">
+  <h2>Informações adicionais</h2>
+
+  <div class="form-row mt-1">
+    <div class="form-group col-12">
+      <div class="input-group">
+        <input type="text" v-model="extra" class="form-control"
+        v-bind:class="{'is-invalid': extraList.error}"
+        placeholder="Adicionar uma característica extra...">
+        <span class="input-group-btn">
+          <button class="btn btn-primary"
+          v-on:click="addExtra"
+          :disabled="loading" type="button">
+            <i class="fa fa-plus-circle"></i>
+          </button>
+        </span>
+      </div>
+      <div v:if="extraList.error" class="text-danger">
+        {{extraList.error}}
+      </div>
     </div>
   </div>
+
+  <div class="row pl-3" v:if="extraList.list.length > 0">
+    <div class="col-auto card"
+     v-for="(extra, index) in extraList.list">
+      <div class="row">
+        <div class="col-auto">
+          {{extra}}
+        </div>
+        <div class="col-auto pr-1">
+          <a href v-on:click="removeExtra(index)" :disabled="loading">
+            <i class="fa fa-times"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
 </div>

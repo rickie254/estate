@@ -9,5 +9,9 @@ Rails.application.routes.draw do
   post   "properties/add_image/",           to: "properties#add_image"
   delete "properties/remove_image/:index",  to: "properties#remove_image"
 
+  get    "properties/get_extra_list/",      to: "properties#get_extra_list"
+  post   "properties/add_extra/",           to: "properties#add_extra"
+  delete "properties/remove_extra/:index",  to: "properties#remove_extra"
+
   root :to => 'properties#home'
 end
