@@ -87,10 +87,8 @@ class PropertiesController < ApplicationController
     deleted_extra = remain_extras.delete_at(params[:index].to_i)
     @@extra_list.list = remain_extras
 
-    if @@extra_list.valid?
+    if @@extra_list.save
       render json: {list: @@extra_list.list}
-    else
-      render json: @@extra_list.errors.messages, status: 400
     end
   end
 
