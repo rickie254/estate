@@ -4,7 +4,7 @@
       <div class="col-8">
         <% if action == "create" %>
           <h1 class="mb-0">
-            Novo <%= I18n.t "views.#{property.type}.one" %>
+            <%= I18n.t "views.#{property.type}.new" %>
           </h1>
         <% else %>
           <h1 class="mb-0">
@@ -16,7 +16,7 @@
         <% end %>
       </div>
       <div class="col-4 align-self-center text-right">
-        <%= link_to("Voltar", root_path) %>
+        <%= link_to("Voltar", prev_page) %>
       </div>
     </div>
   </div>

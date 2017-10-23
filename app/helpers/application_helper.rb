@@ -1,5 +1,9 @@
 module ApplicationHelper
 
+  def prev_page
+    request.referer || root_path
+  end
+
   def square_meters value
     "#{number_with_precision(value, precision: 2)} m²"
   end

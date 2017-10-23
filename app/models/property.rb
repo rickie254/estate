@@ -1,6 +1,7 @@
 class Property < ApplicationRecord
   monetize :value_cents
   has_one :gallery
+  has_one :extra
 
   enum deal: [ :sale, :rent ]
 

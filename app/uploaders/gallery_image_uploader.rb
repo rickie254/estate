@@ -6,7 +6,7 @@ class GalleryImageUploader < CarrierWave::Uploader::Base
   before :store, :remember_cache_id
   after :store, :delete_tmp_dir
 
-  process :efficient_conversion => [1200, -1]
+  process :efficient_conversion => [1080, -1]
 
   def remember_cache_id(new_file)
     @cache_id_was = cache_id
@@ -26,7 +26,7 @@ class GalleryImageUploader < CarrierWave::Uploader::Base
     "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
   end
 
-  def extension_white_list
+  def extension_whitelist
     %w(jpg jpeg png bmp tif tiff)
   end
 

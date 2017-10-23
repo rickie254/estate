@@ -1,7 +1,7 @@
 <%= render "partials/form_title", {action: @action, property: @property} %>
 
 <%= form_for @property, url: {action: @action}  do |f| %>
-  <div class="row no-gutters">
+  <div class="row no-gutters" id="property_form">
 
     <div class="col-md-4 pr-md-2 pb-2">
       <%= render "partials/gallery_image_uploader" %>
@@ -24,7 +24,7 @@
         </div>
 
         <div class="form-group col-sm-6 col-md-3">
-          <label>Número de Quartos</label>
+          <label>Nº de Quartos</label>
           <%= f.number_field :number_of_rooms, min: 0,
           class: "form-control #{validate_field(@property, :number_of_rooms)}" %>
             <%= error_message_for_field(@property, :number_of_rooms) %>
@@ -45,15 +45,18 @@
           {}, {class: "form-control #{validate_field(@property, :position)}"} %>
           <%= error_message_for_field(@property, :position) %>
         </div>
+      </div>
 
+      <%= render "partials/property_extras" %>
+
+      <div class="form-row">
         <div class="form-group col-12 text-right">
           <% if @action == "create" %>
-            <%= f.submit "Criar", class: "btn btn-success" %>
+            <%= f.submit "Criar", class: "btn btn-success", ":disabled": "loading" %>
           <% else %>
-            <%= f.submit "Atualizar", class: "btn btn-primary" %>
+            <%= f.submit "Atualizar", class: "btn btn-primary", ":disabled": "loading" %>
           <% end %>
         </div>
-
       </div>
 
     </div>

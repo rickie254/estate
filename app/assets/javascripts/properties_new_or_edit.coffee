@@ -2,12 +2,16 @@ $(document).on 'turbolinks:load', ->
   $('.form-check-input').bootstrapSwitch(onText: 'SIM', offText: 'NÃO', onColor: 'success', offColor: 'danger')
   $('.double').mask('#.##0,00', {reverse: true})
 
-  if $('#gallery').length
+  if $('#property_form').length
     app = new Vue
-      el: '#gallery',
+      el: '#property_form',
       data:
         images: [],
-        loading: false
+        loading: false,
+        gallerySuccess: '',
+        extrasSuccess: '',
+        galleryError: '',
+        extrasError: ''
       mounted: () ->
         self = this
         self.loading = true
@@ -16,6 +20,8 @@ $(document).on 'turbolinks:load', ->
           self.images = res.body.images
           self.loading = false
         )
+      beforeUpdate: () ->
+        gallerySuccess = extrasSuccess = galleryError = extrasError = ''
 
       methods:
         removeImage: (index) ->
@@ -38,8 +44,13 @@ $(document).on 'turbolinks:load', ->
               formData.append('image', file)
 
               this.$http.post('/properties/add_image/', formData)
-              .then((res) ->
-                console.log res
-                app.images = res.body.images
-                app.loading = false
-              )
+              .then(
+                (res) ->
+                  app.images = res.body.images
+                  app.gallerySuccess = "Galeria atualizada"
+                  app.loading = false
+                (res) ->
+                  console.log res
+                  app.galleryError = "Imagem inválida"
+                  app.loading = false
+                )

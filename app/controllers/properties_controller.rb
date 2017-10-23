@@ -37,15 +37,9 @@ class PropertiesController < ApplicationController
 
   def create
     @property = property_type.new property_params
-
     @property.gallery = @@gallery
 
-    global_area = property_params[:global_area]
-    private_area = property_params[:private_area]
-
-    @property.attributes = property_params
-    @property.global_area = global_area.comma_to_delimiter if global_area
-    @property.private_area = private_area.comma_to_delimiter if private_area
+    unmask_fields
 
     if @property.save
       redirect_to @property, flash: { notice: "Criado com sucessso!" }
@@ -57,12 +51,7 @@ class PropertiesController < ApplicationController
   def update
     @property = property_type.find params[:id]
 
-    global_area = property_params[:global_area]
-    private_area = property_params[:private_area]
-
-    @property.attributes = property_params
-    @property.global_area = global_area.comma_to_delimiter if global_area
-    @property.private_area = private_area.comma_to_delimiter if private_area
+    unmask_fields
 
     if @property.save
       redirect_to @property, flash: { notice: "Atualizado com sucessso!" }
@@ -96,7 +85,7 @@ class PropertiesController < ApplicationController
     if @@gallery.save
       render json: {images: @@gallery.images}
     else
-      head :bad_request
+      render json: {errors: @@gallery.errors.full_messages}, status: 406
     end
   end
 
@@ -120,5 +109,14 @@ class PropertiesController < ApplicationController
 
   def property_type
     params[:type].constantize if params[:type].in? PROPERTY_TYPES
+  end
+
+  def unmask_fields
+    global_area = property_params[:global_area]
+    private_area = property_params[:private_area]
+
+    @property.attributes = property_params
+    @property.global_area = global_area.comma_to_delimiter if global_area
+    @property.private_area = private_area.comma_to_delimiter if private_area
   end
 end

@@ -19,7 +19,7 @@
             </h1>
           </div>
           <div class="col-4 align-self-center text-right">
-            <%= link_to("Voltar", root_path) %>
+            <%= link_to("Voltar", prev_page) %>
           </div>
         </div>
       </div>
@@ -49,29 +49,28 @@
 
       <div class="col-md-5">
         <div class="card p-3 mb-2">
-          <h2>Características</h2>
+          <h2>Informações gerais</h2>
           <dl class="row no-gutters">
-            <dt class="col-sm-4 text-secondary">Perfil</dt>
-            <dd class="col-sm-8"><%= I18n.t "views.#{@property.profile}" %></dd>
-            <dt class="col-sm-4 text-secondary">Endereço</dt>
-            <dd class="col-sm-8"><%= @property.address %></dd>
-            <dt class="col-sm-4 text-secondary">Bairro</dt>
-            <dd class="col-sm-8"><%= @property.district %></dd>
-            <dt class="col-sm-4 text-secondary">Cidade</dt>
-            <dd class="col-sm-8">Passo Fundo</dd>
+            <dt class="col-sm-6 text-secondary">Perfil</dt>
+            <dd class="col-sm-6"><%= I18n.t "views.#{@property.profile}" %></dd>
+            <dt class="col-sm-6 text-secondary">Endereço</dt>
+            <dd class="col-sm-6"><%= @property.address %></dd>
+            <dt class="col-sm-6 text-secondary">Bairro</dt>
+            <dd class="col-sm-6"><%= @property.district %></dd>
+            <dt class="col-sm-6 text-secondary">Cidade</dt>
+            <dd class="col-sm-6">Passo Fundo</dd>
             <% if @property.nearby %>
-              <dt class="col-sm-4 text-secondary">Próximo</dt>
-              <dd class="col-sm-8"><%= @property.nearby %></dd>
+              <dt class="col-sm-6 text-secondary">Próximo</dt>
+              <dd class="col-sm-6"><%= @property.nearby %></dd>
             <% end %>
-            <dt class="col-sm-4 text-secondary">Posição</dt>
-            <dd class="col-sm-8"><%= I18n.t "views.#{@property.position}" %></dd>
-            <dt class="col-sm-4 text-secondary">Valor</dt>
-            <dd class="col-sm-8">R$ <%= humanized_money @property.value %></dd>
-            <dt class="col-sm-4 text-secondary">Área Global</dt>
-            <dd class="col-sm-8"><%= square_meters @property.global_area %></dd>
-            <dt class="col-sm-4 text-secondary">Área Privada</dt>
-            <dd class="col-sm-8"><%= square_meters @property.private_area %></dd>
+            <dt class="col-sm-6 text-secondary">Valor</dt>
+            <dd class="col-sm-6">R$ <%= humanized_money @property.value %></dd>
+            <dt class="col-sm-6 text-secondary">Área Global</dt>
+            <dd class="col-sm-6"><%= square_meters @property.global_area %></dd>
           </dl>
+
+          <h2>Características <%= I18n.t "views.#{@property.type}.ofthe" %></h2>
+          <%= render "partials/specific_property_information", property: @property %>
         </div>
 
         <div class="col-12 card p-3">
