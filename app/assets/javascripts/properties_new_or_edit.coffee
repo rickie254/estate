@@ -31,10 +31,6 @@ $(document).on 'turbolinks:load', ->
           self.extraList.list = res.body.list
         )
 
-      updated: () ->
-        # if app.extraList.error
-        #   app.extraList.error = ''
-
       methods:
         removeImage: (index) ->
           app.loading = true
@@ -88,9 +84,11 @@ $(document).on 'turbolinks:load', ->
                   console.log res
                   app.gallery.images = res.body.images
                   app.gallery.success = "Galeria atualizada"
+                  app.gallery.errors = {images: []}
                   app.loading = false
                 (res) ->
                   console.log res
+                  app.gallery.success = ""
                   app.gallery.errors = res.body
                   app.loading = false
                 )

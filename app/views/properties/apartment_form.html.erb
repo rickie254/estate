@@ -1,10 +1,11 @@
-<%= render "partials/form_title", {action: @action, property: @property} %>
+<%= render "partials/form_title", property: @property %>
 
-<%= form_for @property, url: {action: @action}  do |f| %>
+<%= form_for @property do |f| %>
   <div class="row no-gutters" id="property_form">
 
     <div class="col-md-4 pr-md-2 pb-2">
       <%= render "partials/gallery_image_uploader" %>
+      <%= render "partials/property_extras" %>
     </div>
 
     <div class="col-md-8 card p-3">
@@ -68,10 +69,12 @@
         </div>
 
         <div class="form-group col-12 text-right">
-          <% if @action == "create" %>
-            <%= f.submit "Criar", class: "btn btn-success" %>
+          <% if @property.persisted? %>
+            <%= f.submit "Atualizar", class: "btn btn-primary",
+            ":disabled": "loading" %>
           <% else %>
-            <%= f.submit "Atualizar", class: "btn btn-primary" %>
+            <%= f.submit "Criar", class: "btn btn-success",
+            ":disabled": "loading" %>
           <% end %>
         </div>
 
