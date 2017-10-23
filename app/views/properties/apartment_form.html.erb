@@ -1,7 +1,7 @@
 <%= render "partials/form_title", {action: @action, property: @property} %>
 
 <%= form_for @property, url: {action: @action}  do |f| %>
-  <div class="row no-gutters">
+  <div class="row no-gutters" id="property_form">
 
     <div class="col-md-4 pr-md-2 pb-2">
       <%= render "partials/gallery_image_uploader" %>

@@ -85,7 +85,7 @@ class PropertiesController < ApplicationController
     if @@gallery.save
       render json: {images: @@gallery.images}
     else
-      render json: {errors: @@gallery.errors.full_messages}, status: 406
+      render json: @@gallery.errors.messages, status: 406
     end
   end
 

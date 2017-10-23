@@ -18,18 +18,23 @@
     </div>
   </div>
 
-  <div v-if="galleryError" class="alert alert-warning">
-    <i class="fa fa-exclamation-circle mr-1"></i>
-    {{galleryError}}
+  <div v-if="gallery.errors.images.length > 0"
+    class="alert alert-warning">
+    <ul class="list-unstyled">
+      <li v-for="error in gallery.errors.images">
+        <i class="fa fa-exclamation-circle mr-1"></i>
+        {{error}}
+      </li>
+    </ul>
     <button type="button" class="close"
     data-dismiss="alert" aria-label="Close">
       <span aria-hidden="true">&times;</span>
     </button>
   </div>
 
-  <div v-if="gallerySuccess" class="alert alert-success">
+  <div v-if="gallery.success" class="alert alert-success">
     <i class="fa fa-check-circle mr-1"></i>
-    {{gallerySuccess}}
+    {{gallery.success}}
     <button type="button" class="close"
     data-dismiss="alert" aria-label="Close">
       <span aria-hidden="true">&times;</span>
@@ -37,7 +42,7 @@
   </div>
 
   <ul class="list-unstyled list-inline mb-2" id="uploaded_property_images">
-    <li class="list-inline-item" v-for="(image, index) in images">
+    <li class="list-inline-item" v-for="(image, index) in gallery.images">
       <div v-bind:style="{ backgroundImage: 'url(' + image.url + ')' }"></div>
 
       <button type="button" v-on:click="removeImage(index)"
@@ -48,7 +53,7 @@
   </ul>
 
   <small class="text-secondary"
-  v-if="images.length == 0">
+  v-if="gallery.images.length == 0">
     Nenhuma imagem adicionada.
   </small>
 </div>

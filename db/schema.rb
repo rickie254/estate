@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(version: 20171021140734) do
   end
 
   create_table "galleries", force: :cascade do |t|
+    t.integer "property_id"
     t.string "images", default: [], array: true
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

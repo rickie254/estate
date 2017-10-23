@@ -1,27 +1,24 @@
 $(document).on 'turbolinks:load', ->
-  $('.form-check-input').bootstrapSwitch(onText: 'SIM', offText: 'NÃO', onColor: 'success', offColor: 'danger')
-  $('.double').mask('#.##0,00', {reverse: true})
 
   if $('#property_form').length
     app = new Vue
       el: '#property_form',
       data:
-        images: [],
         loading: false,
-        gallerySuccess: '',
-        extrasSuccess: '',
-        galleryError: '',
-        extrasError: ''
+        gallery:
+          images: [],
+          errors:
+            images: []
+          success: ''
+
       mounted: () ->
         self = this
         self.loading = true
         this.$http.get('/properties/get_images/')
         .then((res) ->
-          self.images = res.body.images
+          self.gallery.images = res.body.images
           self.loading = false
         )
-      beforeUpdate: () ->
-        gallerySuccess = extrasSuccess = galleryError = extrasError = ''
 
       methods:
         removeImage: (index) ->
@@ -29,7 +26,7 @@ $(document).on 'turbolinks:load', ->
 
           this.$http.delete('/properties/remove_image/' + index)
           .then((res) ->
-            app.images = res.body.images
+            app.gallery.images = res.body.images
             app.loading = false
           )
 
@@ -46,11 +43,15 @@ $(document).on 'turbolinks:load', ->
               this.$http.post('/properties/add_image/', formData)
               .then(
                 (res) ->
-                  app.images = res.body.images
-                  app.gallerySuccess = "Galeria atualizada"
+                  console.log res
+                  app.gallery.images = res.body.images
+                  app.gallery.success = "Galeria atualizada"
                   app.loading = false
                 (res) ->
                   console.log res
-                  app.galleryError = "Imagem inválida"
+                  app.gallery.errors = res.body
                   app.loading = false
                 )
+
+  $('.form-check-input').bootstrapSwitch(onText: 'SIM', offText: 'NÃO', onColor: 'success', offColor: 'danger')
+  $('.double').mask('#.##0,00', {reverse: true})
