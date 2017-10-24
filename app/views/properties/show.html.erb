@@ -32,7 +32,7 @@
               <div style="background-image:url(<%= @property.gallery.images.first.url %>)"></div>
             <% end %>
 
-            <ul class="list-inline list-unstyled mt-2 text-center">
+            <ul class="list-inline list-unstyled mt-2">
               <% @property.gallery.images.each_with_index do |image, index|  %>
                 <% unless index == 0 %>
                   <li href="<%= image.url %>" class="gallery-image list-inline-item">

@@ -53,6 +53,8 @@ dl{
   position: static;
 
   .dropdown-menu {
+    height: 400px;
+    overflow-x: hidden;
     border-radius: 0;
     margin-top: 0px;
     width: 100%;

@@ -13,6 +13,7 @@ class PropertiesController < ApplicationController
   def get_extra_list() render json: {list: @@extra_list.list} end
 
   def home
+    @properties = Property.where(featured: true)
   end
 
   def index

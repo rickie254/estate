@@ -1,110 +1,105 @@
 <div class="dropdown-menu p-0">
-  <div class="row m-0 p-3">
-    <div class="col-12 col-lg-8">
-      <div class="row">
-        <div class="col-auto mb-3">
-          <h2>
-            <%= link_to "Apartamentos", apartments_path %>
-          </h2>
-          <ul class="list-unstyled">
-            <li>
-              <%= link_to "Kitinete", apartments_path(filter: {number_of_rooms: :kitnet}),
-              class: "navbar-brand" %>
-            </li>
-            <li>
-              <%= link_to "1 Quarto", apartments_path(filter: {number_of_rooms: :one}),
-              class: "navbar-brand" %>
-            </li>
-            <li>
-              <%= link_to "2 Quartos", apartments_path(filter: {number_of_rooms: :two}),
-              class: "navbar-brand" %>
-            </li>
-            <li>
-              <%= link_to "3 Quartos", apartments_path(filter: {number_of_rooms: :three}),
-              class: "navbar-brand" %>
-            </li>
-            <li>
-              <%= link_to "4 Quartos", apartments_path(filter: {number_of_rooms: :four}),
-              class: "navbar-brand" %>
-            </li>
-            <li>
-              <%= link_to "Cobertura", apartments_path(filter: {roof: true}),
-              class: "navbar-brand" %>
-            </li>
-            <li>
-              <%= link_to "Com Box de Garagem", apartments_path(filter: {number_of_boxes: true}),
-              class: "navbar-brand" %>
-            </li>
-          </ul>
-        </div>
-        <div class="col-auto mb-3">
-          <h2>
-            <%= link_to "Casas", houses_path %>
-          </h2>
-          <ul class="list-unstyled">
-            <li>
-              <%= link_to "1 Quarto", houses_path(filter: {number_of_rooms: 1}),
-              class: "navbar-brand" %>
-            </li>
-            <li>
-              <%= link_to "2 Quartos", houses_path(filter: {number_of_rooms: 2}),
-              class: "navbar-brand" %>
-            </li>
-            <li>
-              <%= link_to "3 Quartos", houses_path(filter: {number_of_rooms: 3}),
-              class: "navbar-brand" %>
-            </li>
-            <li>
-              <%= link_to "4 Quartos ou +", houses_path(filter: {number_of_rooms: 4}),
-              class: "navbar-brand" %>
-            </li>
-            <li>
-              Casa em Condomínio
-            </li>
-          </ul>
-        </div>
-        <div class="col-auto mb-3">
-          <h2>Comercial</h2>
-          <ul class="list-unstyled">
-            <li>
-              Salas aéreas
-            </li>
-            <li>
-              Salas térreas
-            </li>
-            <li>
-              Prédio/Casa
-            </li>
-            <li>
-              Negócios Diversos
-            </li>
-            <li>
-              Pavilhões
-            </li>
-          </ul>
-        </div>
-        <div class="col-auto mb-3">
-          <h2>Terrenos</h2>
-          <ul class="list-unstyled">
-            <li>
-              Áreas Rurais
-            </li>
-            <li>
-              Chácaras/Sítios
-            </li>
-            <li>
-              Terrenos Residenciais
-            </li>
-            <li>
-              Terrenos comerciais
-            </li>
-            <li>
-              Terrenos em Condomínio
-            </li>
-          </ul>
-        </div>
-
-      </div>
+  <div class="row p-3">
+    <div class="col-auto mb-3">
+      <h2>
+        <%= link_to "Apartamentos", apartments_path %>
+      </h2>
+      <ul class="list-unstyled">
+        <li>
+          <%= link_to "Kitinete", apartments_path(filter: {number_of_rooms: :kitnet}),
+          class: "navbar-brand" %>
+        </li>
+        <li>
+          <%= link_to "1 Quarto", apartments_path(filter: {number_of_rooms: :one}),
+          class: "navbar-brand" %>
+        </li>
+        <li>
+          <%= link_to "2 Quartos", apartments_path(filter: {number_of_rooms: :two}),
+          class: "navbar-brand" %>
+        </li>
+        <li>
+          <%= link_to "3 Quartos", apartments_path(filter: {number_of_rooms: :three}),
+          class: "navbar-brand" %>
+        </li>
+        <li>
+          <%= link_to "4 Quartos", apartments_path(filter: {number_of_rooms: :four}),
+          class: "navbar-brand" %>
+        </li>
+        <li>
+          <%= link_to "Cobertura", apartments_path(filter: {roof: true}),
+          class: "navbar-brand" %>
+        </li>
+        <li>
+          <%= link_to "Com Box de Garagem", apartments_path(filter: {number_of_boxes: true}),
+          class: "navbar-brand" %>
+        </li>
+      </ul>
+    </div>
+    <div class="col-auto mb-3">
+      <h2>
+        <%= link_to "Casas", houses_path %>
+      </h2>
+      <ul class="list-unstyled">
+        <li>
+          <%= link_to "1 Quarto", houses_path(filter: {number_of_rooms: 1}),
+          class: "navbar-brand" %>
+        </li>
+        <li>
+          <%= link_to "2 Quartos", houses_path(filter: {number_of_rooms: 2}),
+          class: "navbar-brand" %>
+        </li>
+        <li>
+          <%= link_to "3 Quartos", houses_path(filter: {number_of_rooms: 3}),
+          class: "navbar-brand" %>
+        </li>
+        <li>
+          <%= link_to "4 Quartos ou +", houses_path(filter: {number_of_rooms: 4}),
+          class: "navbar-brand" %>
+        </li>
+        <li>
+          Casa em Condomínio
+        </li>
+      </ul>
+    </div>
+    <div class="col-auto mb-3">
+      <h2>Comercial</h2>
+      <ul class="list-unstyled">
+        <li>
+          Salas aéreas
+        </li>
+        <li>
+          Salas térreas
+        </li>
+        <li>
+          Prédio/Casa
+        </li>
+        <li>
+          Negócios Diversos
+        </li>
+        <li>
+          Pavilhões
+        </li>
+      </ul>
+    </div>
+    <div class="col-auto mb-3">
+      <h2>Terrenos</h2>
+      <ul class="list-unstyled">
+        <li>
+          Áreas Rurais
+        </li>
+        <li>
+          Chácaras/Sítios
+        </li>
+        <li>
+          Terrenos Residenciais
+        </li>
+        <li>
+          Terrenos comerciais
+        </li>
+        <li>
+          Terrenos em Condomínio
+        </li>
+      </ul>
     </div>
   </div>
 </div>

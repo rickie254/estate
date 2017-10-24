@@ -1,15 +1,29 @@
 @import "variables";
 
-.property-image{
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
+.property-featured{
+  .property-image{
+    height: 350px;
+    width: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+
+  &:hover{
+    border: 1px solid red;
+  }
 }
 
 .property-summary{
-  text-decoration: none;
-  border: 1px solid $card-border;
-  transition: border .5s;
+  a{
+    .property-image{
+      width: 100%;
+      height: 100%;
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+  }
 
   &:hover{
     border: 1px solid red;
