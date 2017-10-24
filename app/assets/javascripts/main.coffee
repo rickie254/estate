@@ -8,7 +8,7 @@ $(window).scroll (e)->
 
     if scroll >= header.height()
       navbar.addClass('fixed-top')
-      container.css('padding-top', '70px')
+      container.css('padding-top', '75px')
     else
       navbar.removeClass('fixed-top')
       container.css('padding-top', '30px')
