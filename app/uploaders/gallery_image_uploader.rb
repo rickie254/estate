@@ -3,19 +3,24 @@ class GalleryImageUploader < CarrierWave::Uploader::Base
 
   storage :fog
 
-  before :store, :remember_cache_id
-  after :store, :delete_tmp_dir
+  # before :store, :remember_cache_id
+  # after :store, :delete_tmp_dir
+  # def remember_cache_id(new_file)
+  #   @cache_id_was = cache_id
+  # end
+  #
+  # def delete_tmp_dir(new_file)
+  #   if @cache_id_was.present? && @cache_id_was =~ /\A[\d]{8}\-[\d]{4}\-[\d]+\-[\d]{4}\z/
+  #     FileUtils.rm_rf(File.join(root, cache_dir, @cache_id_was))
+  #   end
+  # end
 
-  process :efficient_conversion => [1080, -1]
-
-  def remember_cache_id(new_file)
-    @cache_id_was = cache_id
+  version :small do
+    process :efficient_conversion => [200, -1]
   end
 
-  def delete_tmp_dir(new_file)
-    if @cache_id_was.present? && @cache_id_was =~ /\A[\d]{8}\-[\d]{4}\-[\d]+\-[\d]{4}\z/
-      FileUtils.rm_rf(File.join(root, cache_dir, @cache_id_was))
-    end
+  version :large do
+    process :efficient_conversion => [1080, -1]
   end
 
   def filename

@@ -106,6 +106,18 @@ class PropertiesController < ApplicationController
     end
   end
 
+  def set_main_image
+    images = @@gallery.images
+    images.insert(0, images.delete_at(params[:index].to_i))
+    @@gallery.images = images
+
+    if @@gallery.save
+      render json: {images: @@gallery.images}
+    else
+      render json: @@gallery.errors.messages, status: 400
+    end
+  end
+
   def initialize_form
     if params[:id]
       @property = property_type.find(params[:id])

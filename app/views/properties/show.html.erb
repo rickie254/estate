@@ -28,15 +28,15 @@
         <div class="col-12 card p-3 mr-2" id="property-gallery">
           <h2>Galeria</h2>
           <% if @property.gallery.images.length > 0 %>
-            <%= link_to @property.gallery.images.first.url, class: "gallery-image" do %>
-              <div style="background-image:url(<%= @property.gallery.images.first.url %>)"></div>
+            <%= link_to @property.gallery.images.first.large.url, class: "gallery-image" do %>
+              <div style="background-image:url(<%= @property.gallery.images.first.large.url %>)"></div>
             <% end %>
 
             <ul class="list-inline list-unstyled mt-2">
               <% @property.gallery.images.each_with_index do |image, index|  %>
                 <% unless index == 0 %>
-                  <li href="<%= image.url %>" class="gallery-image list-inline-item">
-                    <div style="background-image:url(<%= image.url %>)"></div>
+                  <li href="<%= image.large.url %>" class="gallery-image list-inline-item">
+                    <div style="background-image:url(<%= image.small.url %>)"></div>
                   </li>
                 <% end %>
               <% end %>

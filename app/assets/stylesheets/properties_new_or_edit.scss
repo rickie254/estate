@@ -1,3 +1,5 @@
+@import "variables";
+
 ul#uploaded_property_images{
   li {
     height: 100%;
@@ -15,10 +17,17 @@ ul#uploaded_property_images{
     }
 
     div{
+      cursor: pointer;
       background-position: center;
       background-size: cover;
-      width: 90px;
-      height: 90px;
+      width: 104px;
+      height: 104px;
+    }
+
+    &:first-child {
+      div {
+        border: 3px $primary solid;
+      }
     }
   }
 }

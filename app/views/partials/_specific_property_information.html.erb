@@ -3,19 +3,29 @@
   <dl class="row no-gutters">
     <dt class="col-sm-6 text-secondary">Quartos</dt>
     <dd class="col-sm-6"><%= I18n.t "views.number_of_rooms.#{property.number_of_rooms}" %></dd>
+
     <dt class="col-sm-6 text-secondary">Nº de Boxes</dt>
-    <dd class="col-sm-6"><%= property.number_of_boxes %></dd>
+    <dd class="col-sm-6"><%= property.number_of_boxes || 0 %></dd>
+
     <dt class="col-sm-6 text-secondary">Área privada</dt>
     <dd class="col-sm-6"><%= square_meters property.private_area %></dd>
+
     <dt class="col-sm-6 text-secondary">Posição</dt>
     <dd class="col-sm-6"><%= I18n.t "views.#{property.position}" %></dd>
+
+    <% if property.roof %>
+      <dt class="col-sm-6 text-secondary">Cobertura</dt>
+      <dd class="col-sm-6"><i class="fa fa-check-circle text-success"></i></dd>
+    <% end %>
   </dl>
 <% when "House" %>
   <dl class="row no-gutters">
     <dt class="col-sm-6 text-secondary">Quartos</dt>
     <dd class="col-sm-6"><%= property.number_of_rooms %></dd>
+
     <dt class="col-sm-6 text-secondary">Posição</dt>
     <dd class="col-sm-6"><%= I18n.t "views.#{property.position}" %></dd>
+
     <dt class="col-sm-6 text-secondary">Área privada</dt>
     <dd class="col-sm-6"><%= square_meters property.private_area %></dd>
   </dl>

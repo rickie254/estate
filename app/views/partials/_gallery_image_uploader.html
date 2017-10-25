@@ -43,7 +43,9 @@
 
   <ul class="list-unstyled list-inline mb-2" id="uploaded_property_images">
     <li class="list-inline-item" v-for="(image, index) in gallery.images">
-      <div v-bind:style="{ backgroundImage: 'url(' + image.url + ')' }"></div>
+      <div v-on:click="setMainImage(index)"
+        v-bind:style="{ backgroundImage: 'url(' + image.small.url + ')' }">
+      </div>
 
       <button type="button" v-on:click="removeImage(index)"
       class="btn btn-danger remove-button" :disabled="loading">
@@ -51,6 +53,11 @@
       </button>
     </li>
   </ul>
+
+  <small class="text-secondary"
+  v-if="gallery.images.length > 0">
+    Clique numa imagem para colocá-la como principal.
+  </small>
 
   <small class="text-secondary"
   v-if="gallery.images.length == 0">

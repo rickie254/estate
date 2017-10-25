@@ -22,6 +22,7 @@ $(document).on 'turbolinks:load', ->
 
         this.$http.get('/properties/get_images/')
         .then((res) ->
+          console.log res
           self.gallery.images = res.body.images
           self.loading = false
         )
@@ -32,6 +33,15 @@ $(document).on 'turbolinks:load', ->
         )
 
       methods:
+        setMainImage: (index) ->
+          app.loading = true
+
+          this.$http.get('/properties/set_main_image/' + index)
+          .then((res) ->
+            app.gallery.images = res.body.images
+            app.loading = false
+          )
+
         removeImage: (index) ->
           app.loading = true
 
