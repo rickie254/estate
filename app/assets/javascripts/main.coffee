@@ -1,7 +1,7 @@
 $(window).scroll (e)->
   navbar = $('.navbar')
   header = $('.header')
-  container = $('.container')
+  container = $('#main-container')
 
   if navbar.length and header.length
     scroll = $(window).scrollTop()
