@@ -4,6 +4,10 @@ module ApplicationHelper
     request.referer || root_path
   end
 
+  def has_extras? property
+    property.extra_list && property.extra_list.list.length > 0
+  end
+
   def has_gallery? property
     property.gallery && property.gallery.images.length > 0
   end
