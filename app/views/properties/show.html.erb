@@ -27,7 +27,7 @@
       <div class="col-md-7 mb-2 pr-sm-2">
         <div class="col-12 card p-3 mr-2" id="property-gallery">
           <h2>Galeria</h2>
-          <% if @property.gallery && @property.gallery.images.length > 0 %>
+          <% if has_gallery? @property %>
             <%= link_to @property.gallery.images.first.large.url, class: "gallery-image" do %>
               <div style="background-image:url(<%= @property.gallery.images.first.large.url %>)"></div>
             <% end %>
@@ -46,48 +46,23 @@
           <% end %>
         </div>
 
-        <% if @property.extra_list && @property.extra_list.list.length > 0 %>
-          <div class="col-12 card pt-2 mr-2 mt-2">
-            <h2>Características adicionais</h2>
-          </div>
-          <div class="row pr-3 pl-3 mt-1">
-            <% @property.extra_list.list.each do |extra| %>
-              <div class="col-auto p-2 card mr-1 mb-1">
-                <span class="text-success">
-                  <i class="fa fa-check-circle"></i>
-                  <%= extra %>
-                </span>
-              </div>
-            <% end %>
-          </div>
-        <% end  %>
+        <div class="d-none d-md-block">
+          <%= render "partials/display_extras", property: @property %>
+        </div>
 
       </div>
 
       <div class="col-md-5">
         <div class="card p-3 mb-2">
           <h2>Informações gerais</h2>
-          <dl class="row no-gutters">
-            <dt class="col-sm-6 text-secondary">Perfil</dt>
-            <dd class="col-sm-6"><%= I18n.t "views.#{@property.profile}" %></dd>
-            <dt class="col-sm-6 text-secondary">Endereço</dt>
-            <dd class="col-sm-6"><%= @property.address %></dd>
-            <dt class="col-sm-6 text-secondary">Bairro</dt>
-            <dd class="col-sm-6"><%= @property.district %></dd>
-            <dt class="col-sm-6 text-secondary">Cidade</dt>
-            <dd class="col-sm-6">Passo Fundo</dd>
-            <% if !@property.nearby.empty? %>
-              <dt class="col-sm-6 text-secondary">Próximo</dt>
-              <dd class="col-sm-6"><%= @property.nearby %></dd>
-            <% end %>
-            <dt class="col-sm-6 text-secondary">Valor</dt>
-            <dd class="col-sm-6">R$ <%= humanized_money @property.value %></dd>
-            <dt class="col-sm-6 text-secondary">Área Global</dt>
-            <dd class="col-sm-6"><%= square_meters @property.global_area %></dd>
-          </dl>
+          <%= render "partials/general_property_information", property: @property %>
 
           <h2>Características <%= I18n.t "views.#{@property.type}.ofthe" %></h2>
           <%= render "partials/specific_property_information", property: @property %>
+        </div>
+
+        <div class="d-block d-md-none">
+          <%= render "partials/display_extras", property: @property %>
         </div>
 
         <div class="col-12 card p-3">

@@ -80,9 +80,9 @@ $(document).on 'turbolinks:load', ->
 
         addImage: (e) ->
           files = e.target.files || e.dataTransfer.files;
-          app.loading = true
 
           if files.length > 0
+            app.loading = true
             for file, i in files
 
               formData = new FormData()

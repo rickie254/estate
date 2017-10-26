@@ -1,8 +1,30 @@
-<dl class="row no-gutters mb-0">
-  <dt class="col-sm-4 text-secondary">Bairro</dt>
-  <dd class="col-sm-8"><%= property.district %></dd>
-  <dt class="col-sm-4 text-secondary">Endereço</dt>
-  <dd class="col-sm-8"><%= property.address %></dd>
-  <dt class="col-sm-4 text-secondary">Área global</dt>
-  <dd class="col-sm-8"><%= square_meters property.global_area %></dd>
+<dl class="row no-gutters">
+  <% unless defined? summed_up %>
+    <dt class="col-6 text-secondary">Endereço</dt>
+    <dd class="col-sm-6"><%= property.address %></dd>
+  <% else %>
+    <dt class="col-6 text-secondary">Perfil</dt>
+    <dd class="col-6"><%= I18n.t "views.#{property.profile}" %></dd>
+  <% end %>
+  <dt class="col-6 text-secondary">Bairro</dt>
+  <dd class="col-6"><%= property.district %></dd>
+  <dt class="col-6 text-secondary">Área Global</dt>
+  <dd class="col-6"><%= square_meters property.global_area %></dd>
+
+  <% unless defined? summed_up %>
+    <dt class="col-6 text-secondary">Cidade</dt>
+    <dd class="col-6">Passo Fundo</dd>
+    <% unless property.nearby.empty? %>
+      <dt class="col-6 text-secondary">Próximo</dt>
+      <dd class="col-6"><%= property.nearby %></dd>
+    <% end %>
+    <dt class="col-6 text-secondary">Perfil</dt>
+    <dd class="col-6"><%= I18n.t "views.#{property.profile}" %></dd>
+    <dt class="col-6 text-secondary">Negócio</dt>
+    <dd class="col-6"><%= I18n.t "views.#{property.deal}" %></dd>
+    <dt class="col-6 text-secondary">Área Global</dt>
+    <dd class="col-6"><%= square_meters property.global_area %></dd>
+    <dt class="col-6 text-secondary">Valor</dt>
+    <dd class="col-6">R$ <%= humanized_money property.value %></dd>
+  <% end %>
 </dl>

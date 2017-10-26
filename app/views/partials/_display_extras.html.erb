@@ -1,0 +1,15 @@
+<% if property.extra_list && property.extra_list.list.length > 0 %>
+  <div class="col-12 card pt-2 mr-2 mt-2">
+    <h2>Características adicionais</h2>
+  </div>
+  <div class="row pr-3 pl-3 mt-1 mb-2">
+    <% property.extra_list.list.each do |extra| %>
+    <div class="col-auto p-2 card mr-1 mb-1">
+      <span class="text-success">
+        <i class="fa fa-check-circle"></i>
+        <%= extra %>
+      </span>
+    </div>
+    <% end %>
+  </div>
+<% end  %>

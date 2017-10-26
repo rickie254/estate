@@ -1,7 +1,8 @@
 #property-gallery{
   a.gallery-image{
     div{
-      height: 400px;
+      max-height: 400px;
+      min-height: 200px;
       max-width: 100%;
       background-size: cover;
       background-repeat: no-repeat;

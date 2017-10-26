@@ -4,6 +4,10 @@ module ApplicationHelper
     request.referer || root_path
   end
 
+  def has_gallery? property
+    property.gallery && property.gallery.images.length > 0
+  end
+
   def square_meters value
     "#{number_with_precision(value, precision: 2)} m²"
   end
