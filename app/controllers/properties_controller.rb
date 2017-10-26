@@ -119,15 +119,11 @@ class PropertiesController < ApplicationController
   end
 
   def initialize_form
-    if params[:id]
-      @property = property_type.find(params[:id])
-      @@gallery = @property.gallery
-      @@extra_list = @property.extra_list
-    else
-      @property = property_type.new
-      @@gallery = Gallery.new
-      @@extra_list = ExtraList.new
-    end
+    @property = property_type.find(params[:id]) if params[:id]
+    @property ||= property_type.new
+
+    @@gallery = @property.gallery || Gallery.new
+    @@extra_list = @property.extra_list || ExtraList.new
 
     render "properties/#{property_name}_form"
   end

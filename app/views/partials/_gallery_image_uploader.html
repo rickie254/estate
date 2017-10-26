@@ -18,7 +18,7 @@
     </div>
   </div>
 
-  <div v-if="gallery.errors.images"
+  <div v-if="gallery.errors.images.length > 0"
     class="alert alert-warning">
     <ul class="list-unstyled">
       <li v-for="error in gallery.errors.images">

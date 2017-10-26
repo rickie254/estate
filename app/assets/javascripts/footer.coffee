@@ -5,8 +5,8 @@ $(document).on 'turbolinks:load', ->
       incc: {}
 
     mounted: () ->
-      this.$http.get('utils/get_incc/')
-      .then((res) ->
-        console.log res
-        app.incc = res.body.incc
-      )
+      # this.$http.get('/utils/get_incc/')
+      # .then((res) ->
+      #   console.log res
+      #   app.incc = res.body.incc
+      # )
