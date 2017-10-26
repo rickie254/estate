@@ -18,7 +18,7 @@
     </div>
   </div>
 
-  <div v-if="gallery.errors.images.length > 0"
+  <div v-if="gallery.errors.images"
     class="alert alert-warning">
     <ul class="list-unstyled">
       <li v-for="error in gallery.errors.images">
@@ -55,7 +55,7 @@
   </ul>
 
   <small class="text-secondary"
-  v-if="gallery.images.length > 0">
+  v-if="gallery.images">
     Clique numa imagem para colocá-la como principal.
   </small>
 

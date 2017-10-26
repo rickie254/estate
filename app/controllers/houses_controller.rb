@@ -1,2 +1,0 @@
-class HousesController < ApplicationController
-end

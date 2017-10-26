@@ -14,5 +14,7 @@ Rails.application.routes.draw do
   post   "properties/add_extra/",          to: "properties#add_extra"
   delete "properties/remove_extra/:index", to: "properties#remove_extra"
 
+  get    "utils/get_incc/",     to: "utils#get_incc"
+
   root :to => 'properties#home'
 end

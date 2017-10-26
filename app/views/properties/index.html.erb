@@ -33,7 +33,7 @@
         <div class="card property-summary">
           <div class="row no-gutters">
             <%= link_to property, class: "col-5" do %>
-              <% if property.gallery.images.length > 0 %>
+              <% if property.gallery.images %>
                 <div class="property-image " style="background-image:url(<%= property.gallery.images.first.large %>)"></div>
               <% else %>
                 <div class="property-image" style="background-image:url('assets/no-image.jpg')"></div>
