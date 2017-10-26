@@ -1,8 +1,8 @@
-<div class="dropdown-menu p-0" id="property-filter-dropdown">
+<div class="dropdown-menu bg-dark p-0" id="property-filter-dropdown">
   <div class="row p-3">
-    <div class="col-auto mb-3">
+    <div class="col-auto mb-2">
       <h2>
-        <%= link_to "Apartamentos", apartments_path %>
+        <%= link_to "APARTAMENTOS", apartments_path %>
       </h2>
       <ul class="list-unstyled">
         <li>
@@ -35,9 +35,9 @@
         </li>
       </ul>
     </div>
-    <div class="col-auto mb-3">
+    <div class="col-auto mb-2">
       <h2>
-        <%= link_to "Casas", houses_path %>
+        <%= link_to "CASAS", houses_path %>
       </h2>
       <ul class="list-unstyled">
         <li>
@@ -56,12 +56,9 @@
           <%= link_to "4 Quartos ou +", houses_path(filter: {number_of_rooms: 4}),
           class: "navbar-brand" %>
         </li>
-        <li>
-          Casa em Condomínio
-        </li>
       </ul>
     </div>
-    <div class="col-auto mb-3">
+    <!-- <div class="col-auto mb-2">
       <h2>Comercial</h2>
       <ul class="list-unstyled">
         <li>
@@ -81,7 +78,7 @@
         </li>
       </ul>
     </div>
-    <div class="col-auto mb-3">
+    <div class="col-auto mb-2">
       <h2>Terrenos</h2>
       <ul class="list-unstyled">
         <li>
@@ -100,6 +97,6 @@
           Terrenos em Condomínio
         </li>
       </ul>
-    </div>
+    </div> -->
   </div>
 </div>

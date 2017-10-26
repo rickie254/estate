@@ -64,10 +64,35 @@ dl{
   position: static;
 
   #property-filter-dropdown {
-    height: 350px;
+    height: 380px;
     overflow-x: hidden;
     border-radius: 0;
     margin-top: 0px;
     width: 100%;
+
+    *{
+      a{
+        color: white;
+        padding: 10px 10px 10px 10px;
+        text-decoration: none;
+
+        &:hover{
+          background-color: black;
+        }
+      }
+    }
+
+    h2{
+      a{
+        font-size: 18px;
+        font-weight: 600;
+      }
+    }
+
+    li{
+      a{
+        font-size: 16px;
+      }
+    }
   }
 }
