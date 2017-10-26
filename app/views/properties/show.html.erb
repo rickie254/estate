@@ -27,7 +27,7 @@
       <div class="col-md-7 mb-2 pr-sm-2">
         <div class="col-12 card p-3 mr-2" id="property-gallery">
           <h2>Galeria</h2>
-          <% if @property.gallery.images %>
+          <% if @property.gallery && @property.gallery.images.length > 0 %>
             <%= link_to @property.gallery.images.first.large.url, class: "gallery-image" do %>
               <div style="background-image:url(<%= @property.gallery.images.first.large.url %>)"></div>
             <% end %>
