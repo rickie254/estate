@@ -37,6 +37,13 @@ pt-BR:
       three: 3 quartos
       four: 4 quartos
 
+    terrain_kind:
+      rural: Área rural
+      farm: Chácara/Sítio
+      residential: Residencial
+      comercial: Comercial
+      condominium: Condomínio
+
     fresh: Novo
     used: Usado
 
@@ -45,12 +52,6 @@ pt-BR:
 
     sale: Venda
     rent: Aluguel
-
-    rural: Área rural
-    farm: Chácara/Sítio
-    residential: Residencial
-    comercial: Comercial
-    condominium: Condomínio
 
   activerecord:
     errors:
