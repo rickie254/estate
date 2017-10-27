@@ -30,5 +30,6 @@ module CorretorDeImoveis
 
     ENV['S3_KEY'] = "AKIAILDZNRIO7FEB3HKQ"
     ENV['S3_SECRET'] = "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"
+    ENV['GMAPS_API_KEY'] = "AIzaSyCoAJkudn_hQi15Pf45XsTyoDjBV1luBBM"
   end
 end

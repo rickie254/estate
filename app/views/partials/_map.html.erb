@@ -1,0 +1,8 @@
+<div class="col-12 card pt-2 mr-2 mt-2">
+  <h2>Localização no mapa</h2>
+</div>
+<div class="row pr-3 pl-3 mt-1 mb-2">
+  <iframe class="map" frameborder="0"
+  src="<%= "#{GMAPS_URL}?key=#{ENV['GMAPS_API_KEY']}&q=#{property.address},#{property.district},Passo+Fundo+RS" %>" allowfullscreen>
+  </iframe>
+</div>
