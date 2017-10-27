@@ -12,6 +12,12 @@ pt-BR:
       ofthe: do terreno
       new: Novo Terreno
 
+    Comercial:
+      one: Comercial
+      other: Comerciais
+      ofthe: do comercial
+      new: Novo Comercial
+
     Apartment:
       one: Apartamento
       other: Apartamentos
@@ -43,6 +49,13 @@ pt-BR:
       residential: Residencial
       comercial: Comercial
       condominium: Condomínio
+
+    comercial_kind:
+      air: Sala Aérea
+      ground: Sala Térrea
+      residential: Prédio/Casa
+      pavilion: Pavilhão
+      general: Negócios Diversos
 
     fresh: Novo
     used: Usado
@@ -85,6 +98,12 @@ pt-BR:
           residential: Residencial
           comercial: Comercial
           condominium: Condomínio
+        comercial_kinds:
+          air: Sala Aérea
+          ground: Sala Térrea
+          residential: Prédio/Casa
+          pavilion: Pavilhão
+          general: Negócios Diversos
 
   date:
     abbr_day_names:

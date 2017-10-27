@@ -33,6 +33,9 @@ class CreateProperties < ActiveRecord::Migration[5.1]
       # terrain fields
       t.integer       :terrain_kind
 
+      # comercial fields
+      t.integer       :comercial_kind
+
       t.timestamps
     end
   end

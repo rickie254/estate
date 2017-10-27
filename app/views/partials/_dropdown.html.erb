@@ -47,26 +47,28 @@
         </li>
       </ul>
     </div>
-    <!-- <div class="col-auto mb-3">
-      <h2>Comercial</h2>
+    <div class="col-auto mb-3">
+      <h2>
+        <%= link_to "COMERCIAL", terrains_path %>
+      </h2>
       <ul class="list-unstyled">
         <li>
-          Salas aéreas
+          <%= link_to "Salas aéreas", terrains_path(filter: {comercial_kind: :air}) %>
         </li>
         <li>
-          Salas térreas
+          <%= link_to "Salas térreas", terrains_path(filter: {comercial_kind: :ground}) %>
         </li>
         <li>
-          Prédio/Casa
+          <%= link_to "Prédio/Casa", terrains_path(filter: {comercial_kind: :residential}) %>
         </li>
         <li>
-          Negócios Diversos
+          <%= link_to "Negócios Diversos", terrains_path(filter: {comercial_kind: :general}) %>
         </li>
         <li>
-          Pavilhões
+          <%= link_to "Pavilhões", terrains_path(filter: {comercial_kind: :pavilion}) %>
         </li>
       </ul>
-    </div> -->
+    </div>
     <div class="col-auto mb-3">
       <h2>
         <%= link_to "TERRENOS", terrains_path %>

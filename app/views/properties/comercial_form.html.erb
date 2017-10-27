@@ -15,13 +15,13 @@
         <%= render "partials/property_fields", f: f %>
       </div>
 
-      <h2>Atributos do terrreno</h2>
+      <h2>Atributos do comercial</h2>
       <div class="form-row">
         <div class="form-group col-sm-6 col-md-4">
           <label>Tipo</label>
-          <%= f.select :terrain_kind, options_for_select(Terrain.attributes_for_select "terrain_kinds"),
-          {}, {class: "form-control #{validate_field(@property, :terrain_kind)}"} %>
-          <%= error_message_for_field(@property, :terrain_kind) %>
+          <%= f.select :comercial_kind, options_for_select(Comercial.attributes_for_select "comercial_kinds"),
+          {}, {class: "form-control #{validate_field(@property, :comercial_kind)}"} %>
+          <%= error_message_for_field(@property, :comercial_kind) %>
         </div>
       </div>
 

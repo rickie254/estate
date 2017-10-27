@@ -51,4 +51,16 @@
       <dd class="col-6"><%= property.nearby %></dd>
     <% end %>
   </dl>
+<% when "Comercial" %>
+  <dl class="row no-gutters">
+    <dt class="col-6 text-secondary">Tipo</dt>
+    <dd class="col-6"><%= I18n.t "views.comercial_kind.#{property.comercial_kind}" %></dd>
+    <dt class="col-6 text-secondary">Posição</dt>
+    <dd class="col-6"><%= I18n.t "views.#{property.position}" %></dd>
+
+    <% if property.nearby %>
+      <dt class="col-6 text-secondary">Próximo</dt>
+      <dd class="col-6"><%= property.nearby %></dd>
+    <% end %>
+  </dl>
 <% end %>
