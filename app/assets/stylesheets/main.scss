@@ -44,8 +44,13 @@ footer{
   padding-top: 30px;
 }
 
+.line-sm{
+  line-height: 100%;
+}
+
 dl{
   dt {
+    text-align: left;
     font-weight: normal;
   }
 

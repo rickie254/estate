@@ -1,6 +1,12 @@
 <div class="card property-summary">
   <div class="row no-gutters">
-    <%= link_to property, class: "col-5" do %>
+    <div class="col-12 pt-1 pb-1 pl-2 pr-2 d-sm-none">
+      <%= property.title %>
+      <%= link_to [:edit, property] do %>
+        <i class="fa fa-pencil" title="Editar"></i>
+      <% end %>
+    </div>
+    <%= link_to property, class: "col-sm-4" do %>
       <% if has_gallery? property %>
         <div class="property-image " style="background-image:url(<%= property.gallery.images.first.large %>)"></div>
       <% else %>
@@ -8,38 +14,58 @@
       <% end %>
     <% end %>
 
-    <div class="col-7 pt-3 pr-3 pl-3">
-      <div class="row mb-3">
-        <div class="col-md-8">
-          <h2 class="mb-0">
-            <%= property.title %>
-            <%= link_to [:edit, property] do %>
-              <i class="fa fa-pencil" title="Editar"></i>
-            <% end %>
-          </h2>
-          <small class="text-secondary"><%= property.address %></small>
-        </div>
-        <div class="col-md-4">
-          <h2>R$ <%= humanized_money property.value %></h2>
-        </div>
-      </div>
+    <div class="col-sm-8 pt-3 pr-lg-3 pl-lg-3 pr-2 pl-2">
 
+      <%# Desktop %>
       <div class="d-none d-md-block">
-        <div class="row no-gutters">
-
-          <div class="col-6">
-            <%= render "partials/general_property_information", {property: property, summed_up: true} %>
+        <div class="row mb-3">
+          <div class="col-sm-8">
+            <h2 class="mb-0">
+              <%= property.title %>
+              <%= link_to [:edit, property] do %>
+                <i class="fa fa-pencil" title="Editar"></i>
+              <% end %>
+            </h2>
           </div>
-
-          <div class="col-6">
-            <%= render "partials/specific_property_information", {property: property, summed_up: true} %>
+          <div class="col-sm-4 text-right">
+            <h2 class="mb-0">
+              R$ <%= humanized_money property.value %>
+            </h2>
           </div>
-
+          <div class="col-12 line-sm">
+            <small class="text-secondary">
+              <%= property.address %>
+            </small>
+          </div>
         </div>
       </div>
 
-      <div class="row pb-3 pt-2">
-        <div class="col">
+      <%# Mobile %>
+      <div class="row d-md-none mb-2">
+        <div class="col-12">
+          <h2 class="mb-0">
+            R$ <%= humanized_money property.value %>
+          </h2>
+        </div>
+        <div class="col-12 line-sm">
+          <small class="text-secondary">
+            <%= property.address %>
+          </small>
+        </div>
+      </div>
+
+      <div class="row justify-content-between">
+        <div class="col-md-6 col-sm-12">
+          <%= render "partials/specific_property_information", {property: property, summed_up: true} %>
+        </div>
+
+        <div class="col-6 d-none d-md-block">
+          <%= render "partials/general_property_information", {property: property, summed_up: true} %>
+        </div>
+      </div>
+
+      <div class="row pb-2 pt-2">
+        <div class="col-12 text-right">
           <h3>
             <%= link_to("Ver mais detalhes", property) %>
           </h3>
