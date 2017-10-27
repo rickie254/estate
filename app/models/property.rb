@@ -4,6 +4,7 @@ class Property < ApplicationRecord
   has_one :extra_list
 
   enum deal: [ :sale, :rent ]
+  enum position: [ :front, :back ]
 
   validates :title, presence: true
   validates :address, presence: true

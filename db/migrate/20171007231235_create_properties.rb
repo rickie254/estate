@@ -30,6 +30,9 @@ class CreateProperties < ActiveRecord::Migration[5.1]
       t.boolean       :roof
       t.monetize      :condominium, amount: { null: true, default: nil }
 
+      # terrain fields
+      t.integer       :terrain_kind
+
       t.timestamps
     end
   end

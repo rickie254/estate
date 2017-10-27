@@ -3,8 +3,9 @@
     <dt class="col-6 text-secondary">Endereço</dt>
     <dd class="col-sm-6"><%= property.address %></dd>
   <% else %>
-    <dt class="col-6 text-secondary">Perfil</dt>
-    <dd class="col-6"><%= I18n.t "views.#{property.profile}" %></dd>
+  <%= property.profile %>
+    <dt class="col-6 text-secondary">Posição</dt>
+    <dd class="col-6"><%= I18n.t "views.#{property.position}" %></dd>
   <% end %>
   <dt class="col-6 text-secondary">Bairro</dt>
   <dd class="col-6"><%= property.district %></dd>
@@ -18,8 +19,6 @@
       <dt class="col-6 text-secondary">Próximo</dt>
       <dd class="col-6"><%= property.nearby %></dd>
     <% end %>
-    <dt class="col-6 text-secondary">Perfil</dt>
-    <dd class="col-6"><%= I18n.t "views.#{property.profile}" %></dd>
     <dt class="col-6 text-secondary">Negócio</dt>
     <dd class="col-6"><%= I18n.t "views.#{property.deal}" %></dd>
     <dt class="col-6 text-secondary">Área Global</dt>

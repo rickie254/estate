@@ -1,11 +1,16 @@
 pt-BR:
   views:
-
     pagination:
       next: ">"
       previous: "<"
       first: Primeira
       last: Última
+
+    Terrain:
+      one: Terreno
+      other: Terrenos
+      ofthe: do terreno
+      new: Novo Terreno
 
     Apartment:
       one: Apartamento
@@ -41,6 +46,12 @@ pt-BR:
     sale: Venda
     rent: Aluguel
 
+    rural: Área rural
+    farm: Chácara/Sítio
+    residential: Residencial
+    comercial: Comercial
+    condominium: Condomínio
+
   activerecord:
     errors:
       messages:
@@ -67,6 +78,12 @@ pt-BR:
         positions:
           front: Frente
           back: Fundos
+        terrain_kinds:
+          rural: Área rural
+          farm: Chácara/Sítio
+          residential: Residencial
+          comercial: Comercial
+          condominium: Condomínio
 
   date:
     abbr_day_names:

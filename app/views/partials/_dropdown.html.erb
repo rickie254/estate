@@ -1,64 +1,53 @@
 <div class="dropdown-menu bg-dark p-0" id="property-filter-dropdown">
   <div class="row p-3">
-    <div class="col-auto mb-2">
+    <div class="col-auto mb-3">
       <h2>
         <%= link_to "APARTAMENTOS", apartments_path %>
       </h2>
       <ul class="list-unstyled">
         <li>
-          <%= link_to "Kitinete", apartments_path(filter: {number_of_rooms: :kitnet}),
-          class: "navbar-brand" %>
+          <%= link_to "Kitinete", apartments_path(filter: {number_of_rooms: :kitnet}) %>
         </li>
         <li>
-          <%= link_to "1 Quarto", apartments_path(filter: {number_of_rooms: :one}),
-          class: "navbar-brand" %>
+          <%= link_to "1 Quarto", apartments_path(filter: {number_of_rooms: :one}) %>
         </li>
         <li>
-          <%= link_to "2 Quartos", apartments_path(filter: {number_of_rooms: :two}),
-          class: "navbar-brand" %>
+          <%= link_to "2 Quartos", apartments_path(filter: {number_of_rooms: :two}) %>
         </li>
         <li>
-          <%= link_to "3 Quartos", apartments_path(filter: {number_of_rooms: :three}),
-          class: "navbar-brand" %>
+          <%= link_to "3 Quartos", apartments_path(filter: {number_of_rooms: :three}) %>
         </li>
         <li>
-          <%= link_to "4 Quartos", apartments_path(filter: {number_of_rooms: :four}),
-          class: "navbar-brand" %>
+          <%= link_to "4 Quartos", apartments_path(filter: {number_of_rooms: :four}) %>
         </li>
         <li>
-          <%= link_to "Cobertura", apartments_path(filter: {roof: true}),
-          class: "navbar-brand" %>
+          <%= link_to "Cobertura", apartments_path(filter: {roof: true}) %>
         </li>
         <li>
-          <%= link_to "Com Box de Garagem", apartments_path(filter: {number_of_boxes: true}),
-          class: "navbar-brand" %>
+          <%= link_to "Com Box de Garagem", apartments_path(filter: {number_of_boxes: true}) %>
         </li>
       </ul>
     </div>
-    <div class="col-auto mb-2">
+    <div class="col-auto mb-3">
       <h2>
         <%= link_to "CASAS", houses_path %>
       </h2>
       <ul class="list-unstyled">
         <li>
-          <%= link_to "1 Quarto", houses_path(filter: {number_of_rooms: 1}),
-          class: "navbar-brand" %>
+          <%= link_to "1 Quarto", houses_path(filter: {number_of_rooms: 1}) %>
         </li>
         <li>
-          <%= link_to "2 Quartos", houses_path(filter: {number_of_rooms: 2}),
-          class: "navbar-brand" %>
+          <%= link_to "2 Quartos", houses_path(filter: {number_of_rooms: 2}) %>
         </li>
         <li>
-          <%= link_to "3 Quartos", houses_path(filter: {number_of_rooms: 3}),
-          class: "navbar-brand" %>
+          <%= link_to "3 Quartos", houses_path(filter: {number_of_rooms: 3}) %>
         </li>
         <li>
-          <%= link_to "4 Quartos ou +", houses_path(filter: {number_of_rooms: 4}),
-          class: "navbar-brand" %>
+          <%= link_to "4 Quartos ou +", houses_path(filter: {number_of_rooms: 4}) %>
         </li>
       </ul>
     </div>
-    <!-- <div class="col-auto mb-2">
+    <!-- <div class="col-auto mb-3">
       <h2>Comercial</h2>
       <ul class="list-unstyled">
         <li>
@@ -77,26 +66,28 @@
           Pavilhões
         </li>
       </ul>
-    </div>
-    <div class="col-auto mb-2">
-      <h2>Terrenos</h2>
+    </div> -->
+    <div class="col-auto mb-3">
+      <h2>
+        <%= link_to "TERRENOS", terrains_path %>
+      </h2>
       <ul class="list-unstyled">
         <li>
-          Áreas Rurais
+          <%= link_to "Áreas Rurais", terrains_path(filter: {terrain_kind: :rural}) %>
         </li>
         <li>
-          Chácaras/Sítios
+          <%= link_to "Chácaras/Sítios", terrains_path(filter: {terrain_kind: :farm}) %>
         </li>
         <li>
-          Terrenos Residenciais
+          <%= link_to "Terrenos Residenciais", terrains_path(filter: {terrain_kind: :residential}) %>
         </li>
         <li>
-          Terrenos comerciais
+          <%= link_to "Terrenos Comerciais", terrains_path(filter: {terrain_kind: :comercial}) %>
         </li>
         <li>
-          Terrenos em Condomínio
+          <%= link_to "Terrenos em Condomínio", terrains_path(filter: {terrain_kind: :condominium}) %>
         </li>
       </ul>
-    </div> -->
+    </div>
   </div>
 </div>
