@@ -36,13 +36,14 @@ ActiveRecord::Schema.define(version: 20171023165212) do
     t.string "address"
     t.string "district"
     t.string "nearby"
+    t.integer "position"
     t.integer "value_cents", null: false
     t.string "value_currency", default: "BRL", null: false
     t.integer "deal"
-    t.float "global_area"
     t.boolean "featured"
+    t.boolean "is_enterprise"
+    t.float "global_area"
     t.integer "profile"
-    t.integer "position"
     t.integer "number_of_rooms"
     t.float "private_area"
     t.integer "number_of_boxes"

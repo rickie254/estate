@@ -75,6 +75,10 @@ dl{
     margin-top: 0px;
     width: 100%;
 
+    .col-auto{
+      min-width: 200px;
+    }
+
     *{
       a{
         display: inline-block;

@@ -11,17 +11,20 @@ class CreateProperties < ActiveRecord::Migration[5.1]
       t.string        :address
       t.string        :district
       t.string        :nearby
+      t.integer       :position
 
       # financial
       t.monetize      :value
       t.integer       :deal # rent or sale
 
-      t.float         :global_area
+      # booleans
       t.boolean       :featured
+      t.boolean       :is_enterprise
+
+      t.float         :global_area
 
       # buildings fields
       t.integer       :profile
-      t.integer       :position
       t.integer       :number_of_rooms
       t.float         :private_area
 

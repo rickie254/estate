@@ -46,7 +46,7 @@
     <dt class="col-6 text-secondary">Posição</dt>
     <dd class="col-6"><%= I18n.t "views.#{property.position}" %></dd>
 
-    <% if property.nearby %>
+    <% unless property.nearby.empty? %>
       <dt class="col-6 text-secondary">Próximo</dt>
       <dd class="col-6"><%= property.nearby %></dd>
     <% end %>
@@ -58,7 +58,7 @@
     <dt class="col-6 text-secondary">Posição</dt>
     <dd class="col-6"><%= I18n.t "views.#{property.position}" %></dd>
 
-    <% if property.nearby %>
+    <% unless property.nearby.empty? %>
       <dt class="col-6 text-secondary">Próximo</dt>
       <dd class="col-6"><%= property.nearby %></dd>
     <% end %>
