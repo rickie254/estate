@@ -3,7 +3,6 @@ class Terrain < Property
 
   def self.query_for_listing filter
     if filter && filter[:terrain_kind]
-      p filter
       where(terrain_kind: filter[:terrain_kind])
     else
       all
