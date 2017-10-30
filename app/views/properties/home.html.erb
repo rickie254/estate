@@ -1,4 +1,10 @@
-<div class="row">
+<div class="row no-gutters justify-content-center">
+  <% if flash[:notice] %>
+    <div class="col-12">
+      <%= render "partials/alert_success", msg: flash[:notice] %>
+    </div>
+  <% end %>
+
   <div class="col-12 card p-2">
     <h1 class="mb-0 text-center">
       Imóveis em destaque

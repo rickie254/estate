@@ -18,7 +18,7 @@ class CreateProperties < ActiveRecord::Migration[5.1]
       t.integer       :deal # rent or sale
 
       # booleans
-      t.boolean       :featured
+      t.boolean       :is_featured
       t.boolean       :is_enterprise
 
       t.float         :global_area

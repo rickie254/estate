@@ -13,16 +13,14 @@ class PropertiesController < ApplicationController
   def get_extra_list() render json: {list: @@extra_list.list} end
 
   def home
-    @properties = Property.where(featured: true)
+    @properties = Property.where(is_featured: true)
   end
 
   def index
-    if property_type
-      properties = property_type.query_for_listing(params[:filter])
-      @breadcrumbs = generate_breadcrumbs params[:filter]
-    end
-    properties ||= Property.all
+    properties = property_type.query_for_listing(params[:filter]) if property_type
+    properties ||= Property.query_for_listing(params[:filter])
 
+    @breadcrumbs = generate_breadcrumbs params[:filter]
     @properties = properties.page(params[:page]).per(2)
   end
 

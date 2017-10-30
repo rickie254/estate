@@ -54,14 +54,12 @@
             <%= render "partials/dropdown" %>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href>
-              Empreendimentos
-            </a>
+            <%= link_to "Empreendimentos",
+            properties_path(filter: {is_enterprise: true}), class: "nav-link" %>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href>
-              Avaliamos seu imóvel
-            </a>
+            <%= link_to "Avaliamos seu imóvel",
+            new_customer_property_path, class: "nav-link" %>
           </li>
         </ul>
         <ul class="navbar-nav ml-auto">

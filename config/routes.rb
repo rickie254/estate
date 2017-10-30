@@ -5,6 +5,10 @@ Rails.application.routes.draw do
     :controller => "properties", :type => "#{property_type}"
   end
 
+  resources :customer_properties
+
+  get    "properties",                        to: "properties#index"
+
   get    "properties/get_images/",            to: "properties#get_images"
   post   "properties/add_image/",             to: "properties#add_image"
   get    "properties/set_main_image/:index",  to: "properties#set_main_image"

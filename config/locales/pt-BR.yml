@@ -57,6 +57,9 @@ pt-BR:
       pavilion: Pavilhão
       general: Negócios Diversos
 
+    is_enterprise:
+      !!str true: Empreendimentos
+
     fresh: Novo
     used: Usado
 
@@ -76,6 +79,16 @@ pt-BR:
     attributes:
       gallery:
         images: Imagens
+      customer_property:
+        kinds:
+          house: Casa
+          apartment: Apartamento
+          comercial: Comercial
+          terrain: Terreno
+        deals:
+          rent: Aluguel
+          sale: Venda
+
       property:
         number_of_rooms:
           kitnet: Kitinete

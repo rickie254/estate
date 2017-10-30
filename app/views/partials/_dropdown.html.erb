@@ -50,23 +50,23 @@ id="property-filter-dropdown">
     </div>
     <div class="col-auto mb-3">
       <h2>
-        <%= link_to "COMERCIAL", terrains_path %>
+        <%= link_to "COMERCIAL", comercials_path %>
       </h2>
       <ul class="list-unstyled">
         <li>
-          <%= link_to "Salas aéreas", terrains_path(filter: {comercial_kind: :air}) %>
+          <%= link_to "Salas aéreas", comercials_path(filter: {comercial_kind: :air}) %>
         </li>
         <li>
-          <%= link_to "Salas térreas", terrains_path(filter: {comercial_kind: :ground}) %>
+          <%= link_to "Salas térreas", comercials_path(filter: {comercial_kind: :ground}) %>
         </li>
         <li>
-          <%= link_to "Prédio/Casa", terrains_path(filter: {comercial_kind: :residential}) %>
+          <%= link_to "Prédio/Casa", comercials_path(filter: {comercial_kind: :residential}) %>
         </li>
         <li>
-          <%= link_to "Negócios Diversos", terrains_path(filter: {comercial_kind: :general}) %>
+          <%= link_to "Negócios Diversos", comercials_path(filter: {comercial_kind: :general}) %>
         </li>
         <li>
-          <%= link_to "Pavilhões", terrains_path(filter: {comercial_kind: :pavilion}) %>
+          <%= link_to "Pavilhões", comercials_path(filter: {comercial_kind: :pavilion}) %>
         </li>
       </ul>
     </div>

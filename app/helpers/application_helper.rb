@@ -33,8 +33,10 @@ module ApplicationHelper
           second_crumb = pluralize filter.values[0].to_i, "quarto", "quartos"
         end
       else
+        first_crumb = "Imóveis" if filter.keys[0] == "is_enterprise"
         second_crumb = I18n.t "views.#{filter.keys[0]}.#{filter.values[0]}"
       end
+
       @listing_title = "Vendas / #{first_crumb} / #{second_crumb}"
     else
       @listing_title = "Vendas / #{first_crumb}"

@@ -11,10 +11,17 @@
   <%= error_message_for_field(@property, :deal) %>
 </div>
 
-<div class="form-group col-sm-12">
+<div class="form-group col-sm-9">
   <label>Endereço</label>
   <%= f.text_field :address, class: "form-control #{validate_field(@property, :address)}" %>
   <%= error_message_for_field(@property, :address) %>
+</div>
+
+<div class="form-group col-sm-3">
+  <label>Posição</label>
+  <%= f.select :position, options_for_select(Property.attributes_for_select "positions"),
+  {}, {class: "form-control #{validate_field(@property, :position)}"} %>
+  <%= error_message_for_field(@property, :position) %>
 </div>
 
 <div class="form-group col-sm-6">
@@ -48,14 +55,13 @@
 </div>
 
 <div class="form-group col-sm-3">
-  <label>Posição</label>
-  <%= f.select :position, options_for_select(Property.attributes_for_select "positions"),
-  {}, {class: "form-control #{validate_field(@property, :position)}"} %>
-  <%= error_message_for_field(@property, :position) %>
+  <label>Em destaque?</label> <br>
+  <%= f.check_box :is_featured, class: "form-check-input #{validate_field(@property, :is_featured)}" %>
+  <%= error_message_for_field(@property, :is_featured) %>
 </div>
 
-<div class="form-group col-sm-4">
-  <label>Em destaque?</label> <br>
-  <%= f.check_box :featured, class: "form-check-input #{validate_field(@property, :featured)}" %>
-  <%= error_message_for_field(@property, :featured) %>
+<div class="form-group col-sm-3">
+  <label>Empreendimento?</label> <br>
+  <%= f.check_box :is_enterprise, class: "form-check-input #{validate_field(@property, :is_enterprise)}" %>
+  <%= error_message_for_field(@property, :is_enterprise) %>
 </div>

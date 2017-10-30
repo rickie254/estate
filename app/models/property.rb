@@ -16,7 +16,13 @@ class Property < ApplicationRecord
     end
   end
 
-  def self.query_for_listing params
-    all
+  def self.query_for_listing filter
+    if filter
+      if filter[:is_enterprise]
+        where(is_enterprise: true)
+      else
+        all
+      end
+    end
   end
 end
