@@ -2,11 +2,11 @@ $(document).on 'turbolinks:load', ->
   app = new Vue
     el: '#footer',
     data:
-      incc: {}
+      stats: []
 
     mounted: () ->
-      # this.$http.get('/utils/get_incc/')
-      # .then((res) ->
-      #   console.log res
-      #   app.incc = res.body.incc
-      # )
+      this.$http.get('/utils/get_stats/')
+      .then((res) ->
+        app.stats = res.body
+        console.log app.stats
+      )

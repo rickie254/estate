@@ -2,17 +2,24 @@ class UtilsController < ApplicationController
   require 'open-uri'
   require 'nokogiri'
 
-  def get_incc
-    incc = {}
-    doc = Nokogiri::HTML(open('http://www.calculador.com.br/tabela/indice/INCC'))
-    latest_record = doc.css('#tabela-indice tbody tr')[0]
-    if latest_record
-      incc[:month] = latest_record.css('td')[0].content
-      incc[:value] = latest_record.css('td')[1].content
-      incc[:acumulated_year] = latest_record.css('td')[2].content
-      incc[:acumulated_twelve_months] = latest_record.css('td')[3].content
-      
-      render json: {incc: incc}
+  def get_stats
+    stats = []
+    doc = Nokogiri::HTML(open('http://www.bolsapar.com.br/'))
+
+    latest_record = doc.css('#quotation ul li')
+
+    if latest_record.length > 0
+      latest_record.each do |li|
+        record = {}
+        record[:name] = li.css('strong')[0].content
+        record[:month] = li.css('span')[0].content
+        record[:value] = li.css('span')[1].content
+        stats << record
+      end
+    end
+
+    if stats.length > 0
+      render json: stats
     else
       head :not_found
     end
