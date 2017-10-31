@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  devise_for :admins
   for property_type in PROPERTY_TYPES
     resources "#{property_type.downcase}s".to_sym,
     :controller => "properties", :type => "#{property_type}"

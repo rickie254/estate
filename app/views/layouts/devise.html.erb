@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <title>Bruno Corretor de Imóveis - Área restrita</title>
+    <link href="https://fonts.googleapis.com/css?family=Quicksand:500" rel="stylesheet">
+
+    <meta name="robots" content="noindex,nofollow" />
+
+    <meta name="google" content="notranslate" />
+    <meta name='viewport' content='width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=0, minimal-ui'/>
+  </head>
+
+  <body>
+
+    <%= render "partials/navbar" %>
+
+    <div class="container" id="main-container">
+      <%= yield %>
+    </div>
+
+    <%= render "partials/footer" %>
+
+  </body>
+</html>

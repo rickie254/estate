@@ -1,3 +1,4 @@
 $(document).on 'turbolinks:load', ->
-  $("#property-gallery").lightGallery
-    selector: ".gallery-image"
+  if $("#property-gallery").length
+    $("#property-gallery").lightGallery
+      selector: ".gallery-image"

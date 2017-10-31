@@ -60,7 +60,13 @@
 
       <div class="col-md-3 mb-3">
         <h1 class="font-weight-bold">Logotipo</h1>
-        Home | Vendas | Empreendimentos | Avaliamos o seu imóvel
+        <p>Home | Vendas | Empreendimentos | Avaliamos o seu imóvel</p>
+        <small>
+          Zordan Imóveis
+          <%= link_to new_admin_session_path do %>
+            <i class="fa fa-lock" aria-hidden="true"></i> Área restrita
+          <% end  %>
+        </small>
       </div>
 
     </div>
