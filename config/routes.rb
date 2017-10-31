@@ -1,6 +1,14 @@
 Rails.application.routes.draw do
 
-  devise_for :admins
+  devise_for :admins,
+  path: 'admin',
+  path_names:
+  {
+    sign_in: 'entrar',
+    sign_out: 'sair',
+    password: 'senha',
+  }
+
   for property_type in PROPERTY_TYPES
     resources "#{property_type.downcase}s".to_sym,
     :controller => "properties", :type => "#{property_type}"

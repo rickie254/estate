@@ -30,6 +30,10 @@ body {
   border-bottom: 1px solid red;
 }
 
+.dropdown-menu{
+  padding: 0;
+}
+
 #main-container{
   min-height: 300px;
   padding-top: 30px;
@@ -39,6 +43,10 @@ body {
 
 .line-sm{
   line-height: 100%;
+}
+
+.pointer {
+  cursor: pointer;
 }
 
 dl{

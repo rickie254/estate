@@ -1,5 +1,5 @@
 class PropertiesController < ApplicationController
-  before_action :authenticate_admin!, except: [:index, :show]
+  before_action :authenticate_admin!, except: [:home, :index, :show]
   include ApplicationHelper
 
   def show() @property = Property.find(params[:id]) end
