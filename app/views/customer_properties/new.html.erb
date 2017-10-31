@@ -1,65 +1,78 @@
-<div class="row justify-content-center">
-  <div class="col-lg-10 card mb-2 p-3">
-    <h2 class="font-weight-bold mb-0">
-      Avaliamos seu imóvel <br>
-      <small class="text-secondary">
-        Preencha o formulário para entrarmos em contato e iniciarmos a avalição.
-      </small>
-    </h2>
-  </div>
-  <div class="col-lg-10 card p-3">
-    <%= form_for @customer_property do |f| %>
+<%= form_for @customer_property do |f| %>
 
-    <h2 class="font-weight-bold">Informações de contato</h2>
-    <div class="form-row">
+  <div class="row justify-content-center">
+    <div class="col-lg-10 col-12">
+      <div class="row">
 
-      <div class="form-group col-md-5">
-        <label>Nome Completo</label>
-        <%= f.text_field :name, class: "form-control #{validate_field(@customer_property, :name)}" %>
-        <%= error_message_for_field(@customer_property, :name) %>
-      </div>
+        <div class="col-12 card mb-2 p-3">
+          <h2 class="font-weight-bold mb-0">
+            Avaliamos seu imóvel <br>
+            <small class="text-secondary">
+              Preencha o formulário para entrarmos em contato e iniciarmos a avalição.
+            </small>
+          </h2>
+        </div>
 
-      <div class="form-group col-md-4">
-        <label>E-mail</label>
-        <%= f.text_field :email, class: "form-control #{validate_field(@customer_property, :email)}" %>
-        <%= error_message_for_field(@customer_property, :email) %>
-      </div>
+        <div class="col-lg-5 mb-2 card p-3">
 
-      <div class="form-group col-md-3">
-        <label>Telefone</label>
-        <%= f.text_field :phone, class: "form-control #{validate_field(@customer_property, :phone)}" %>
-        <%= error_message_for_field(@customer_property, :phone) %>
+          <h2 class="font-weight-bold">
+            Informações de contato
+          </h2>
+          <div class="form-row">
+            <div class="form-group col-12">
+              <label>Nome Completo</label>
+              <%= f.text_field :name, class: "form-control #{validate_field(@customer_property, :name)}" %>
+              <%= error_message_for_field(@customer_property, :name) %>
+            </div>
+
+            <div class="form-group col-12">
+              <label>E-mail</label>
+              <%= f.text_field :email, class: "form-control #{validate_field(@customer_property, :email)}" %>
+              <%= error_message_for_field(@customer_property, :email) %>
+            </div>
+
+            <div class="form-group col-12">
+              <label>Telefone</label>
+              <%= f.text_field :phone, class: "form-control #{validate_field(@customer_property, :phone)}" %>
+              <%= error_message_for_field(@customer_property, :phone) %>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-7 pl-lg-2 pl-0 pr-0">
+          <div class="col-12 card p-3 mb-2">
+            <h2 class="font-weight-bold">Informações do imóvel</h2>
+            <div class="form-row mb-3">
+              <div class="form-group col-12">
+                <label>Endereço</label>
+                <%= f.text_field :address, class: "form-control #{validate_field(@customer_property, :address)}" %>
+                <%= error_message_for_field(@customer_property, :address) %>
+              </div>
+              <div class="form-group col-12">
+                <label>Tipo do imóvel</label>
+                <%= f.select :kind, options_for_select(CustomerProperty.attributes_for_select "kinds"),
+                {}, {class: "form-control #{validate_field(@customer_property, :kind)}"} %>
+                <%= error_message_for_field(@customer_property, :kind) %>
+              </div>
+              <div class="form-group col-12">
+                <label>Negócio</label>
+                <%= f.select :deal, options_for_select(CustomerProperty.attributes_for_select "deals"),
+                {}, {class: "form-control #{validate_field(@customer_property, :deal)}"} %>
+                <%= error_message_for_field(@customer_property, :deal) %>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 card p-3 mb-2">
+          <div class="form-row">
+            <div class="form-group col-12 text-right mb-0">
+              <%= f.submit "Requisitar avaliação", class: "btn btn-success" %>
+            </div>
+          </div>
+        </div>
+
       </div>
     </div>
-
-      <h2 class="font-weight-bold">Informações do imóvel</h2>
-      <div class="form-row mb-3">
-        <div class="form-group col-md-8">
-          <label>Endereço</label>
-          <%= f.text_field :address, class: "form-control #{validate_field(@customer_property, :address)}" %>
-          <%= error_message_for_field(@customer_property, :address) %>
-        </div>
-        <div class="form-group col-md-2">
-          <label>Tipo do imóvel</label>
-          <%= f.select :kind, options_for_select(CustomerProperty.attributes_for_select "kinds"),
-          {}, {class: "form-control #{validate_field(@customer_property, :kind)}"} %>
-          <%= error_message_for_field(@customer_property, :kind) %>
-        </div>
-        <div class="form-group col-md-2">
-          <label>Negócio</label>
-          <%= f.select :deal, options_for_select(CustomerProperty.attributes_for_select "deals"),
-          {}, {class: "form-control #{validate_field(@customer_property, :deal)}"} %>
-          <%= error_message_for_field(@customer_property, :deal) %>
-        </div>
-      </div>
-
-      <div class="form-row">
-        <div class="form-group col-md-12 text-right mb-0">
-          <%= f.submit "Requisitar avaliação", class: "btn btn-success" %>
-        </div>
-      </div>
-
-    <% end %>
-
   </div>
-</div>
+<% end %>
