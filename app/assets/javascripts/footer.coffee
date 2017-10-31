@@ -2,11 +2,15 @@ $(document).on 'turbolinks:load', ->
   app = new Vue
     el: '#footer',
     data:
+      loading: true
       stats: []
 
     mounted: () ->
       this.$http.get('/utils/get_stats/')
       .then((res) ->
         app.stats = res.body
-        console.log app.stats
+        app.loading = false
+      )
+      .then((res) ->
+        app.loading = false
       )

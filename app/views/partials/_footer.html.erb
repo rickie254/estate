@@ -1,52 +1,76 @@
-<footer id="footer" class="bg-dark text-white mt-5">
-  <div class="container">
-    <div class="row no-gutters justify-content-center">
+<footer id="footer" class="bg-dark text-white">
+  <div class="container bg-dark pt-4">
+    <div class="row justify-content-center">
 
-      <div class="col-lg-6 mb-3">
-        <h2>Índices <i class="fa fa-line-chart" aria-hidden="true"></i></h2>
-        <div v-if="stats.length > 0" class="row">
-          <div class="col-lg-auto" v-for="stat in stats">
+      <div class="col-md-5 mb-4">
+        <h2 class="font-weight-bold">
+          Índices
+          <i class="fa fa-line-chart" aria-hidden="true"></i>
+        </h2>
+        <div class="row" v-if="loading">
+          <div class="col-md-auto">
+            Buscando...
+          </div>
+        </div>
+
+        <div class="row" v-else>
+          <div v-if="stats.length > 0"
+            class="col-sm-auto" v-for="stat in stats">
             <small>{{stat.month}}</small>
             <h2 class="mb-0">{{stat.value}}</h2>
             <strong>{{stat.name}}</strong>
           </div>
+          <div v-if="stats.length == 0" class="col-md-auto">
+            Indisponível
+          </div>
         </div>
       </div>
 
-      <div class="col-lg-6">
-        <h2>
+      <div class="col-md-4 mb-3">
+        <h2 class="mb-3 font-weight-bold">
           Entre em contato <i class="fa fa-comments-o"></i>
         </h2>
         <ul class="list-unstyled">
-          <li>
+          <li class="mb-3">
             <a href="mailto:bruno@zordanimoveis.com.br">
-              <i class="fa fa-envelope" aria-hidden="true"></i>
-              bruno@zordanimoveis.com.br
+              <h2 class="mb-0">
+                <i class="fa fa-envelope" aria-hidden="true"></i>
+                bruno@zordanimoveis.com.br
+              </h2>
             </a>
           </li>
-          <li>
-            <a href="https://www.facebook.com/zordancorretor/">
-              <i class="fa fa-facebook-official" aria-hidden="true"></i>
-              /zordancorretor
+          <li class="mb-3">
+            <a href="https://www.facebook.com/zordancorretor/" target="_blank">
+              <h2 class="mb-0">
+                <i class="fa fa-facebook-official" aria-hidden="true"></i>
+                /zordancorretor
+              </h2>
             </a>
           </li>
-          <li>
+          <li class="mb-3">
             <a href="tel:54999999999">
-              <i class="fa fa-whatsapp" aria-hidden="true"></i>
-              (54) 9.9999-9999
+              <h2 class="mb-0">
+                <i class="fa fa-whatsapp" aria-hidden="true"></i>
+                (54) 9.9999-9999
+              </h2>
             </a>
           </li>
         </ul>
-
       </div>
+
+      <div class="col-md-3 mb-3">
+        <h1 class="font-weight-bold">Logotipo</h1>
+        Home | Vendas | Empreendimentos | Avaliamos o seu imóvel
+      </div>
+
     </div>
+  </div>
 
-    <div class="row">
-      <div class="col-12 text-center">
-        <small>
-          Corretor de imóveis ® Todos os direitos reservados - 2017
-        </small>
-      </div>
+  <div class="row no-gutters disclaimer">
+    <div class="col-12 text-center">
+      <small>
+        zordanimoveis.com.br ® Todos os direitos reservados - 2017
+      </small>
     </div>
   </div>
 </footer>
