@@ -39,6 +39,8 @@ class CreateProperties < ActiveRecord::Migration[5.1]
       # comercial fields
       t.integer       :comercial_kind
 
+      t.datetime      :deleted_at
+
       t.timestamps
     end
   end

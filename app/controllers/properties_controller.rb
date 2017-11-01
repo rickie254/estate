@@ -50,6 +50,16 @@ class PropertiesController < ApplicationController
     end
   end
 
+  def destroy
+    @property = property_type.find(params[:id]) if params[:id]
+
+    if @property.destroy
+      redirect_to @property, flash: { notice: "Excluído com sucessso!" }
+    else
+      render "properties/#{property_name}_form"
+    end
+  end
+
   def add_extra
     extra = extra_param[:extra]
 

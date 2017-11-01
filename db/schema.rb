@@ -81,6 +81,7 @@ ActiveRecord::Schema.define(version: 20171031183541) do
     t.string "condominium_currency", default: "BRL", null: false
     t.integer "terrain_kind"
     t.integer "comercial_kind"
+    t.datetime "deleted_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

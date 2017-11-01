@@ -5,3 +5,5 @@ PROPERTY_PARAMS = [:title, :address, :district, :value, :deal, :global_area, :pr
 CUSTOMER_PROPERTY_PARAMS = [:name, :phone, :email, :address, :kind, :deal]
 
 GMAPS_URL = "https://www.google.com/maps/embed/v1/place"
+
+STATS_URL = "http://www.bolsapar.com.br/"

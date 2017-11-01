@@ -32,10 +32,7 @@
             <i class="fa fa-plus"></i> Imóvel
           </button>
           <div class="dropdown-menu dropdown-menu-right">
-            <%= link_to "Apartamento", new_apartment_path, class: "dropdown-item" %>
-            <%= link_to "Casa", new_house_path, class: "dropdown-item" %>
-            <%= link_to "Comercial", new_comercial_path, class: "dropdown-item" %>
-            <%= link_to "Terreno", new_terrain_path, class: "dropdown-item" %>
+
           </div>
         </div>
       </li> -->
@@ -46,8 +43,13 @@
             <i class="fa fa-user-o"></i> <%= current_admin.email %>
           </a>
           <div class="dropdown-menu dropdown-menu-right">
+            <%= link_to "Novo Apartamento", new_apartment_path, class: "dropdown-item" %>
+            <%= link_to "Nova Casa", new_house_path, class: "dropdown-item" %>
+            <%= link_to "Novo Comercial", new_comercial_path, class: "dropdown-item" %>
+            <%= link_to "Novo Terreno", new_terrain_path, class: "dropdown-item" %>
+            <div class="dropdown-divider"></div>
             <%= link_to "Sair", destroy_admin_session_path,
-            method: :delete, class: "nav-link" %>
+            method: :delete, class: "dropdown-item" %>
           </div>
         <% end  %>
       </li>

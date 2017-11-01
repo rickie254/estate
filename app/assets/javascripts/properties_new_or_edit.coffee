@@ -22,7 +22,6 @@ $(document).on 'turbolinks:load', ->
 
         this.$http.get('/properties/get_images/')
         .then((res) ->
-          console.log res
           self.gallery.images = res.body.images
           self.loading = false
         )
@@ -66,14 +65,12 @@ $(document).on 'turbolinks:load', ->
           this.$http.post('/properties/add_extra/', {extra: app.extra})
           .then(
             (res) ->
-              console.log res
               app.extraList.list = res.body.list
               app.extraList.success = "Informações adicionais atualizadas"
               app.extra = ''
               app.extraList.error = ''
               app.loading = false
             (res) ->
-              console.log res
               app.extraList.error = res.bodyText
               app.loading = false
             )
@@ -103,5 +100,5 @@ $(document).on 'turbolinks:load', ->
                   app.loading = false
                 )
 
-  $('.form-check-input').bootstrapSwitch(onText: 'SIM', offText: 'NÃO', onColor: 'success', offColor: 'danger')
-  $('.double').mask('#.##0,00', {reverse: true})
+    $('.form-check-input').bootstrapSwitch(onText: 'SIM', offText: 'NÃO', onColor: 'success', offColor: 'danger')
+    $('.double').mask('#.##0,00', {reverse: true})

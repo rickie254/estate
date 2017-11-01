@@ -29,5 +29,8 @@ Rails.application.routes.draw do
 
   get    "utils/get_stats/",     to: "utils#get_stats"
 
+  get    "admin/panel",          to: "admin#panel"
+  
+
   root :to => 'properties#home'
 end

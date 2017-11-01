@@ -13,8 +13,10 @@
           <div class="col-8">
             <h1 class="mb-0">
               <%= @property.title %>
-              <%= link_to [:edit, @property] do %>
-                <i class="fa fa-pencil" title="Editar"></i>
+              <% if admin_signed_in? %>
+                <%= link_to [:edit, @property] do %>
+                  <i class="fa fa-pencil" title="Editar"></i>
+                <% end %>
               <% end %>
             </h1>
           </div>

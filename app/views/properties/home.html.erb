@@ -17,21 +17,23 @@
     </h1>
   </div>
   <% if @properties.length > 0 %>
-    <% @properties.each do |property| %>
-      <div class="col-md-4 card p-0 mt-2 property-featured">
-        <%= link_to property do %>
-          <% if property.gallery && property.gallery.images.length > 0 %>
-            <div class="property-image" style="background-image:url(<%= property.gallery.images.first.large %>)"></div>
-          <% else %>
-            <div class="property-image" style="background-image:url('assets/no-image.jpg')"></div>
-          <% end %>
-        <% end  %>
-        <div class="p-3">
-          <h2><%= property.title %></h2>
-          <%= render "partials/general_property_information", property: property %>
+    <div class="row">
+      <% @properties.each do |property| %>
+        <div class="col-md-4 card p-0 mt-2 property-featured">
+          <%= link_to property do %>
+            <% if has_gallery? property %>
+              <div class="property-image" style="background-image:url(<%= property.gallery.images.first.large %>)"></div>
+            <% else %>
+              <div class="property-image" style="background-image:url('<%= "#{ENV['S3_URL']}/assets/no-image.jpg" %>')"></div>
+            <% end %>
+          <% end  %>
+          <div class="p-3">
+            <h2><%= property.title %></h2>
+            <%= render "partials/general_property_information", property: property %>
+          </div>
         </div>
-      </div>
-    <% end %>
+      <% end %>
+    </div>
   <% else %>
     <p class="p-1">Nenhum imóvel em destaque</p>
   <% end %>

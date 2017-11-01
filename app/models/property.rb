@@ -1,4 +1,6 @@
 class Property < ApplicationRecord
+  acts_as_paranoid
+
   monetize :value_cents
   has_one :gallery
   has_one :extra_list

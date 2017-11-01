@@ -152,6 +152,8 @@ GEM
     nokogiri (1.8.1)
       mini_portile2 (~> 2.3.0)
     orm_adapter (0.5.0)
+    paranoia (2.3.1)
+      activerecord (>= 4.0, < 5.2)
     pg (0.21.0)
     popper_js (1.11.1)
     public_suffix (3.0.0)
@@ -276,6 +278,7 @@ DEPENDENCIES
   mini_magick
   money-rails (~> 1)
   nokogiri
+  paranoia (~> 2.2)
   pg
   puma (~> 3.7)
   rails (~> 5.1.4)

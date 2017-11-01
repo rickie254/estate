@@ -2,13 +2,13 @@
   <div class="row no-gutters">
     <div class="col-12 pt-1 pb-1 pl-2 pr-2 d-sm-none">
       <%= property.title %>
-      <%= link_to [:edit, property] do %>
+      <%= link_to_if admin_signed_in?, [:edit, property] do %>
         <i class="fa fa-pencil" title="Editar"></i>
       <% end %>
     </div>
     <%= link_to property, class: "col-sm-4" do %>
       <% if has_gallery? property %>
-        <div class="property-image " style="background-image:url(<%= property.gallery.images.first.large %>)"></div>
+        <div class="property-image" style="background-image:url(<%= property.gallery.images.first.large %>)"></div>
       <% else %>
         <div class="property-image" style="background-image:url('<%= "#{ENV['S3_URL']}/assets/no-image.jpg" %>')"></div>
       <% end %>

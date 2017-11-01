@@ -30,9 +30,6 @@ body {
   border-bottom: 1px solid red;
 }
 
-.dropdown-menu{
-  padding: 0;
-}
 
 #main-container{
   min-height: 300px;
@@ -69,8 +66,12 @@ dl{
 .dropdown {
   position: static;
 
+  .dropdown-menu{
+    padding: 0;
+  }
+
   #property-filter-dropdown {
-    height: 400px;
+    max-height: 400px;
     overflow-x: hidden;
     border-radius: 0;
     margin-top: 0px;

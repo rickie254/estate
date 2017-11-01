@@ -4,7 +4,7 @@ class UtilsController < ApplicationController
 
   def get_stats
     stats = []
-    doc = Nokogiri::HTML(open('http://www.bolsapar.com.br/'))
+    doc = Nokogiri::HTML(open(STATS_URL))
 
     latest_record = doc.css('#quotation ul li')
 
