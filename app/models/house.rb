@@ -10,7 +10,7 @@ class House < Property
 				if filter[:number_of_rooms] == 4
 					where("number_of_rooms >= 4")
 				else
-					where("number_of_rooms >= ?", filter[:number_of_rooms])
+					where("number_of_rooms = ?", filter[:number_of_rooms])
 				end
       end
     else
