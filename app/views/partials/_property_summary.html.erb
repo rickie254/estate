@@ -1,11 +1,15 @@
-<div class="card property-summary">
+<div class="card property-summary mb-2">
   <div class="row no-gutters">
+    
     <div class="col-12 pt-1 pb-1 pl-2 pr-2 d-sm-none">
       <%= property.title %>
-      <%= link_to_if admin_signed_in?, [:edit, property] do %>
-        <i class="fa fa-pencil" title="Editar"></i>
+      <% if admin_signed_in? %>
+        <%= link_to [:edit, property] do %>
+          <i class="fa fa-pencil" title="Editar"></i>
+        <% end %>
       <% end %>
     </div>
+
     <%= link_to property, class: "col-sm-4" do %>
       <% if has_gallery? property %>
         <div class="property-image" style="background-image:url(<%= property.gallery.images.first.large %>)"></div>
@@ -22,8 +26,10 @@
           <div class="col-sm-8">
             <h2 class="mb-0">
               <%= property.title %>
-              <%= link_to [:edit, property] do %>
-                <i class="fa fa-pencil" title="Editar"></i>
+              <% if admin_signed_in? %>
+                <%= link_to [:edit, property] do %>
+                  <i class="fa fa-pencil" title="Editar"></i>
+                <% end %>
               <% end %>
             </h2>
           </div>

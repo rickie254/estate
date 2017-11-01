@@ -44,11 +44,6 @@
             <h2 class="font-weight-bold">Informações do imóvel</h2>
             <div class="form-row mb-3">
               <div class="form-group col-12">
-                <label>Endereço</label>
-                <%= f.text_field :address, class: "form-control #{validate_field(@customer_property, :address)}" %>
-                <%= error_message_for_field(@customer_property, :address) %>
-              </div>
-              <div class="form-group col-12">
                 <label>Tipo do imóvel</label>
                 <%= f.select :kind, options_for_select(CustomerProperty.attributes_for_select "kinds"),
                 {}, {class: "form-control #{validate_field(@customer_property, :kind)}"} %>
@@ -59,6 +54,11 @@
                 <%= f.select :deal, options_for_select(CustomerProperty.attributes_for_select "deals"),
                 {}, {class: "form-control #{validate_field(@customer_property, :deal)}"} %>
                 <%= error_message_for_field(@customer_property, :deal) %>
+              </div>
+              <div class="form-group col-12">
+                <label>Endereço</label>
+                <%= f.text_field :address, class: "form-control #{validate_field(@customer_property, :address)}" %>
+                <%= error_message_for_field(@customer_property, :address) %>
               </div>
             </div>
           </div>

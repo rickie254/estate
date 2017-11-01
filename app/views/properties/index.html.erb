@@ -1,44 +1,34 @@
-<div class="row justify-content-center mb-3">
-
-  <!-- <div class="col-md-10 col-12">
-    <div class="row mb-2">
-      <div class="col-12">
-        <button class="btn btn-sm btn-primary" id="filters-toggle">Mostrar filtros</button>
-      </div>
-    </div>
-    <%= render "partials/filters" %>
-  </div> -->
-
-  <div class="col-lg-10 mb-2">
-    <div class="card p-2">
-      <div class="row">
-        <div class="col-sm-6 mb-1">
-          <h2 class="mb-0">
-            <%= @breadcrumbs %>
-          </h2>
-        </div>
-        <div class="col-sm-6 text-right">
-          <h2 class="mb-0">
-            <%= pluralize @properties.total_count, "imóvel encontrado", "imóveis encontrados" %>
-          </h2>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <% if @properties.length > 0 %>
-    <% @properties.each do |property| %>
-
-      <div class="col-lg-10 mb-2">
-        <%= render "partials/property_summary", property: property %>
-      </div>
-    <% end %>
-  <% end %>
-
-</div>
-
 <div class="row justify-content-center">
-  <div class="col-auto">
-    <%= paginate @properties %>
+  <div class="col-lg-10">
+
+    <div class="card mb-2">
+      <div class="card-header">
+        <div class="row">
+          <div class="col-sm-6">
+            <h2 class="mb-0">
+              <%= @breadcrumbs %>
+            </h2>
+          </div>
+          <div class="col-sm-6 text-right">
+            <h2 class="mb-0">
+              <%= pluralize @properties.total_count, "imóvel encontrado", "imóveis encontrados" %>
+            </h2>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <% if @properties.length > 0 %>
+      <% @properties.each do |property| %>
+        <%= render "partials/property_summary", property: property %>
+      <% end %>
+    <% end %>
+
+    <div class="row justify-content-center">
+      <div class="col-auto">
+        <%= paginate @properties %>
+      </div>
+    </div>
+
   </div>
 </div>

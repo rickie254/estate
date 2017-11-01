@@ -1,11 +1,11 @@
 class CustomerProperty < ApplicationRecord
-  enum kinds: [ :house, :apartment, :comercial, :terrain ]
-  enum deals: [ :rent, :sale ]
+  enum kind: [ :house, :apartment, :comercial, :terrain ]
+  enum deal: [ :rent, :sale ]
 
   validates :email, format: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i
-  validates :phone, presence: true, length: { minimum: 14, maximum: 15 }
+  validates :phone, length: { minimum: 14, maximum: 15 }
 
-  validates :address, :name, :kind, :deal, presence: true
+  validates :address, :email, :phone, :name, :kind, :deal, presence: true
 
   def self.attributes_for_select field
     eval(field).map do |value, _|

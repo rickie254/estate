@@ -1,0 +1,43 @@
+<div class="row justify-content-center">
+  <div class="col-lg-10">
+    <div class="card mb-2">
+      <div class="card-header">
+        <h2 class="mb-0">Imóveis de Clientes para avaliação</h2>
+      </div>
+    </div>
+
+    <% if @customer_properties.length > 0 %>
+      <% @customer_properties.each do |customer_property| %>
+        <div class="card p-2 mb-2">
+          <div class="row">
+            <div class="col-lg-6">
+              <dl class="row">
+                <dt class="col-3 text-secondary">Cliente</dt>
+                <dd class="col-9"><%= customer_property.name %></dd>
+                <dt class="col-3 text-secondary">Telefone</dt>
+                <dd class="col-9"><%= customer_property.phone %></dd>
+                <dt class="col-3 text-secondary">Email</dt>
+                <dd class="col-9"><%= customer_property.email %></dd>
+              </dl>
+            </div>
+            <div class="col-lg-6">
+              <dl class="row no-gutters">
+                <dt class="col-3 text-secondary">Imóvel</dt>
+                <dd class="col-9">
+                  <%= I18n.t "activerecord.attributes.customer_property.kinds.#{customer_property.kind}" %>
+                </dd>
+                <dt class="col-3 text-secondary">Endereço</dt>
+                <dd class="col-9"><%= customer_property.address %></dd>
+                <dt class="col-3 text-secondary">Negócio</dt>
+                <dd class="col-9"><%= I18n.t "views.#{customer_property.deal}" %></dd>
+              </dl>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    <% else %>
+      <p class="text-center">Nenhum imóvel para avaliação</p>
+    <% end %>
+
+  </div>
+</div>
