@@ -1,5 +1,6 @@
 class Property < ApplicationRecord
   acts_as_paranoid
+  paginates_per 10
 
   monetize :value_cents
   has_one :gallery

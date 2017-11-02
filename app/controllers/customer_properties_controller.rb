@@ -3,7 +3,7 @@ class CustomerPropertiesController < ApplicationController
 
   def index
     customer_properties = CustomerProperty.all
-    @customer_properties = customer_properties.page(params[:page]).per(2)
+    @customer_properties = customer_properties.page(params[:page])
   end
 
   def new

@@ -1,4 +1,6 @@
 class CustomerProperty < ApplicationRecord
+  paginates_per 10
+  
   enum kind: [ :house, :apartment, :comercial, :terrain ]
   enum deal: [ :rent, :sale ]
 

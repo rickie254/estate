@@ -21,7 +21,7 @@ class PropertiesController < ApplicationController
     properties ||= Property.query_for_listing(params[:filter])
 
     @breadcrumbs = generate_breadcrumbs params[:filter]
-    @properties = properties.page(params[:page]).per(2)
+    @properties = properties.page(params[:page])
   end
 
   def create
