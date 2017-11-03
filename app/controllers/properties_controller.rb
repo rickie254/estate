@@ -34,7 +34,7 @@ class PropertiesController < ApplicationController
     if @property.save
       redirect_to @property, flash: { notice: "Criado com sucessso!" }
     else
-      render "properties/#{property_name}_form"
+      render "properties/new_or_edit"
     end
   end
 
@@ -46,7 +46,7 @@ class PropertiesController < ApplicationController
     if @property.save
       redirect_to @property, flash: { notice: "Atualizado com sucessso!" }
     else
-      render "properties/#{property_name}_form"
+      render "properties/new_or_edit"
     end
   end
 
@@ -56,7 +56,7 @@ class PropertiesController < ApplicationController
     if @property.destroy
       redirect_to root_path, flash: { notice: "Excluído com sucessso!" }
     else
-      render "properties/#{property_name}_form"
+      render "properties/new_or_edit"
     end
   end
 
