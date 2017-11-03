@@ -133,7 +133,7 @@ class PropertiesController < ApplicationController
     @@gallery = @property.gallery || Gallery.new
     @@extra_list = @property.extra_list || ExtraList.new
 
-    render "properties/#{property_name}_form"
+    render "properties/new_or_edit"
   end
 
   private

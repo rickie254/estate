@@ -1,0 +1,46 @@
+<%= render "partials/form_title", property: @property %>
+
+  <div class="row no-gutters" id="property_form">
+
+    <div class="col-md-4 pr-md-2 pb-2">
+      <%= render "partials/gallery_image_uploader" %>
+      <%= render "partials/property_extras" %>
+    </div>
+
+    <div class="col-md-8 card p-3">
+      <%= form_for @property do |f| %>
+        <h2>Informações gerais</h2>
+        <div class="form-row mb-2">
+          <%= render "partials/general_property_fields", f: f %>
+        </div>
+
+        <h2>Atributos do imóvel</h2>
+        <div class="form-row">
+          <%= render "partials/specific_property_fields", {property: @property, f: f} %>
+        </div>
+
+        <div class="row mt-2">
+          <div class="col-4 align-self-center">
+            <% if @property.persisted? %>
+              <%= button_to properties_path(@property.id),
+              method: :delete, data: {confirm: "Exluir o imóvel?"},
+              class: "btn btn-danger" do %>
+                <i class="fa fa-trash"></i>
+              <% end %>
+            <% end %>
+          </div>
+          <div class="col-8 text-right">
+            <% if @property.persisted? %>
+              <%= f.submit "Atualizar", class: "btn btn-primary",
+              ":disabled": "loading" %>
+            <% else %>
+              <%= f.submit "Criar", class: "btn btn-success",
+              ":disabled": "loading" %>
+            <% end %>
+          </div>
+        </div>
+
+      <% end %>
+
+    </div>
+  </div>
