@@ -10,6 +10,8 @@ class CreateCustomerProperties < ActiveRecord::Migration[5.1]
       t.integer  :deal # rent or sale
 
       t.datetime :read_at
+      t.datetime :deleted_at
+      
       t.timestamps
     end
   end

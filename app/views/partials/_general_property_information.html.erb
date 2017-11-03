@@ -20,8 +20,6 @@
     <% end %>
     <dt class="col-6 text-secondary">Negócio</dt>
     <dd class="col-6"><%= I18n.t "views.#{property.deal}" %></dd>
-    <dt class="col-6 text-secondary">Área Global</dt>
-    <dd class="col-6"><%= square_meters property.global_area %></dd>
     <dt class="col-6 text-secondary">Valor</dt>
     <dd class="col-6">R$ <%= humanized_money property.value %></dd>
   <% end %>

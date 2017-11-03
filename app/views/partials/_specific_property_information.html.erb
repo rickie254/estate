@@ -17,6 +17,9 @@
       <dt class="col-6 text-secondary">Posição</dt>
       <dd class="col-6"><%= I18n.t "views.#{property.position}" %></dd>
 
+      <dt class="col-6 text-secondary">Condomínio</dt>
+      <dd class="col-6">R$ <%= humanized_money property.condominium %></dd>
+
       <% if property.roof %>
         <dt class="col-6 text-secondary">Cobertura</dt>
         <dd class="col-6"><i class="fa fa-check-circle text-success"></i></dd>

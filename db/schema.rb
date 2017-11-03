@@ -40,6 +40,7 @@ ActiveRecord::Schema.define(version: 20171031183541) do
     t.integer "kind"
     t.integer "deal"
     t.datetime "read_at"
+    t.datetime "deleted_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

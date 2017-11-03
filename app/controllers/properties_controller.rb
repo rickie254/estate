@@ -54,7 +54,7 @@ class PropertiesController < ApplicationController
     @property = property_type.find(params[:id]) if params[:id]
 
     if @property.destroy
-      redirect_to @property, flash: { notice: "Excluído com sucessso!" }
+      redirect_to root_path, flash: { notice: "Excluído com sucessso!" }
     else
       render "properties/#{property_name}_form"
     end
