@@ -48,19 +48,19 @@
   <%= error_message_for_field(@property, :value) %>
 </div>
 
-<div class="form-group col-sm-4">
+<div class="form-group col-sm-7">
   <label>Próximo</label>
   <%= f.text_field :nearby, class: "form-control #{validate_field(@property, :nearby)}" %>
   <%= error_message_for_field(@property, :nearby) %>
 </div>
 
-<div class="form-group col-sm-3">
+<div class="form-group col-sm-auto">
   <label>Em destaque?</label> <br>
   <%= f.check_box :is_featured, class: "form-check-input #{validate_field(@property, :is_featured)}" %>
   <%= error_message_for_field(@property, :is_featured) %>
 </div>
 
-<div class="form-group col-sm-3">
+<div class="form-group col-sm-auto">
   <label>Empreendimento?</label> <br>
   <%= f.check_box :is_enterprise, class: "form-check-input #{validate_field(@property, :is_enterprise)}" %>
   <%= error_message_for_field(@property, :is_enterprise) %>

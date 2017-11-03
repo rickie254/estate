@@ -1,66 +1,70 @@
-<div class="col-12 p-3 card">
-  <div class="row no-gutters">
-    <div class="col-6 align-self-center">
-      <h2>
-        Galeria
-        <i v-if="loading" class="fa fa-cog fa-spin fa-fw"></i>
-      </h2>
-    </div>
-    <div class="col-6 text-right align-self-center">
-      <label class="fileContainer">
-        <button type="button" class="btn btn-sm btn-primary" :disabled="loading">
-          Adicionar <i class="fa fa-file-image-o"></i>
-        </button>
+<div class="card">
+  <div class="card-header p-1 pr-2 pl-2">
+    <div class="row">
+      <div class="col-6 align-self-center">
+        <h2>
+          Galeria
+          <i v-if="loading" class="fa fa-cog fa-spin fa-fw"></i>
+        </h2>
+      </div>
+      <div class="col-6 align-self-end text-right">
+        <label class="fileContainer">
+          <button type="button" class="btn btn-sm btn-primary mt-1" :disabled="loading">
+            Adicionar <i class="fa fa-file-image-o"></i>
+          </button>
 
-        <input multiple="true" type="file" accept="image/*"
-        name="gallery[images]" :disabled="loading" v-on:change="addImage">
-      </label>
+          <input multiple="true" type="file" accept="image/*"
+          name="gallery[images]" :disabled="loading" v-on:change="addImage">
+        </label>
+      </div>
     </div>
   </div>
 
-  <div v-if="gallery.errors.images.length > 0"
-    class="alert alert-warning">
-    <ul class="list-unstyled">
-      <li v-for="error in gallery.errors.images">
-        <i class="fa fa-exclamation-circle mr-1"></i>
-        {{error}}
+  <div class="card-body p-2 text-center">
+    <div v-if="gallery.errors.images.length > 0"
+      class="alert alert-warning">
+      <ul class="list-unstyled">
+        <li v-for="error in gallery.errors.images">
+          <i class="fa fa-exclamation-circle mr-1"></i>
+          {{error}}
+        </li>
+      </ul>
+      <button type="button" class="close"
+      data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+
+    <div v-if="gallery.success" class="alert alert-success">
+      <i class="fa fa-check-circle mr-1"></i>
+      {{gallery.success}}
+      <button type="button" class="close"
+      data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+
+    <ul class="list-unstyled list-inline mb-2" id="uploaded_property_images">
+      <li class="list-inline-item" v-for="(image, index) in gallery.images">
+        <div v-on:click="setMainImage(index)"
+          v-bind:style="{ backgroundImage: 'url(' + image.small.url + ')' }">
+        </div>
+
+        <button type="button" v-on:click="removeImage(index)"
+        class="btn btn-danger remove-button" :disabled="loading">
+          <i class="fa fa-times"></i>
+        </button>
       </li>
     </ul>
-    <button type="button" class="close"
-    data-dismiss="alert" aria-label="Close">
-      <span aria-hidden="true">&times;</span>
-    </button>
+
+    <small class="text-secondary"
+    v-if="gallery.images.length > 0">
+      Clique numa imagem para colocá-la como principal.
+    </small>
+
+    <small class="text-secondary"
+    v-if="gallery.images.length == 0">
+      Nenhuma imagem adicionada.
+    </small>
   </div>
-
-  <div v-if="gallery.success" class="alert alert-success">
-    <i class="fa fa-check-circle mr-1"></i>
-    {{gallery.success}}
-    <button type="button" class="close"
-    data-dismiss="alert" aria-label="Close">
-      <span aria-hidden="true">&times;</span>
-    </button>
-  </div>
-
-  <ul class="list-unstyled list-inline mb-2" id="uploaded_property_images">
-    <li class="list-inline-item" v-for="(image, index) in gallery.images">
-      <div v-on:click="setMainImage(index)"
-        v-bind:style="{ backgroundImage: 'url(' + image.small.url + ')' }">
-      </div>
-
-      <button type="button" v-on:click="removeImage(index)"
-      class="btn btn-danger remove-button" :disabled="loading">
-        <i class="fa fa-times"></i>
-      </button>
-    </li>
-  </ul>
-
-  <small class="text-secondary"
-  v-if="gallery.images.length > 0">
-    Clique numa imagem para colocá-la como principal.
-  </small>
-
-  <small class="text-secondary"
-  v-if="gallery.images.length == 0">
-    Nenhuma imagem adicionada.
-  </small>
 </div>
