@@ -20,6 +20,18 @@ class CustomerPropertiesController < ApplicationController
     end
   end
 
+  def destroy
+    customer_property = CustomerProperty.find(params[:id]) if params[:id]
+
+    if customer_property.destroy
+      redirect_to customer_properties_path,
+      flash: { notice: "Excluído com sucessso!" }
+    else
+      redirect_to customer_properties_path,
+      flash: { alert: "Ocorreu um problema com a exclusão" }
+    end
+  end
+
   private
 
   def customer_property_params

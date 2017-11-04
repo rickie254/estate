@@ -36,13 +36,31 @@ body {
   }
 }
 
-
 #main-container{
   min-height: 300px;
   padding-top: 30px;
   padding-bottom: 100px;
   padding-top: 30px;
 }
+
+.btn-twitter {
+  color: #fff;
+  background-color: #4099FF;
+  border-color: #4099FF;
+}
+
+.btn-facebook {
+  color: #fff;
+  background-color: #3b5998;
+  border-color: #3b5998;
+}
+
+.btn-google {
+  color: #fff;
+  background-color: #d34836;
+  border-color: #d34836;
+}
+
 
 .line-sm{
   line-height: 100%;
