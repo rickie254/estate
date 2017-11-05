@@ -1,5 +1,10 @@
 module ApplicationHelper
 
+  def unread_customer_properties_badge
+    total = CustomerProperty.unread_count
+    render "partials/badge", total: total if total > 0
+  end
+
   def prev_page
     request.referer || root_path
   end

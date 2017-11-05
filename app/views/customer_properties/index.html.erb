@@ -8,10 +8,24 @@
     <% if flash[:alert] %>
       <%= render "partials/alert_danger", msg: flash[:alert] %>
     <% end %>
-    
+
     <div class="card mb-2">
       <div class="card-header">
-        <h2>Imóveis de Clientes para avaliação</h2>
+        <div class="row mb-0">
+          <div class="col-8 align-self-center">
+            <h2 class="mb-0">
+              Imóveis de Clientes para avaliação
+              <% if @unread_count > 0 %>
+                <small>
+                  (<%= pluralize @unread_count, "novo", "novos" %>)
+                </small>
+              <% end %>
+            </h2>
+          </div>
+          <div class="col-4 align-self-center text-right">
+            Total <strong><%= @customer_properties.total_count %></strong>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -20,10 +34,13 @@
         <div class="card mb-3">
           <div class="card-header">
             <div class="row">
-              <div class="col-6">
-                Cliente: <strong><%= customer_property.name %></strong>
+              <div class="col-10 align-self-center">
+                <% if customer_property.read_at.nil? %>
+                  <span class="badge badge-success mr-1">NOVO!</span>
+                <% end %>
+                Cliente <strong><%= customer_property.name %></strong>
               </div>
-              <div class="col-6 text-right">
+              <div class="col-2 align-self-center text-right">
                 <%= link_to customer_property_path(customer_property.id),
                 method: :delete, data: {confirm: "Exluir o imóvel para avaliação?"} do %>
                   <i class="fa fa-trash"></i>

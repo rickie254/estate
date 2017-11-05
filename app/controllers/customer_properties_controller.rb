@@ -4,6 +4,13 @@ class CustomerPropertiesController < ApplicationController
   def index
     customer_properties = CustomerProperty.all
     @customer_properties = customer_properties.page(params[:page])
+    @unread_count = CustomerProperty.unread_count
+
+    render "index"
+
+    @customer_properties.each do |item|
+      item.update read_at: Time.now if item.read_at.nil?
+    end
   end
 
   def new

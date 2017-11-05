@@ -39,7 +39,9 @@
 
             <div class="dropdown-divider"></div>
 
-            <%= link_to "Imóveis de clientes", customer_properties_path, class: "dropdown-item" %>
+            <%= link_to customer_properties_path, class: "dropdown-item" do %>
+            Imóveis de clientes <%= unread_customer_properties_badge %>
+            <% end %>
 
             <div class="dropdown-divider"></div>
 

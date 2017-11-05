@@ -14,7 +14,9 @@ Rails.application.routes.draw do
     :controller => "properties", :type => "#{property_type}"
   end
 
-  resources :customer_properties
+  resources :customer_properties do
+    get "read", to: "customer_properties#read"
+  end
 
   get    "properties",                        to: "properties#index"
 
