@@ -4,6 +4,7 @@ Rails.application.configure do
   # aws s3
   ENV['S3_BUCKET_NAME'] = "zordanimoveis-production"
   ENV['S3_URL'] = "https://#{ENV['S3_BUCKET_NAME']}.s3.amazonaws.com"
+  ENV['FACEBOOK_KEY'] = "1502348893178197"
 
   # Code is not reloaded between requests.
   config.cache_classes = true

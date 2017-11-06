@@ -4,6 +4,7 @@ Rails.application.configure do
   # aws s3
   ENV['S3_BUCKET_NAME'] = "zordanimoveis-development"
   ENV['S3_URL'] = "https://#{ENV['S3_BUCKET_NAME']}.s3.amazonaws.com"
+  ENV['FACEBOOK_KEY'] = "173199089924498"
 
   # In the development environment your application's code is reloaded on
   # every request. This slows down response time but is perfect for development
