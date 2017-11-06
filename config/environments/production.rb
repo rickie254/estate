@@ -6,6 +6,8 @@ Rails.application.configure do
   ENV['S3_URL'] = "https://#{ENV['S3_BUCKET_NAME']}.s3.amazonaws.com"
   ENV['FACEBOOK_KEY'] = "1502348893178197"
 
+  ENV['EMAIL_RECIPIENT'] = "guilhermezordan@outlook.com"
+
   # Code is not reloaded between requests.
   config.cache_classes = true
 

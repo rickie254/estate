@@ -2,7 +2,11 @@ class PropertiesController < ApplicationController
   before_action :authenticate_admin!, except: [:home, :index, :show]
   include ApplicationHelper
 
-  def show() @property = Property.find(params[:id]) end
+  def show
+    p params
+    @property = Property.find(params[:id])
+    @question = params[:question]
+  end
 
   def new() initialize_form end
 

@@ -29,6 +29,7 @@ Rails.application.routes.draw do
   post   "properties/add_extra/",          to: "properties#add_extra"
   delete "properties/remove_extra/:index", to: "properties#remove_extra"
 
+  post   "questions",             to: "questions#create"
   get    "utils/get_stats/",     to: "utils#get_stats"
 
   root :to => 'properties#home'
