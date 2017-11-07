@@ -3,7 +3,7 @@ class UserMailer < ApplicationMailer
   def question_email(sender, message, property_id)
     @message = message
     @sender = sender
-    @property = Property.find(question.property_id)
+    @property = Property.find(property_id)
 
     mail(to: ENV['EMAIL_RECIPIENT'], from: sender,
       subject: "zordanimoveis.com.br - mensagem sobre #{@property.title}")
