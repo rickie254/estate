@@ -5,7 +5,6 @@ class UserMailer < ApplicationMailer
     @sender = sender
     @property = Property.find(property_id)
 
-    mail(to: ENV['EMAIL_RECIPIENT'], from: sender,
-      subject: "zordanimoveis.com.br - mensagem sobre #{@property.title}")
+    mail(to: ENV['EMAIL_RECIPIENT'], subject: "#{@sender} - mensagem sobre #{@property.title}")
   end
 end
