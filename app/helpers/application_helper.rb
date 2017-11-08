@@ -44,7 +44,8 @@ module ApplicationHelper
 
       @listing_title = "Vendas / #{first_crumb} / #{second_crumb}"
     else
-      @listing_title = "Vendas / #{first_crumb}"
+      @listing_title = "Vendas / #{first_crumb}" if property_type
+      @listing_title ||= "Vendas"
     end
   end
 

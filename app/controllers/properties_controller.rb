@@ -3,7 +3,6 @@ class PropertiesController < ApplicationController
   include ApplicationHelper
 
   def show
-    p params
     @property = Property.find(params[:id])
     @question = params[:question]
   end
@@ -22,7 +21,8 @@ class PropertiesController < ApplicationController
 
   def index
     properties = property_type.query_for_listing(params[:filter]) if property_type
-    properties ||= Property.query_for_listing(params[:filter])
+    properties ||= Property.query_for_listing(params[:filter]) if params[:filter]
+    properties ||= Property.all
 
     @breadcrumbs = generate_breadcrumbs params[:filter]
     @properties = properties.page(params[:page])
