@@ -4,11 +4,7 @@
   <div class="col-lg-10">
 
     <div class="row no-gutters">
-      <% if flash[:notice] %>
-        <div class="col-12">
-          <%= render "partials/alert_success", msg: flash[:notice] %>
-        </div>
-      <% end %>
+      <%= render "partials/alert", flash: flash %>
 
       <% if flash[:alert] %>
         <div class="col-12">

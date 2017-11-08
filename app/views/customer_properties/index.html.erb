@@ -1,13 +1,7 @@
 <div class="row justify-content-center">
 
   <div class="col-lg-10">
-    <% if flash[:notice] %>
-      <%= render "partials/alert_success", msg: flash[:notice] %>
-    <% end %>
-
-    <% if flash[:alert] %>
-      <%= render "partials/alert_danger", msg: flash[:alert] %>
-    <% end %>
+    <%= render "partials/alert", flash: flash %>
 
     <div class="card mb-2">
       <div class="card-header">
