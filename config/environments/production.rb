@@ -6,7 +6,7 @@ Rails.application.configure do
   ENV['S3_URL'] = "https://#{ENV['S3_BUCKET_NAME']}.s3.amazonaws.com"
   ENV['FACEBOOK_KEY'] = "1502348893178197"
 
-  ENV['EMAIL_RECIPIENT'] = "guilhermezordan@outlook.com"
+  ENV['EMAIL_RECIPIENT'] = "bruno@zordanimoveis.com.br"
 
   # zoho
   ENV['ZOHO_MAIL'] = "correio@zordanimoveis.com.br"
