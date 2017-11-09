@@ -1,5 +1,9 @@
 module ApplicationHelper
 
+  def s3_assets_path file
+    "#{ENV['S3_URL']}/assets/#{file}"
+  end
+
   def unread_customer_properties_badge
     total = CustomerProperty.unread_count
     render "partials/badge", total: total if total > 0

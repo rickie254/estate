@@ -1,9 +1,21 @@
+@import "variables";
+
 #footer{
+  color: $lightgrey;
+  background-color: $darkgrey;
   flex: 1;
   width: 100%;
 
   a{
-    color: white;
+    color: $lightgrey;
+    text-decoration: none;
+    
+    &:hover{
+      color: white;
+    }
+    &:active{
+      color: white;
+    }
   }
 
   .disclaimer{

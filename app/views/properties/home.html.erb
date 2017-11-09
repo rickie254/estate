@@ -16,7 +16,7 @@
             <% if has_gallery? property %>
               <div class="property-image" style="background-image:url(<%= property.gallery.images.first.large %>)"></div>
             <% else %>
-              <div class="property-image" style="background-image:url('<%= "#{ENV['S3_URL']}/assets/no-image.jpg" %>')"></div>
+              <div class="property-image" style="background-image:url('<%= s3_assets_path "no-image.jpg" %>')"></div>
             <% end %>
           <% end  %>
           <div class="p-3">

@@ -1,5 +1,5 @@
-<footer id="footer" class="bg-dark text-white">
-  <div class="container bg-dark pt-4">
+<footer id="footer">
+  <div class="container pt-4">
     <div class="row justify-content-center">
 
       <div class="col-md-5 mb-4">
@@ -58,11 +58,11 @@
         </ul>
       </div>
 
-      <div class="col-md-3 mb-3">
-        <h1 class="font-weight-bold">Logotipo</h1>
-        <p> <%= link_to "Home", root_path %> | <%= link_to "Vendas", properties_path %> | <%= link_to "Empreendimentos", properties_path(filter: {is_enterprise: true}) %> | <%= link_to "Avaliamos seu imóvel", new_customer_property_path %></p>
+      <div class="col-md-3 mb-2 text-center">
+        <img src="<%= s3_assets_path "logotipo.svg" %>" alt="Logotipo" height="32" class="text-center">
+        <p class="mt-3"> <%= link_to "Home", root_path %> | <%= link_to "Vendas", properties_path %> | <%= link_to "Empreendimentos", properties_path(filter: {is_enterprise: true}) %>
+          <br> <%= link_to "Avaliamos seu imóvel", new_customer_property_path %></p>
         <small>
-          Zordan Imóveis
           <%= link_to new_admin_session_path do %>
             <i class="fa fa-lock" aria-hidden="true"></i> Área restrita
           <% end  %>
@@ -73,7 +73,7 @@
   </div>
 
   <div class="row no-gutters disclaimer">
-    <div class="col-12 pt-2 text-center">
+    <div class="col-12 p-1 text-center">
       <small>
         zordanimoveis.com.br ® Todos os direitos reservados - 2017
       </small>

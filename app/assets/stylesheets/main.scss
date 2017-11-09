@@ -19,18 +19,11 @@ body {
   display: flex;
   min-height: 100vh;
   flex-direction: column;
-  background: $lightgrey;
-}
-
-.header{
-  color: white;
-}
-
-.navbar{
-  border-bottom: 1px solid red;
+  background: #f7f7f7;
 }
 
 .card-header{
+  background-color: $lightgrey;
   h2{
     margin: 0;
   }
@@ -78,61 +71,5 @@ dl{
 
   dd {
     margin-bottom: 0;
-  }
-}
-
-.card{
-  &.shadow{
-    box-shadow: 0px 0px 15px 1px  $mediumgrey;
-  }
-}
-
-.dropdown {
-  position: static;
-
-  .dropdown-menu{
-    padding: 0;
-  }
-
-  #property-filter-dropdown {
-    max-height: 400px;
-    overflow-x: hidden;
-    border-radius: 0;
-    margin-top: 0px;
-    width: 100%;
-
-    .col-auto{
-      min-width: 200px;
-    }
-
-    *{
-      a{
-        display: inline-block;
-        line-height: inherit;
-        white-space: nowrap;
-
-        color: white;
-        padding: 10px 10px 10px 10px;
-        text-decoration: none;
-
-        &:hover{
-          background-color: black;
-        }
-      }
-    }
-
-    h2{
-      margin-bottom: 0px;
-      a{
-        font-size: 18px;
-        font-weight: 600;
-      }
-    }
-
-    li{
-      a{
-        font-size: 16px;
-      }
-    }
   }
 }
