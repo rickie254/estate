@@ -9,7 +9,7 @@
 
 .navbar{
   color: $lightgrey;
-  background-color: $darkgrey;
+  background-color: $darkgrey-transparent;
 
   .navbar-toggler{
     background-color: $lightgrey;
@@ -55,7 +55,7 @@
 
   #property-filter-dropdown {
     border-bottom: 3px solid $lightgrey;
-    background-color: $darkgrey;
+    background-color: $darkgrey-transparent;
     max-height: 400px;
     overflow-x: hidden;
     border-radius: 0;
