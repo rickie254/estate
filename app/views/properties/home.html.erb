@@ -13,7 +13,7 @@
     </div>
 
     <% if @featured_properties.length > 0 %>
-      <div class="row mt-2">
+      <div class="row mt-2 justify-content-center">
         <% @featured_properties.each do |property| %>
           <div class="col-md-4">
             <%= render "partials/property_featured", property: property %>
@@ -33,7 +33,7 @@
     </div>
 
     <% if @featured_enterprises.length > 0 %>
-      <div class="row mt-2">
+      <div class="row mt-2 justify-content-center">
         <% @featured_enterprises.each do |enterprise| %>
           <div class="col-md-4">
             <%= render "partials/property_featured", property: enterprise %>
