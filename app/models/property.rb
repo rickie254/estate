@@ -13,6 +13,14 @@ class Property < ApplicationRecord
   validates :address, presence: true
 	validates :district, presence: true
 
+  def self.featured
+    where(is_featured: true).where.not(is_enterprise: true)
+  end
+
+  def self.featured_enterprises
+    where(is_featured: true, is_enterprise: true)
+  end
+
   def self.attributes_for_select field
     eval(field).map do |value, _|
       [I18n.t("activerecord.attributes.property.#{field}.#{value}"), value]

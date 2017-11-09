@@ -1,0 +1,53 @@
+<div class="card property-summary mb-2">
+  <div class="row no-gutters">
+
+    <div class="col-12 pt-1 pb-1 pl-2 pr-2">
+      <%= property.title %>
+      <% if admin_signed_in? %>
+        <%= link_to [:edit, property] do %>
+          <i class="fa fa-pencil" title="Editar"></i>
+        <% end %>
+      <% end %>
+    </div>
+
+    <%= link_to property, class: "col-12" do %>
+      <% if has_gallery? property %>
+        <div class="property-image" style="background-image:url(<%= property.gallery.images.first.large %>)"></div>
+      <% else %>
+        <div class="property-image" style="background-image:url('<%= s3_assets_path "no-image.jpg" %>')"></div>
+      <% end %>
+    <% end %>
+
+    <div class="col-12 pt-3 pr-lg-3 pl-lg-3 pr-2 pl-2">
+
+      <%# Mobile %>
+      <div class="row mb-2">
+        <div class="col-12">
+          <h2 class="mb-0">
+            R$ <%= humanized_money property.value %>
+          </h2>
+        </div>
+        <div class="col-12 line-sm">
+          <small class="text-secondary">
+            <%= property.address %>
+          </small>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-12">
+          <%= render "partials/specific_property_information", {property: property, summed_up: true} %>
+        </div>
+      </div>
+
+      <div class="row pb-2 pt-2">
+        <div class="col-12 text-right">
+          <h3>
+            <%= link_to("Ver mais detalhes", property) %>
+          </h3>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

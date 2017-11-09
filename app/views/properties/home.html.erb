@@ -1,39 +1,48 @@
-<div class="row no-gutters justify-content-center">
+<div class="row">
 
   <%= render "partials/alert", flash: flash %>
 
-  <div class="col-12 card p-2">
-    <h1 class="mb-0 text-center">
-      Imóveis em destaque
-    </h1>
-  </div>
+  <div class="col-12">
 
-  <% if @properties.length > 0 %>
-    <div class="row">
-      <% @properties.each do |property| %>
-        <div class="col-md-4 card p-0 mt-2 property-featured">
-          <%= link_to property do %>
-            <% if has_gallery? property %>
-              <div class="property-image" style="background-image:url(<%= property.gallery.images.first.large %>)"></div>
-            <% else %>
-              <div class="property-image" style="background-image:url('<%= s3_assets_path "no-image.jpg" %>')"></div>
-            <% end %>
-          <% end  %>
-          <div class="p-3">
-            <h2><%= property.title %></h2>
-            <%= render "partials/general_property_information", property: property %>
-          </div>
-        </div>
-      <% end %>
+    <div class="card">
+      <div class="card-header">
+        <h1 class="text-center">
+          Imóveis em destaque
+        </h1>
+      </div>
     </div>
-  <% else %>
-    <p class="p-1">Nenhum imóvel em destaque</p>
-  <% end %>
 
-  <div class="col-12 card p-2 mt-3">
-    <h1 class="mb-0 text-center">
-      Empreendimentos em destaque
-    </h1>
+    <% if @featured_properties.length > 0 %>
+      <div class="row mt-2">
+        <% @featured_properties.each do |property| %>
+          <div class="col-md-4">
+            <%= render "partials/property_featured", property: property %>
+          </div>
+        <% end %>
+      </div>
+    <% else %>
+      <p class="p-1">Nenhum imóvel em destaque</p>
+    <% end %>
+
+    <div class="card">
+      <div class="card-header">
+        <h1 class="text-center">
+          Empreendimentos em destaque
+        </h1>
+      </div>
+    </div>
+
+    <% if @featured_enterprises.length > 0 %>
+      <div class="row mt-2">
+        <% @featured_enterprises.each do |enterprise| %>
+          <div class="col-md-4">
+            <%= render "partials/property_featured", property: enterprise %>
+          </div>
+        <% end %>
+      </div>
+    <% else %>
+      <p class="p-1">Nenhum empreendimento em destaque</p>
+    <% end %>
+
   </div>
-  <p class="p-1">Nenhum empreendimento em destaque</p>
 </div>

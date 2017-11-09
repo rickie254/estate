@@ -24,15 +24,19 @@ body {
 
 .card-header{
   background-color: $lightgrey;
+  h1{
+    font-weight: bold;
+    margin: 0;
+  }
   h2{
+    font-weight: bold;
     margin: 0;
   }
 }
 
 #main-container{
   min-height: 300px;
-  padding-top: 30px;
-  padding-bottom: 100px;
+  padding-bottom: 90px;
   padding-top: 30px;
 }
 

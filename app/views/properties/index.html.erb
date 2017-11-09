@@ -4,14 +4,14 @@
     <div class="card mb-2">
       <div class="card-header">
         <div class="row">
-          <div class="col-sm-6">
+          <div class="col-7">
             <h2>
               <%= @breadcrumbs %>
             </h2>
           </div>
-          <div class="col-sm-6 text-right">
+          <div class="col-5 text-right">
             <h2 class="mb-0">
-              <%= pluralize @properties.total_count, "imóvel encontrado", "imóveis encontrados" %>
+              <%= pluralize @properties.total_count, "imóvel", "imóveis" %>
             </h2>
           </div>
         </div>
