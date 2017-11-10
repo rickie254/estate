@@ -3,6 +3,7 @@
   <head>
     <%= csrf_meta_tags %>
     <%= render "partials/title_header" %>
+    <%= render "partials/favicon" %>
     <%= content_for?(:head) ? yield(:head) : '' %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
