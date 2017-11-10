@@ -20,11 +20,13 @@ Rails.application.routes.draw do
     patch "#{I18n.t "routes.#{type}.one"}/:id",        to: "properties#update", type: "#{type}"
   end
 
-  resources :customer_properties do
+  resources :customer_properties, except: :new do
     get "read", to: "customer_properties#read"
   end
 
-  get    "properties",                        to: "properties#index"
+  get "avaliamos_seu_imovel", to: "customer_properties#new", as: :new_customer_property
+
+  get "imoveis", to: "properties#index", as: :properties
 
   get    "properties/get_images/",            to: "properties#get_images"
   post   "properties/add_image/",             to: "properties#add_image"
