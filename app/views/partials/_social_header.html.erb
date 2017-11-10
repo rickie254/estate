@@ -5,17 +5,17 @@
 
   <% if @property %>
     <meta property="og:title" content="<%= @property.title %>">
-    <meta property="og:description" content="<%= @property.address %>">
+    <meta property="og:description" content="<%= property_description @property %>">
 
     <meta name="twitter:title" content="<%= @property.title %>">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:description" content="<%= @property.address %>">
+    <meta name="twitter:description" content="<%= property_description @property %>">
     <meta name="twitter:domain" content="<%= request.domain %>">
 
     <% if has_gallery? @property %>
       <meta property="og:image" content="<%= @property.gallery.images.first.large.url %>">
       <meta name="twitter:image" content="<%= @property.gallery.images.first.large.url %>">
-      <meta property="og:image:width" content="550">
+      <meta property="og:image:width" content="1080">
     <% end %>
   <% end %>
 <% end %>

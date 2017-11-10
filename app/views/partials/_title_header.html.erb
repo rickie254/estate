@@ -1,6 +1,6 @@
 <% if @property %>
   <title><%= I18n.t "views.#{@property.type}.one" %> <%= @property.title %> | Zordan Imóveis</title>
-  <meta name="description" content="<%= I18n.t "views.#{@property.type}.one" %> <%= @property.title %> localizado no endereço <%= @property.address %>" />
+  <meta name="description" content="<%= property_description @property %>" />
   <meta name="keywords" content="imovel, <%= @property.title %>, <%= @property.address %>, <%= I18n.t "views.#{@property.type}.one" %>" />
   <meta name="robots" content="index,follow" />
 <% elsif devise_controller? %>

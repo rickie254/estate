@@ -1,5 +1,9 @@
 module ApplicationHelper
 
+  def property_description p
+    "#{I18n.t "views.#{p.type}.one"} #{p.title} localizado no endereço #{p.address} para #{I18n.t "views.deal.#{p.deal}"}"
+  end
+
   def generate_title params
     return I18n.t "views.#{params[:type]}.other" if params[:type]
     return "Empreendimentos" if params[:filter] && params[:filter][:is_enterprise]

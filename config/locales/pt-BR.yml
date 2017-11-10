@@ -6,6 +6,10 @@ pt-BR:
       first: Primeira
       last: Última
 
+    deal:
+      sale: venda
+      rent: aluguel
+
     Terrain:
       one: Terreno
       other: Terrenos
