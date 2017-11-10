@@ -9,9 +9,15 @@ Rails.application.routes.draw do
     password: 'senha',
   }
 
-  for property_type in PROPERTY_TYPES
-    resources "#{property_type.downcase}s".to_sym,
-    :controller => "properties", :type => "#{property_type}"
+  resources :properties, only: :destroy
+
+  for type in PROPERTY_TYPES
+    get   "#{I18n.t "routes.#{type}.other"}",          to: "properties#index", as: "#{type.downcase}s".to_sym,     type: "#{type}"
+    get   "#{I18n.t "routes.#{type}.one"}/:id/",       to: "properties#show",  as: "#{type.downcase}".to_sym,      type: "#{type}"
+    get   "novo/#{I18n.t "routes.#{type}.one"}",       to: "properties#new",   as: "new_#{type.downcase}".to_sym,  type: "#{type}"
+    get   "editar/#{I18n.t "routes.#{type}.one"}/:id", to: "properties#edit",  as: "edit_#{type.downcase}".to_sym, type: "#{type}"
+    post  "#{I18n.t "routes.#{type}.other"}",          to: "properties#create", type: "#{type}"
+    patch "#{I18n.t "routes.#{type}.one"}/:id",        to: "properties#update", type: "#{type}"
   end
 
   resources :customer_properties do

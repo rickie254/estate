@@ -13,6 +13,10 @@ class Property < ApplicationRecord
   validates :address, presence: true
 	validates :district, presence: true
 
+  def to_param
+    "#{id}_#{title.gsub " ", "_"}"
+  end
+
   def self.featured
     where(is_featured: true).where.not(is_enterprise: true)
   end

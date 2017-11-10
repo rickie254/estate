@@ -56,9 +56,9 @@ class PropertiesController < ApplicationController
   end
 
   def destroy
-    @property = property_type.find(params[:id]) if params[:id]
+    property = Property.find(params[:id]) if params[:id]
 
-    if @property.destroy
+    if property.destroy
       redirect_to root_path, flash: { notice: "Excluído com sucessso!" }
     else
       render "properties/new_or_edit"

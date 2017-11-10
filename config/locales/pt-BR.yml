@@ -1,4 +1,19 @@
 pt-BR:
+  routes:
+
+    House:
+      one: casa
+      other: casas
+    Apartment:
+      one: apartamento
+      other: apartamentos
+    Comercial:
+      one: comercial
+      other: comerciais
+    Terrain:
+      one: terreno
+      other: terrenos
+
   views:
     pagination:
       next: ">"
