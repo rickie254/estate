@@ -1,5 +1,11 @@
 module ApplicationHelper
 
+  def generate_title params
+    return I18n.t "views.#{params[:type]}.other" if params[:type]
+    return "Empreendimentos" if params[:filter] && params[:filter][:is_enterprise]
+    return "Imóveis"
+  end
+
   def s3_assets_path file
     "#{ENV['S3_URL']}/assets/#{file}"
   end

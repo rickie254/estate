@@ -51,6 +51,12 @@
 
   .dropdown-menu{
     padding: 0;
+
+    .dropdown-item{
+      &:active{
+        background: $darkgrey;
+      }
+    }
   }
 
   #property-filter-dropdown {

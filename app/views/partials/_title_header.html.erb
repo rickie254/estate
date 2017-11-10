@@ -1,0 +1,34 @@
+<% if @property %>
+  <title><%= I18n.t "views.#{@property.type}.one" %> <%= @property.title %> | Zordan Imóveis</title>
+  <meta name="description" content="<%= I18n.t "views.#{@property.type}.one" %> <%= @property.title %> localizado no endereço <%= @property.address %>" />
+  <meta name="keywords" content="imovel, <%= @property.title %>, <%= @property.address %>, <%= I18n.t "views.#{@property.type}.one" %>" />
+  <meta name="robots" content="index,follow" />
+<% elsif devise_controller? %>
+  <title>Zordan Imóveis | Área Restrita</title>
+  <meta name="robots" content="noindex,nofollow" />
+<% elsif controller_name == "customer_properties" %>
+  <title>Zordan Imóveis | Avaliamos seu imóvel</title>
+  <meta name="description" content="Avaliamos seu imóvel. Preencha o formulário para entrarmos em contato e iniciarmos a avalição." />
+  <meta name="keywords" content="imovel, avaliacao, avaliar, casa, terreno, comercial, apartamento" />
+  <meta name="robots" content="index,follow" />
+<% elsif controller_name == "properties" %>
+  <title>Zordan Imóveis | <%= generate_title params %></title>
+  <meta name="description" content="Lista de <%= generate_title params %> disponíveis" />
+  <meta name="keywords" content="imovel, lista, consulta, paginacao, casa, terreno, comercial, apartamento, empreendimento" />
+  <meta name="robots" content="index,follow" />
+<% else %>
+  <title>Zordan Imóveis</title>
+  <meta name="description" content="<%= DESCRIPTION %>" />
+  <meta name="keywords" content="<%= KEYWORDS %>" />
+  <meta name="robots" content="index,follow" />
+<% end %>
+
+<head itemscope itemtype="http://schema.org/WebSite">
+<link rel="canonical" href="https://zordanimoveis.com.br/" itemprop="url">
+
+<meta name="google" content="notranslate" />
+<meta name='viewport' content='width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=0, minimal-ui'/>
+<% if @property.nil? %>
+  <meta property="og:image" content="<%= s3_assets_path "logotipo.svg" %>">
+  <meta name="twitter:image" content="<%= s3_assets_path "logotipo.svg" %>">
+<% end  %>
