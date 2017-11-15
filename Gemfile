@@ -66,4 +66,5 @@ gem 'carrierwave', '~> 1.0'
 gem 'mini_magick'
 gem 'kaminari'
 gem 'nokogiri'
-gem "paranoia", "~> 2.2"
+gem 'paranoia', '~> 2.2'
+gem 'sitemap_generator'

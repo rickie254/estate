@@ -3,6 +3,6 @@
 </div>
 <div class="row pr-3 pl-3 mt-1 mb-2">
   <iframe class="map" frameborder="0"
-  src="<%= "#{GMAPS_URL}?key=#{ENV['GMAPS_API_KEY']}&q=#{property.address},#{property.district},Passo+Fundo+RS" %>" allowfullscreen>
+  src="<%= "#{GMAPS_URL}?key=#{ENV['GMAPS_API_KEY']}&q=#{property.address.gsub(" ", "+")},#{property.district.gsub(" ", "+")},Passo+Fundo+RS" %>" allowfullscreen>
   </iframe>
 </div>
