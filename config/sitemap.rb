@@ -16,8 +16,20 @@ SitemapGenerator::Sitemap.create do
 
   add new_customer_property_path
 
-  Property.find_each do |property|
-    add property, :lastmod => property.updated_at
+  House.find_each do |house|
+    add house_path(house.id), :lastmod => house.updated_at
+  end
+
+  Apartment.find_each do |apartment|
+    add apartment_path(apartment.id), :lastmod => apartment.updated_at
+  end
+
+  Comercial.find_each do |comercial|
+    add comercial_path(comercial.id), :lastmod => comercial.updated_at
+  end
+
+  Terrain.find_each do |terrain|
+    add terrain_path(terrain.id), :lastmod => terrain.updated_at
   end
 
 end
