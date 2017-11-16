@@ -79,26 +79,28 @@ $(document).on 'turbolinks:load', ->
           files = e.target.files || e.dataTransfer.files;
 
           if files.length > 0
-            app.loading = true
-            for file, i in files
 
+            for file, i in files
               formData = new FormData()
               formData.append('image', file)
+              @uploadImage(formData)
 
-              this.$http.post('/properties/add_image/', formData)
-              .then(
-                (res) ->
-                  console.log res
-                  app.gallery.images = res.body.images
-                  app.gallery.success = "Galeria atualizada"
-                  app.gallery.errors = {images: []}
-                  app.loading = false
-                (res) ->
-                  console.log res
-                  app.gallery.success = ""
-                  app.gallery.errors = res.body
-                  app.loading = false
-                )
+        uploadImage: (formData) ->
+          app.loading = true if app.loading == false
+
+          this.$http.post('/properties/add_image/', formData)
+          .then(
+            (res) ->
+              app.gallery.images = res.body.images
+              app.gallery.success = "Galeria atualizada"
+              app.gallery.errors = {images: []}
+              app.loading = false
+            (res) ->
+              app.gallery.success = ""
+              app.gallery.errors = res.body
+              app.loading = false
+            )
+
 
     $('.form-check-input').bootstrapSwitch(onText: 'SIM', offText: 'NÃO', onColor: 'success', offColor: 'danger')
     $('.double').mask('#.##0,00', {reverse: true})
