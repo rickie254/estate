@@ -1,0 +1,38 @@
+<div class="row justify-content-center">
+  <%= render "partials/alert" %>
+
+  <div class="col-lg-4 col-md-6 col-12">
+    <div class="card p-3">
+      <h2 class="font-weight-bold">Alterar senha</h2>
+
+      <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+        <div class="form-row mt-2">
+          <div class="form-group col-12">
+            <label>Senha atual</label>
+            <%= f.password_field :current_password, autocomplete: "off", class: "form-control" %>
+            <%= error_message_for_field(resource, :current_password) %>
+          </div>
+
+          <div class="form-group col-12">
+            <label>Nova senha</label>
+            <%= f.password_field :password, autocomplete: "off", class: "form-control" %>
+            <%= error_message_for_field(resource, :password) %>
+            <% if @minimum_password_length %>
+              <small>Mínimo <%= @minimum_password_length %> caracteres</small>
+            <% end %>
+          </div>
+
+          <div class="form-group col-12">
+            <label>Confirmar nova senha</label>
+            <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control" %>
+            <%= error_message_for_field(resource, :password_confirmation) %>
+          </div>
+
+          <div class="form-group col-12 mb-0">
+            <%= f.submit "Alterar", class: "btn btn-success btn-block" %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

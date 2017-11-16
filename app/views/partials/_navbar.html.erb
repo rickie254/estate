@@ -53,8 +53,12 @@
             <div class="dropdown-divider"></div>
 
             <%= link_to customer_properties_path, class: "dropdown-item" do %>
-            Imóveis de clientes <%= unread_customer_properties_badge %>
+              Imóveis de clientes <%= unread_customer_properties_badge %>
             <% end %>
+
+            <div class="dropdown-divider"></div>
+
+            <%= link_to "Alterar senha", edit_admin_registration_path, class: "dropdown-item" %>
 
             <div class="dropdown-divider"></div>
 
