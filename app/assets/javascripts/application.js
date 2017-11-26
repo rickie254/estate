@@ -14,7 +14,6 @@
 //= require turbolinks
 //= require popper
 //= require jquery
-//= require jquery.remotipart
 //= require bootstrap
 //= require bootstrap-switch
 //= require jquery-mask-plugin
