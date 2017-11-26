@@ -1,26 +1,8 @@
 #property-gallery{
-  a.gallery-image{
-    div{
-      max-height: 420px;
-      min-height: 310px;
-      width: 100%;
-      background-size: cover;
-      background-repeat: no-repeat;
-      background-position: center;
-    }
-  }
-
-  ul{
-    li{
-      cursor: pointer;
-
-      div{
-        background-size: cover;
-        background-repeat: no-repeat;
-        background-position: center;
-        width: 100px;
-        height: 100px;
-      }
+  .gallery-thumbnail{
+    img{
+      max-height: 100px;
+      max-width: 100px;
     }
   }
 }

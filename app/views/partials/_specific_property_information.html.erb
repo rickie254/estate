@@ -1,11 +1,11 @@
 <% case property.type %>
 <% when "Apartment" %>
   <dl class="row no-gutters">
-    <dt class="col-6 text-secondary">Quartos</dt>
-    <dd class="col-6"><%= I18n.t "views.number_of_rooms.#{property.number_of_rooms}" %></dd>
-
     <dt class="col-6 text-secondary">Box de Garagem</dt>
     <dd class="col-6"><%= property.number_of_boxes || 0 %></dd>
+
+    <dt class="col-6 text-secondary">Quartos</dt>
+    <dd class="col-6"><%= I18n.t "views.number_of_rooms.#{property.number_of_rooms}" %></dd>
 
     <dt class="col-6 text-secondary">Área privada</dt>
     <dd class="col-6"><%= square_meters property.private_area %></dd>
@@ -13,9 +13,6 @@
     <% unless defined? summed_up %>
       <dt class="col-6 text-secondary">Perfil</dt>
       <dd class="col-6"><%= I18n.t "views.#{property.profile}" %></dd>
-
-      <dt class="col-6 text-secondary">Posição</dt>
-      <dd class="col-6"><%= I18n.t "views.#{property.position}" %></dd>
 
       <dt class="col-6 text-secondary">Condomínio</dt>
       <dd class="col-6">R$ <%= humanized_money property.condominium %></dd>
@@ -31,23 +28,16 @@
     <dt class="col-6 text-secondary">Quartos</dt>
     <dd class="col-6"><%= property.number_of_rooms %></dd>
 
-    <dt class="col-6 text-secondary">Posição</dt>
-    <dd class="col-6"><%= I18n.t "views.#{property.position}" %></dd>
-
     <dt class="col-6 text-secondary">Área privada</dt>
     <dd class="col-6"><%= square_meters property.private_area %></dd>
 
-    <% unless defined? summed_up %>
-      <dt class="col-6 text-secondary">Perfil</dt>
-      <dd class="col-6"><%= I18n.t "views.#{property.profile}" %></dd>
-    <% end %>
+    <dt class="col-6 text-secondary">Perfil</dt>
+    <dd class="col-6"><%= I18n.t "views.#{property.profile}" %></dd>
   </dl>
 <% when "Terrain" %>
   <dl class="row no-gutters">
     <dt class="col-6 text-secondary">Tipo</dt>
     <dd class="col-6"><%= I18n.t "views.terrain_kind.#{property.terrain_kind}" %></dd>
-    <dt class="col-6 text-secondary">Posição</dt>
-    <dd class="col-6"><%= I18n.t "views.#{property.position}" %></dd>
 
     <% unless property.nearby.empty? %>
       <dt class="col-6 text-secondary">Próximo</dt>
@@ -58,8 +48,6 @@
   <dl class="row no-gutters">
     <dt class="col-6 text-secondary">Tipo</dt>
     <dd class="col-6"><%= I18n.t "views.comercial_kind.#{property.comercial_kind}" %></dd>
-    <dt class="col-6 text-secondary">Posição</dt>
-    <dd class="col-6"><%= I18n.t "views.#{property.position}" %></dd>
 
     <% unless property.nearby.empty? %>
       <dt class="col-6 text-secondary">Próximo</dt>

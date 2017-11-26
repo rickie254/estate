@@ -1,20 +1,9 @@
 @import "variables";
 
-.property-featured{
-  .property-image{
-    height: 350px;
-    width: 100%;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-  }
-
-  &:hover{
-    border: 1px solid red;
-  }
-}
-
 .property-summary{
+  transition: 1s;
+  border-width: 1.5px;
+
   a{
     .property-image{
       min-height: 200px;
@@ -27,6 +16,7 @@
   }
 
   &:hover{
-    border: 1px solid red;
+    transition: 1s;
+    border: 1.5px solid $primary;
   }
 }
