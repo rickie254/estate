@@ -1,4 +1,5 @@
 class Property < ApplicationRecord
+  default_scope {where(deal: :sale)}
   acts_as_paranoid
   paginates_per 10
 

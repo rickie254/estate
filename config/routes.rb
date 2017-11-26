@@ -12,7 +12,10 @@ Rails.application.routes.draw do
   resources :properties, only: :destroy
 
   for type in PROPERTY_TYPES
-    get   "#{I18n.t "routes.#{type}.other"}",          to: "properties#index", as: "#{type.downcase}s".to_sym,     type: "#{type}"
+    get   "#{I18n.t "routes.#{type}.other"}",          to: "properties#index",  as: "#{type.downcase}s".to_sym, type: "#{type}"
+    get   "vendas/#{I18n.t "routes.#{type}.other"}",   to: "properties#index",  as: "sale_#{type.downcase}s".to_sym,  type: "#{type}", deal: :sale
+    get   "aluguel/#{I18n.t "routes.#{type}.other"}",  to: "properties#index",  as: "rent_#{type.downcase}s".to_sym, type: "#{type}", deal: :rent
+
     get   "#{I18n.t "routes.#{type}.one"}/:id/",       to: "properties#show",  as: "#{type.downcase}".to_sym,      type: "#{type}"
     get   "novo/#{I18n.t "routes.#{type}.one"}",       to: "properties#new",   as: "new_#{type.downcase}".to_sym,  type: "#{type}"
     get   "editar/#{I18n.t "routes.#{type}.one"}/:id", to: "properties#edit",  as: "edit_#{type.downcase}".to_sym, type: "#{type}"

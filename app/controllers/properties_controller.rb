@@ -109,11 +109,11 @@ class PropertiesController < ApplicationController
   def remove_image
     remain_images = @@gallery.images
     deleted_image = remain_images.delete_at(params[:index].to_i) # delete the target image
-    deleted_image.try(:remove!) # delete image from S3
     @@gallery.images = remain_images
 
     if @@gallery.save
       render json: {images: @@gallery.images}
+      deleted_image.try(:remove!) # delete image from S3
     else
       render json: @@gallery.errors.messages, status: 400
     end

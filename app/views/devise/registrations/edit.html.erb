@@ -9,13 +9,13 @@
         <div class="form-row mt-2">
           <div class="form-group col-12">
             <label>Senha atual</label>
-            <%= f.password_field :current_password, autocomplete: "off", class: "form-control" %>
+            <%= f.password_field :current_password, autocomplete: "off", class: "form-control #{validate_field(resource, :current_password)}" %>
             <%= error_message_for_field(resource, :current_password) %>
           </div>
 
           <div class="form-group col-12">
             <label>Nova senha</label>
-            <%= f.password_field :password, autocomplete: "off", class: "form-control" %>
+            <%= f.password_field :password, autocomplete: "off", class: "form-control #{validate_field(resource, :password)}" %>
             <%= error_message_for_field(resource, :password) %>
             <% if @minimum_password_length %>
               <small>Mínimo <%= @minimum_password_length %> caracteres</small>
@@ -24,7 +24,7 @@
 
           <div class="form-group col-12">
             <label>Confirmar nova senha</label>
-            <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control" %>
+            <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control #{validate_field(resource, :password_confirmation)}" %>
             <%= error_message_for_field(resource, :password_confirmation) %>
           </div>
 

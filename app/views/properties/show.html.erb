@@ -31,8 +31,8 @@
       </div>
 
       <div class="col-md-7 mb-2 pr-sm-2">
-        <div class="col-12 card p-3 mr-2" id="property-gallery">
-          <h2>Galeria</h2>
+        <div class="col-12 card p-2 mr-2" id="property-gallery">
+          <h2>Imagens</h2>
           <% if has_gallery? @property %>
             <%= link_to @property.gallery.images.first.large.url, class: "gallery-image" do %>
               <%= image_tag @property.gallery.images.first.large.url, class: "img-fluid" %>
@@ -41,9 +41,9 @@
             <ul class="list-inline list-unstyled mt-2 text-center">
               <% @property.gallery.images.each_with_index do |image, index|  %>
                 <% unless index == 0 %>
-                  <li href="<%= image.large.url %>" class="gallery-image gallery-thumbnail list-inline-item">
+                  <a href="<%= image.large.url %>" class="gallery-image gallery-thumbnail list-inline-item">
                     <%= image_tag image.small.url, class: "img-thumbnail" %>
-                  </li>
+                  </a>
                 <% end %>
               <% end %>
             </ul>
