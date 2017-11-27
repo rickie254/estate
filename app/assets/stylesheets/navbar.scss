@@ -89,6 +89,12 @@
     }
 
     h2{
+      &.unavailable{
+        a{
+          pointer-events: none;
+          color: gray;
+        }
+      }
       margin-bottom: 0px;
       a{
         font-size: 18px;
@@ -97,6 +103,12 @@
     }
 
     li{
+      &.unavailable{
+        a{
+          pointer-events: none;
+          color: gray;
+        }
+      }
       a{
         font-size: 16px;
       }

@@ -41,7 +41,8 @@ Rails.application.routes.draw do
   delete "properties/remove_extra/:index", to: "properties#remove_extra"
 
   post   "questions",             to: "questions#create"
-  get    "utils/get_stats/",     to: "utils#get_stats"
+  get    "utils/get_stats/",      to: "utils#get_stats"
+  get    "utils/get_available_properties/",      to: "utils#get_available_properties"
 
   root :to => 'properties#home'
 end

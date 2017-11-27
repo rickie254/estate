@@ -25,4 +25,15 @@ class UtilsController < ApplicationController
     end
 
   end
+
+  def get_available_properties
+    data = {
+      apartments: Apartment.any?,
+      houses: House.any?,
+      comercials: Comercial.any?,
+      terrains: Terrain.any?
+    }
+
+    render json: data
+  end
 end

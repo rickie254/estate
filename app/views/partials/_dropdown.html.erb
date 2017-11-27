@@ -1,29 +1,29 @@
 <div class="dropdown-menu p-0" id="property-filter-dropdown">
   <div class="row pt-2 pl-2 pr-2">
     <div class="col-auto mb-2">
-      <h2>
+      <h2 v-bind:class="{'unavailable': !available.apartments}">
         <%= link_to "APARTAMENTOS", sale_apartments_path %>
       </h2>
       <ul class="list-unstyled">
-        <li>
+        <li v-bind:class="{'unavailable': !available.apartments}">
           <%= link_to "Kitinete", sale_apartments_path(filter: {number_of_rooms: :kitnet}) %>
         </li>
-        <li>
+        <li v-bind:class="{'unavailable': !available.apartments}">
           <%= link_to "1 Quarto", sale_apartments_path(filter: {number_of_rooms: :one}) %>
         </li>
-        <li>
+        <li v-bind:class="{'unavailable': !available.apartments}">
           <%= link_to "2 Quartos", sale_apartments_path(filter: {number_of_rooms: :two}) %>
         </li>
-        <li>
+        <li v-bind:class="{'unavailable': !available.apartments}">
           <%= link_to "3 Quartos", sale_apartments_path(filter: {number_of_rooms: :three}) %>
         </li>
-        <li>
+        <li v-bind:class="{'unavailable': !available.apartments}">
           <%= link_to "4 Quartos", sale_apartments_path(filter: {number_of_rooms: :four}) %>
         </li>
-        <li>
+        <li v-bind:class="{'unavailable': !available.apartments}">
           <%= link_to "Cobertura", sale_apartments_path(filter: {roof: true}) %>
         </li>
-        <li>
+        <li v-bind:class="{'unavailable': !available.apartments}">
           <%= link_to "Com Box de Garagem", sale_apartments_path(filter: {number_of_boxes: true}) %>
         </li>
       </ul>
@@ -48,23 +48,23 @@
       </ul>
     </div>
     <div class="col-auto mb-2">
-      <h2>
+      <h2 v-bind:class="{'unavailable': !available.comercials}">
         <%= link_to "COMERCIAL", sale_comercials_path %>
       </h2>
       <ul class="list-unstyled">
-        <li>
+        <li v-bind:class="{'unavailable': !available.comercials}">
           <%= link_to "Salas aéreas", sale_comercials_path(filter: {comercial_kind: :air}) %>
         </li>
-        <li>
+        <li v-bind:class="{'unavailable': !available.comercials}">
           <%= link_to "Salas térreas", sale_comercials_path(filter: {comercial_kind: :ground}) %>
         </li>
-        <li>
+        <li v-bind:class="{'unavailable': !available.comercials}">
           <%= link_to "Prédio/Casa", sale_comercials_path(filter: {comercial_kind: :residential}) %>
         </li>
-        <li>
+        <li v-bind:class="{'unavailable': !available.comercials}">
           <%= link_to "Negócios Diversos", sale_comercials_path(filter: {comercial_kind: :general}) %>
         </li>
-        <li>
+        <li v-bind:class="{'unavailable': !available.comercials}">
           <%= link_to "Pavilhões", sale_comercials_path(filter: {comercial_kind: :pavilion}) %>
         </li>
       </ul>
