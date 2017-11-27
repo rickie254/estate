@@ -2,6 +2,10 @@ class UtilsController < ApplicationController
   require 'open-uri'
   require 'nokogiri'
 
+  def sitemap
+    redirect_to "http://zordanimoveis-production.s3.amazonaws.com/sitemap.xml.gz"
+  end
+
   def get_stats
     stats = []
     doc = Nokogiri::HTML(open(STATS_URL))

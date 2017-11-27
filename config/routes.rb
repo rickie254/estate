@@ -42,6 +42,7 @@ Rails.application.routes.draw do
 
   post   "questions",             to: "questions#create"
   get    "utils/get_stats/",      to: "utils#get_stats"
+  get    "sitemap",               to: "utils#sitemap"
   get    "utils/get_available_properties/",      to: "utils#get_available_properties"
 
   root :to => 'properties#home'
