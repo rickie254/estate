@@ -124,3 +124,4 @@ $(document).on 'turbolinks:load', ->
 
     $('.form-check-input').bootstrapSwitch(onText: 'SIM', offText: 'NÃO', onColor: 'success', offColor: 'danger')
     $('.double').mask('#.##0,00', {reverse: true})
+    $('.phone').mask('(00) 0000-00009')

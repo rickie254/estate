@@ -1,6 +1,6 @@
 PROPERTY_TYPES = ["Apartment", "House", "Comercial", "Terrain"]
 
-PROPERTY_PARAMS = [:title, :address, :district, :value, :deal, :global_area, :private_area, :profile, :position, :number_of_rooms, :condominium, :is_featured, :nearby, :number_of_boxes, :roof, :terrain_kind, :comercial_kind, :is_enterprise, :is_featured]
+PROPERTY_PARAMS = [:title, :address, :district, :value, :deal, :global_area, :private_area, :profile, :position, :number_of_rooms, :condominium, :is_featured, :nearby, :number_of_boxes, :roof, :terrain_kind, :comercial_kind, :is_enterprise, :is_featured, :phone]
 
 CUSTOMER_PROPERTY_PARAMS = [:name, :phone, :email, :address, :kind, :deal]
 

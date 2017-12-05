@@ -1,36 +1,36 @@
-<div class="form-group col-sm-9">
+<div class="form-group col-md-9">
   <label>Título</label>
   <%= f.text_field :title, class: "form-control #{validate_field(@property, :title)}" %>
   <%= error_message_for_field(@property, :title) %>
 </div>
 
-<div class="form-group col-sm-3">
+<div class="form-group col-md-3">
   <label>Negócio</label>
   <%= f.select :deal, options_for_select(House.attributes_for_select "deals"),
   {}, {class: "form-control #{validate_field(@property, :deal)}"} %>
   <%= error_message_for_field(@property, :deal) %>
 </div>
 
-<div class="form-group col-sm-9">
+<div class="form-group col-md-9">
   <label>Endereço</label>
   <%= f.text_field :address, class: "form-control #{validate_field(@property, :address)}" %>
   <%= error_message_for_field(@property, :address) %>
 </div>
 
-<div class="form-group col-sm-3">
+<div class="form-group col-md-3">
   <label>Posição</label>
   <%= f.select :position, options_for_select(Property.attributes_for_select "positions"),
   {}, {class: "form-control #{validate_field(@property, :position)}"} %>
   <%= error_message_for_field(@property, :position) %>
 </div>
 
-<div class="form-group col-sm-6">
+<div class="form-group col-md-6">
   <label>Bairro</label>
   <%= f.text_field :district, class: "form-control #{validate_field(@property, :district)}" %>
   <%= error_message_for_field(@property, :district) %>
 </div>
 
-<div class="form-group col-sm-3">
+<div class="form-group col-md-3">
   <label>
     Área Global <small>(m²)</small>
   </label>
@@ -39,7 +39,7 @@
   <%= error_message_for_field(@property, :global_area) %>
 </div>
 
-<div class="form-group col-sm-3">
+<div class="form-group col-md-3">
   <label>
     Valor <small>(R$)</small>
   </label>
@@ -48,10 +48,16 @@
   <%= error_message_for_field(@property, :value) %>
 </div>
 
-<div class="form-group col-sm-7">
+<div class="form-group col-md-4">
   <label>Próximo</label>
   <%= f.text_field :nearby, class: "form-control #{validate_field(@property, :nearby)}" %>
   <%= error_message_for_field(@property, :nearby) %>
+</div>
+
+<div class="form-group col-md-3">
+  <label>Fone do proprietário</label>
+  <%= f.text_field :phone, class: "form-control phone #{validate_field(@property, :phone)}" %>
+  <%= error_message_for_field(@property, :phone) %>
 </div>
 
 <div class="form-group col-sm-auto">

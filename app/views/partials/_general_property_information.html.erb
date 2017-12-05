@@ -22,5 +22,10 @@
     <dd class="col-6"><%= I18n.t "views.#{property.deal}" %></dd>
     <dt class="col-6 text-secondary">Valor</dt>
     <dd class="col-6">R$ <%= humanized_money property.value %></dd>
+
+    <% if admin_signed_in? && property.phone %>
+      <dt class="col-6 text-secondary">Fone do proprietário</dt>
+      <dd class="col-6"><%= property.phone %></dd>
+    <% end  %>
   <% end %>
 </dl>
