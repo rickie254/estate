@@ -93,11 +93,6 @@ Rails.application.configure do
     enable_starttls_auto: true
   }
 
-  # for devise "The change you wanted was rejected." error prevention
-  config.to_prepare { Devise::SessionsController.force_ssl }
-  config.to_prepare { Devise::RegistrationsController.force_ssl }
-  config.to_prepare { Devise::PasswordsController.force_ssl }
-
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
   # the I18n.default_locale when a translation cannot be found).
   config.i18n.fallbacks = true
