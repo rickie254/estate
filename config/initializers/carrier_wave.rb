@@ -2,6 +2,9 @@ require 'carrierwave/orm/activerecord'
 require 'carrierwave/storage/fog'
 
 CarrierWave.configure do |config|
+  config.root = Rails.root.join('tmp') # adding these...
+  config.cache_dir = 'carrierwave' # ...two lines
+  
   config.fog_provider = 'fog/aws'                        # required
   config.storage = :fog
   config.fog_public = true

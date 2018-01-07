@@ -37,6 +37,7 @@ class PropertiesController < ApplicationController
     unmask_fields
 
     if @property.save
+      @@gallery.save if @@gallery
       redirect_to @property, flash: { notice: "Criado com sucessso!" }
     else
       render "properties/new_or_edit"
@@ -49,6 +50,7 @@ class PropertiesController < ApplicationController
     unmask_fields
 
     if @property.save
+      @@gallery.save if @@gallery
       redirect_to @property, flash: { notice: "Atualizado com sucessso!" }
     else
       render "properties/new_or_edit"
@@ -87,9 +89,9 @@ class PropertiesController < ApplicationController
     @@gallery.images = images
 
     if @@gallery.valid?
-      if @@gallery.save
-        render json: {images: @@gallery.images}
-      end
+      render json: {images: @@gallery.images}
+      # if @@gallery.save
+      # end
     else
       render json: @@gallery.errors.messages, status: 406
       @@gallery.images.pop
@@ -111,7 +113,7 @@ class PropertiesController < ApplicationController
     deleted_image = remain_images.delete_at(params[:index].to_i) # delete the target image
     @@gallery.images = remain_images
 
-    if @@gallery.save
+    if @@gallery.valid?
       render json: {images: @@gallery.images}
       deleted_image.try(:remove!) # delete image from S3
     else
