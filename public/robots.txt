@@ -3,4 +3,5 @@ Allow: *
 Disallow: /admin/*
 Disallow: /novo/*
 Disallow: /editar/*
+Disallow: /staging/*
 Sitemap: http://zordanimoveis-production.s3.amazonaws.com/sitemap.xml.gz

@@ -15,6 +15,12 @@ production:
   username: lynujlprnwjcho
   password: ff868f02e5413d5bc967df15c0c264e031c73784d99a046e5831aa166a5bc57c
 
+staging:
+  <<: *default
+  database: dd1snag00qseg7
+  username: epezbjhqmfthic
+  password: e5f97380e376799e883f03045705791a83b9aed15462362dc024e0c660534828
+
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
