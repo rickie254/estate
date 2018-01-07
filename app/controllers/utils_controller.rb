@@ -3,7 +3,7 @@ class UtilsController < ApplicationController
   require 'nokogiri'
 
   def sitemap
-    redirect_to "http://zordanimoveis-production.s3.amazonaws.com/sitemap.xml.gz"
+    redirect_to "https://zordanimoveis-production.s3.amazonaws.com/sitemap.xml.gz"
   end
 
   def get_stats
