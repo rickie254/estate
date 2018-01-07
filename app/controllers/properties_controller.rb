@@ -126,7 +126,7 @@ class PropertiesController < ApplicationController
     images.insert(0, images.delete_at(params[:index].to_i))
     @@gallery.images = images
 
-    if @@gallery.save
+    if @@gallery.valid?
       render json: {images: @@gallery.images}
     else
       render json: @@gallery.errors.messages, status: 400
