@@ -2,7 +2,7 @@ Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
   # aws s3
-  ENV['S3_BUCKET_NAME'] = "zordanimoveis-staging"
+  ENV['S3_BUCKET_NAME'] = "zordanimoveis-stg"
   ENV['S3_URL'] = "https://#{ENV['S3_BUCKET_NAME']}.s3.amazonaws.com"
   ENV['FACEBOOK_KEY'] = "173199089924498"
 
