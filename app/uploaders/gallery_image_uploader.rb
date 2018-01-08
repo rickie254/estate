@@ -1,5 +1,5 @@
 class GalleryImageUploader < CarrierWave::Uploader::Base
-  include CarrierWave::MiniMagick
+  # include CarrierWave::MiniMagick
 
   storage :fog
 
