@@ -1,7 +1,6 @@
 class GalleryImageUploader < CarrierWave::Uploader::Base
   include CarrierWave::MiniMagick
-
-  storage :fog
+  include CarrierWaveDirect::Uploader
 
   # before :store, :remember_cache_id
   # after :store, :delete_tmp_dir
@@ -24,12 +23,12 @@ class GalleryImageUploader < CarrierWave::Uploader::Base
   end
 
   def filename
-    "#{secure_token}.#{file.extension}" if original_filename.present?
+    "#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}/#{secure_token}.#{file.extension}" if original_filename.present?
   end
 
-  def store_dir
-    "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
-  end
+  # def store_dir
+  #   "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
+  # end
 
   def extension_whitelist
     %w(jpg jpeg png bmp tif tiff)
