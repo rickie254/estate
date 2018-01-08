@@ -81,23 +81,20 @@ $(document).on 'turbolinks:load', ->
           if files.length > 0
             app.loading = true
 
-            for file, i in files
+            for file in files
               formData = new FormData()
               formData.append('image', file)
-              @uploadImage(formData, i, files.length)
+              @uploadImage(formData)
 
-        uploadImage: (formData, i, arrSize) ->
+        uploadImage: (formData) ->
           this.$http.post('/properties/add_image/', formData)
           .then(
             (res) ->
-              console.log i
-              if arrSize == i + 1
                 app.gallery.images = res.body.images
                 app.gallery.success = "Galeria atualizada"
                 app.gallery.errors = {images: []}
                 app.loading = false
             (res) ->
-              if arrSize == i + 1
                 app.gallery.success = ""
                 app.gallery.errors = res.body
                 app.loading = false
