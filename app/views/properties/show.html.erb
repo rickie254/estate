@@ -34,7 +34,7 @@
         <div class="col-12 card p-2 mr-2" id="property-gallery">
           <h2>Imagens</h2>
           <% if has_gallery? @property %>
-            <%= link_to @property.gallery.images.first.url, class: "gallery-image" do %>
+            <%= link_to @property.gallery.images.first.url, class: "gallery-image text-center" do %>
               <%= image_tag @property.gallery.images.first.url, class: "img-fluid" %>
             <% end %>
 
