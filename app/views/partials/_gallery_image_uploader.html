@@ -47,7 +47,7 @@
     <ul class="list-unstyled list-inline mb-2" id="uploaded_property_images">
       <li class="list-inline-item" v-for="(image, index) in gallery.images">
         <div v-on:click="setMainImage(index)"
-          v-bind:style="{ backgroundImage: 'url(' + image.small.url + ')' }">
+          v-bind:style="{ backgroundImage: 'url(' + image.url + ')' }">
         </div>
 
         <button type="button" v-on:click="removeImage(index)"

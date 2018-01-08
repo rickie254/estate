@@ -15,17 +15,17 @@ class GalleryImageUploader < CarrierWave::Uploader::Base
   #   end
   # end
 
-  version :small do
-    process :efficient_conversion => [200, -1]
-  end
+  # version :small do
+  #   process :efficient_conversion => [200, -1]
+  # end
+  #
+  # version :large do
+  #   process :efficient_conversion => [1080, -1]
+  # end
 
-  version :large do
-    process :efficient_conversion => [1080, -1]
-  end
-
-  def filename
-    "#{secure_token}.#{file.extension}" if original_filename.present?
-  end
+  # def filename
+  #   "#{secure_token}.#{file.extension}" if original_filename.present?
+  # end
 
   def store_dir
     "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"

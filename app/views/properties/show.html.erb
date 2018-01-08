@@ -34,15 +34,15 @@
         <div class="col-12 card p-2 mr-2" id="property-gallery">
           <h2>Imagens</h2>
           <% if has_gallery? @property %>
-            <%= link_to @property.gallery.images.first.large.url, class: "gallery-image" do %>
-              <%= image_tag @property.gallery.images.first.large.url, class: "img-fluid" %>
+            <%= link_to @property.gallery.images.first.url, class: "gallery-image" do %>
+              <%= image_tag @property.gallery.images.first.url, class: "img-fluid" %>
             <% end %>
 
             <ul class="list-inline list-unstyled mt-2 text-center">
               <% @property.gallery.images.each_with_index do |image, index|  %>
                 <% unless index == 0 %>
-                  <a href="<%= image.large.url %>" class="gallery-image gallery-thumbnail list-inline-item">
-                    <%= image_tag image.small.url, class: "img-thumbnail" %>
+                  <a href="<%= image.url %>" class="gallery-image gallery-thumbnail list-inline-item">
+                    <%= image_tag image.url, class: "img-thumbnail" %>
                   </a>
                 <% end %>
               <% end %>
