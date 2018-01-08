@@ -42,7 +42,7 @@
               <% @property.gallery.images.each_with_index do |image, index|  %>
                 <% unless index == 0 %>
                   <a href="<%= image.url %>" class="gallery-image gallery-thumbnail list-inline-item">
-                    <%= image_tag image.url, class: "img-thumbnail" %>
+                    <%= image_tag image.small.url, class: "img-thumbnail" %>
                   </a>
                 <% end %>
               <% end %>

@@ -1,5 +1,5 @@
 class GalleryImageUploader < CarrierWave::Uploader::Base
-  # include CarrierWave::MiniMagick
+  include CarrierWave::MiniMagick
 
   storage :fog
 
@@ -15,10 +15,10 @@ class GalleryImageUploader < CarrierWave::Uploader::Base
   #   end
   # end
 
-  # version :small do
-  #   process :efficient_conversion => [200, -1]
-  # end
-  #
+  version :small do
+    process :efficient_conversion => [200, -1]
+  end
+
   # version :large do
   #   process :efficient_conversion => [1080, -1]
   # end
@@ -57,9 +57,6 @@ class GalleryImageUploader < CarrierWave::Uploader::Base
       img.format("jpg") do |c|
         c.background '#FFFFFF'
         c.alpha 'remove'
-        c.auto_orient
-        c.fuzz        "3%"
-        c.trim
         c.resize      "#{width}x#{height}>"
         c.resize      "#{width}x#{height}<"
       end

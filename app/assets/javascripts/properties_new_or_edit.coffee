@@ -90,6 +90,7 @@ $(document).on 'turbolinks:load', ->
           this.$http.post('/properties/add_image/', formData)
           .then(
             (res) ->
+              console.log i
               if arrSize == i + 1
                 app.gallery.images = res.body.images
                 app.gallery.success = "Galeria atualizada"
