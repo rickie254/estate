@@ -89,9 +89,9 @@ class PropertiesController < ApplicationController
     @@gallery.images = images
 
     if @@gallery.valid?
-      render json: {images: @@gallery.images}
-      # if @@gallery.save
-      # end
+      if @@gallery.save
+        render json: {images: @@gallery.images}
+      end
     else
       render json: @@gallery.errors.messages, status: 406
       @@gallery.images.pop
@@ -114,8 +114,10 @@ class PropertiesController < ApplicationController
     @@gallery.images = remain_images
 
     if @@gallery.valid?
-      render json: {images: @@gallery.images}
-      deleted_image.try(:remove!) # delete image from S3
+      if @@gallery.save
+        render json: {images: @@gallery.images}
+        deleted_image.try(:remove!) # delete image from S3
+      end
     else
       render json: @@gallery.errors.messages, status: 400
     end
