@@ -12,11 +12,10 @@
 //
 //= require rails-ujs
 //= require turbolinks
-//= require popper
-//= require jquery
+//= require jquery-3.2.1.min
 //= require bootstrap
-//= require bootstrap-switch
-//= require jquery-mask-plugin
+//= require bootstrap-switch.min
+//= require jquery.mask.min
 //= require vue
 //= require vue-resource
 //= require_tree .

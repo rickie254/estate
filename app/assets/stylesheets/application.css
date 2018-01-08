@@ -12,5 +12,5 @@
  *
  *= require_tree .
  *= require_self
- *= require bootstrap-switch
+ *= require bootstrap-switch.min
  */
