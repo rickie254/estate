@@ -86,9 +86,9 @@ $(document).on 'turbolinks:load', ->
             for file in files
               formData = new FormData()
               formData.append('image', file)
-              @uploadImage(formData, files.length)
+              @uploadImage(formData)
 
-        uploadImage: (formData, totalFiles) ->
+        uploadImage: (formData) ->
           this.$http.post('/properties/add_image/', formData)
           .then(
             (res) ->

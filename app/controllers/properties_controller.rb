@@ -114,10 +114,10 @@ class PropertiesController < ApplicationController
     @@gallery.images = remain_images
 
     if @@gallery.valid?
-      # if @@gallery.save
+      if @@gallery.save
         render json: {images: @@gallery.images}
         deleted_image.try(:remove!) # delete image from S3
-      # end
+      end
     else
       render json: @@gallery.errors.messages, status: 400
     end
