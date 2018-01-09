@@ -11,6 +11,7 @@ $(document).on 'turbolinks:load', ->
           error: '',
           success: ''
         gallery:
+          fileCount: 0,
           images: [],
           errors:
             images: []
@@ -80,45 +81,32 @@ $(document).on 'turbolinks:load', ->
 
           if files.length > 0
             app.loading = true
+            app.gallery.fileCount = files.length
 
             for file in files
               formData = new FormData()
               formData.append('image', file)
-              @uploadImage(formData)
+              @uploadImage(formData, files.length)
 
-        uploadImage: (formData) ->
+        uploadImage: (formData, totalFiles) ->
           this.$http.post('/properties/add_image/', formData)
           .then(
             (res) ->
-                app.gallery.images = res.body.images
+              app.gallery.fileCount--
+              app.gallery.images = res.body.images
+
+              if app.gallery.fileCount == 0
                 app.gallery.success = "Galeria atualizada"
-                app.gallery.errors = {images: []}
+                # app.gallery.errors = {images: []}
                 app.loading = false
             (res) ->
-                app.gallery.success = ""
+                app.gallery.fileCount--
                 app.gallery.errors = res.body
-                app.loading = false
+
+                if app.gallery.fileCount == 0
+                  app.gallery.success = "Galeria atualizada"
+                  app.loading = false
             )
-
-        # $.ajax '/properties/add_image/',
-        #   type: 'POST'
-        #   data: formData
-        #   async: false
-        #   contentType: false
-        #   processData: false
-        #   headers:
-        #     'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')
-        #   success: (res) ->
-        #     console.log res
-        #     app.gallery.images = res.images
-        #     app.gallery.success = "Galeria atualizada"
-        #     app.gallery.errors = {images: []}
-        #     app.loading = false
-        #   error: (res) ->
-        #     app.gallery.success = ""
-        #     app.gallery.errors = res
-        #     app.loading = false
-
 
     $('.form-check-input').bootstrapSwitch(onText: 'SIM', offText: 'NÃO', onColor: 'success', offColor: 'danger')
     $('.double').mask('#.##0,00', {reverse: true})
