@@ -57,7 +57,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # corretor_de_imoveis' gems
 gem 'devise', git: 'https://github.com/plataformatec/devise'
-gem 'bootstrap', '~> 4.0.0.beta'
+gem 'bootstrap', '~> 4.1.1'
 gem 'font-awesome-sass', '~> 4.7.0'
 gem 'vuejs-rails'
 gem 'money-rails', '~>1'
